@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise NetDevOps Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #0A400C;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #loginSection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #dashboardSection {
+      display: none;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">NetDevOps Platform</a>
+    <span class="navbar-text">Automation Dashboard</span>
+  </div>
+</nav>
+
+<!-- Login Page -->
+<section id="loginSection">
+  <div class="card p-4" style="width: 350px;">
+    <h4 class="text-center mb-3">🔐 Admin Login</h4>
+    <input id="username" type="text" class="form-control mb-2" placeholder="Username">
+    <input id="password" type="password" class="form-control mb-3" placeholder="Password">
+    <button class="btn btn-success w-100" onclick="login()">Login</button>
+  </div>
+</section>
+
+<!-- Dashboard Page -->
+<section id="dashboardSection">
+  <div class="container">
+    <h2 class="mb-4 text-center">Network Devices</h2>
+    <div class="table-responsive mb-4">
+      <table class="table table-striped">
+        <thead>
+          <tr><th>Name</th><th>IP</th><th>Action</th></tr>
+        </thead>
+        <tbody id="deviceTable"></tbody>
+      </table>
+    </div>
+
+    <h4>Job Logs</h4>
+    <button class="btn btn-dark mb-2" onclick="loadLogs()">Refresh Logs</button>
+    <pre id="logs" class="bg-light p-3 border rounded"></pre>
+  </div>
+</section>
+
+<script>
+const admin = { user: "admin", pass: "1234" }; // Change later for security
+
+function login() {
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+  if (u === admin.user && p === admin.pass) {
+    document.getElementById("loginSection").style.display = "none";
+    document.getElementById("dashboardSection").style.display = "block";
+    loadDevices();
+    loadLogs();
+  } else {
+    alert("Invalid credentials");
+  }
+}
+
+async function loadDevices() {
+  const res = await fetch("/devices");
+  const data = await res.json();
+  const table = document.getElementById("deviceTable");
+  table.innerHTML = "";
+
+  data.devices.forEach(dev => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${dev.name}</td>
+      <td>${dev.ip}</td>
+      <td><button class="btn btn-sm btn-success" onclick="runJob('${dev.ip}')">Run Job</button></td>
+    `;
+    table.appendChild(row);
+  });
+}
+
+async function runJob(ip) {
+  const res = await fetch(`/run-job?ip=${ip}&command=show+status`, { method: "POST" });
+  alert(`✅ Job executed on ${ip}`);
+  loadLogs();
+}
+
+async function loadLogs() {
+  const res = await fetch("/job-logs");
+  const data = await res.json();
+  const logs = document.getElementById("logs");
+  logs.innerText = JSON.stringify(data.logs, null, 2);
+}
+</script>
+
+</body>
+</html>

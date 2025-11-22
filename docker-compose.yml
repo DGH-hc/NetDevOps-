@@ -1,0 +1,114 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: netdevops-db
+    restart: always
+    environment:
+      POSTGRES_USER: netdevops_user
+      POSTGRES_PASSWORD: netdevops_pass
+      POSTGRES_DB: netdevops_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: netdevops-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  vault:
+    image: hashicorp/vault:1.15
+    container_name: netdevops-vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root"
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+
+  app:
+    build: .
+    container_name: netdevops-app
+    restart: always
+    depends_on:
+      - db
+      - redis
+      - vault
+    environment:
+      DATABASE_URL: postgresql+psycopg2://netdevops_user:netdevops_pass@db:5432/netdevops_db
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      PYTHONPATH: /app
+      SECRET_KEY: "devsecret"
+      VAULT_URL: "http://vault:8200"
+      VAULT_TOKEN: "root"
+    working_dir: /app
+    command: >
+      sh -c "sleep 5 && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+      - ./snapshots:/app/snapshots
+
+
+  worker:
+    build: .
+    container_name: netdevops-worker
+    restart: always
+    depends_on:
+      - db
+      - redis
+      - vault
+    environment:
+      DATABASE_URL: postgresql+psycopg2://netdevops_user:netdevops_pass@db:5432/netdevops_db
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      PYTHONPATH: /app
+      SECRET_KEY: "devsecret"
+      VAULT_URL: "http://vault:8200"
+      VAULT_TOKEN: "root"
+    working_dir: /app
+    ports:
+      - "9091:9091"
+    command: celery -A worker.celery_app:app worker --loglevel=info
+    volumes:
+      - ./app:/app
+      - ./snapshots:/app/snapshots
+
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: netdevops-pgadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@netdevops.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_CHECK_EMAIL_DELIVERABILITY: "False"
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: netdevops-prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - app
+      - worker
+
+volumes:
+  postgres_data:
+  pgadmin_data:
