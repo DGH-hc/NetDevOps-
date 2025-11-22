@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NetDevOps Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      background-color: #2e8b57;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .container {
+      width: 90%;
+      margin: 20px auto;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #2e8b57;
+      color: white;
+    }
+    button {
+      background: #2e8b57;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #246b44;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌐 NetDevOps Automation Dashboard</h1>
+  <div class="container">
+    <div id="login-section">
+      <h2>🔐 Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="content-section" style="display:none;">
+      <h2>Available Devices</h2>
+      <table id="devicesTable">
+        <thead>
+          <tr><th>Name</th><th>IP</th><th>Action</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <h2>Job Logs</h2>
+      <table id="logsTable">
+        <thead>
+          <tr><th>ID</th><th>Device IP</th><th>Command</th><th>Result</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let token = null;
+
+    async function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const response = await fetch("/token", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `username=${username}&password=${password}`
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        token = data.access_token;
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("content-section").style.display = "block";
+        loadDevices();
+        loadLogs();
+      } else {
+        alert("Login failed. Check username/password.");
+      }
+    }
+
+    async function loadDevices() {
+      const res = await fetch("/devices/", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+      const tbody = document.querySelector("#devicesTable tbody");
+      tbody.innerHTML = "";
+      data.devices.forEach(dev => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${dev.name}</td>
+            <td>${dev.ip}</td>
+            <td><button onclick="runJob('${dev.ip}')">Run Job</button></td>
+          </tr>`;
+      });
+    }
+
+    async function runJob(ip) {
+      const res = await fetch(`/devices/run-job?ip=${ip}&command=show version`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+      alert(data.result);
+      loadLogs();
+    }
+
+    async function loadLogs() {
+      const res = await fetch("/devices/job-logs", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+      const tbody = document.querySelector("#logsTable tbody");
+      tbody.innerHTML = "";
+      data.logs.forEach(log => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${log.id}</td>
+            <td>${log.device_ip}</td>
+            <td>${log.command}</td>
+            <td><pre>${log.result}</pre></td>
+          </tr>`;
+      });
+    }
+  </script>
+</body>
+</html>
