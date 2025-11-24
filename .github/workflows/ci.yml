@@ -1,8 +1,8 @@
 name: CI Pipeline
 
 permissions:
-  contents: read
-  packages: write  # REQUIRED for GHCR
+  contents: write
+  packages: write
   id-token: write
 
 on:
@@ -10,6 +10,10 @@ on:
     branches: [ "main", "dev" ]
   pull_request:
     branches: [ "main", "dev" ]
+
+env:
+  IMAGE_NAME_APP: netdevops-app
+  IMAGE_NAME_WORKER: netdevops-worker
 
 jobs:
   build-test:
@@ -19,6 +23,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      # ----------------------------------------
+      # Determine tags (version, environment)
+      # ----------------------------------------
+      - name: Generate Version Tag
+        id: version
+        run: |
+          VERSION="v$(date +'%Y.%m.%d.%H%M')"
+          echo "version_tag=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Set Environment Tag
+        id: envtag
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            echo "env_tag=prod" >> $GITHUB_OUTPUT
+          else
+            echo "env_tag=dev" >> $GITHUB_OUTPUT
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -62,8 +84,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.actor }}/netdevops-app:latest
-            ghcr.io/${{ github.actor }}/netdevops-app:${{ github.sha }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_APP }}:latest
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_APP }}:${{ github.sha }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_APP }}:${{ steps.version.outputs.version_tag }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_APP }}:${{ steps.envtag.outputs.env_tag }}
 
       # --------- Build WORKER Image ----------
       - name: Build and Push Docker Image (worker)
@@ -75,18 +99,19 @@ jobs:
           build-args: |
             ROLE=worker
           tags: |
-            ghcr.io/${{ github.actor }}/netdevops-worker:latest
-            ghcr.io/${{ github.actor }}/netdevops-worker:${{ github.sha }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_WORKER }}:latest
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_WORKER }}:${{ github.sha }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_WORKER }}:${{ steps.version.outputs.version_tag }}
+            ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_WORKER }}:${{ steps.envtag.outputs.env_tag }}
 
       # --------- Trivy Security Scan ----------
       - name: Run Trivy vulnerability scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ghcr.io/${{ github.actor }}/netdevops-app:${{ github.sha }}
+          image-ref: ghcr.io/${{ github.actor,, }}/${{ env.IMAGE_NAME_APP }}:${{ github.sha }}
           ignore-unfixed: true
           severity: CRITICAL,HIGH
 
-  # ------------ Alembic Migrations (Optional) ------------
   migrate:
     name: Run Alembic Migrations
     runs-on: ubuntu-latest
