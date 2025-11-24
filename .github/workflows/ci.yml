@@ -1,5 +1,10 @@
 name: CI Pipeline
 
+permissions:
+  contents: read
+  packages: write  # REQUIRED for GHCR
+  id-token: write
+
 on:
   push:
     branches: [ "main", "dev" ]
@@ -12,15 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ----------------------------
-      # Checkout Code
-      # ----------------------------
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # ----------------------------
-      # Python Setup
-      # ----------------------------
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -32,27 +31,16 @@ jobs:
           pip install -r requirements.txt
           pip install pytest ruff
 
-      # ----------------------------
-      # Linting
-      # ----------------------------
       - name: Run Ruff Linter
         run: ruff check .
       
-      #-----------------------------
-      # start CI Docker Environment
-      #-----------------------------
       - name: Start CI Docker Environment
         run: docker compose -f docker-compose.ci.yml up -d
 
-      # ----------------------------
-      # Tests
-      # ----------------------------
       - name: Run Pytest
         run: pytest -q
 
-      # ----------------------------
-      # Build Docker Images
-      # ----------------------------
+      # --------- Docker Build Setup ----------
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -66,6 +54,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # --------- Build APP Image ----------
       - name: Build and Push Docker Image (app)
         uses: docker/build-push-action@v4
         with:
@@ -73,10 +62,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/dgh-hc/netdevops-app:latest
-            ghcr.io/dgh-hc/netdevops-app:${{ github.sha }}
+            ghcr.io/${{ github.actor }}/netdevops-app:latest
+            ghcr.io/${{ github.actor }}/netdevops-app:${{ github.sha }}
 
-
+      # --------- Build WORKER Image ----------
       - name: Build and Push Docker Image (worker)
         uses: docker/build-push-action@v4
         with:
@@ -86,22 +75,18 @@ jobs:
           build-args: |
             ROLE=worker
           tags: |
-            ghcr.io/dgh-hc/netdevops-worker:latest
-            ghcr.io/dgh-hc/netdevops-worker:${{ github.sha }}
+            ghcr.io/${{ github.actor }}/netdevops-worker:latest
+            ghcr.io/${{ github.actor }}/netdevops-worker:${{ github.sha }}
 
-      # ----------------------------
-      # Trivy Security Scan
-      # ----------------------------
+      # --------- Trivy Security Scan ----------
       - name: Run Trivy vulnerability scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ghcr.io/${{ github.repository_owner }}/netdevops-app:${{ github.sha }}
+          image-ref: ghcr.io/${{ github.actor }}/netdevops-app:${{ github.sha }}
           ignore-unfixed: true
           severity: CRITICAL,HIGH
 
-  # ----------------------------------------------------------------
-  # OPTIONAL JOB: Run Alembic migrations before deploy
-  # ----------------------------------------------------------------
+  # ------------ Alembic Migrations (Optional) ------------
   migrate:
     name: Run Alembic Migrations
     runs-on: ubuntu-latest
@@ -121,5 +106,4 @@ jobs:
       - name: Run migrations
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: |
-          alembic upgrade head
+        run: alembic upgrade head
