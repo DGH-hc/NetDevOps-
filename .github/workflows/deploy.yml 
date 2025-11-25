@@ -1,0 +1,38 @@
+name: Deploy to Codespaces
+
+on:
+  workflow_dispatch:  # manual trigger
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install SSH Client
+        run: sudo apt-get install -y openssh-client
+
+      - name: Add SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PROD_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Setup Known Hosts
+        run: |
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          ssh-keyscan -H codespaces >> ~/.ssh/known_hosts
+
+      - name: Deploy to Codespaces
+        run: |
+          ssh -o "StrictHostKeyChecking=no" ${{ secrets.PROD_USER }}@codespaces "
+            cd /opt/netdevops &&
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }} &&
+            docker compose -f docker-compose.prod.yml pull &&
+            docker compose -f docker-compose.prod.yml down &&
+            docker compose -f docker-compose.prod.yml up -d
+          "
