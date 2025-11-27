@@ -1,0 +1,29 @@
+name: GHCR Test Push
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lowercase repo owner
+        id: repo
+        run: echo "owner_lc=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ steps.repo.outputs.owner_lc }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push test image
+        run: |
+          docker pull busybox
+          docker tag busybox ghcr.io/${{ steps.repo.outputs.owner_lc }}/ghcr-test:latest
+          docker push ghcr.io/${{ steps.repo.outputs.owner_lc }}/ghcr-test:latest
