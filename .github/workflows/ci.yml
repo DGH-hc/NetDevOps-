@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: ["main", "dev"]
 
+permissions:
+  contents: read
+  packages: write
+  actions: read
+  id-token: write
+
 env:
   IMAGE_NAME_APP: netdevops-app
   IMAGE_NAME_WORKER: netdevops-worker
@@ -15,10 +21,6 @@ jobs:
     name: Lint, Test, Build Images
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      packages: write
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -26,7 +28,7 @@ jobs:
       # ---------------------------
       # Lowercase repository owner
       # ---------------------------
-      - name: Convert repo owner to lowercase
+      - name: Lowercase repo owner
         id: repo
         run: echo "owner_lc=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
 
@@ -98,8 +100,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
           push: true
+          file: ./Dockerfile
           tags: |
             ghcr.io/${{ steps.repo.outputs.owner_lc }}/${{ env.IMAGE_NAME_APP }}:latest
             ghcr.io/${{ steps.repo.outputs.owner_lc }}/${{ env.IMAGE_NAME_APP }}:${{ github.sha }}
@@ -113,8 +115,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
           push: true
+          file: ./Dockerfile
           build-args: |
             ROLE=worker
           tags: |
