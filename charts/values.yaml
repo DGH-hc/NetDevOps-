@@ -1,0 +1,46 @@
+image:
+  repository: netdevops
+  tag: "dev"
+  pullPolicy: IfNotPresent
+
+replicaCount:
+  app: 2
+  worker: 1
+
+resources:
+  app:
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+    requests:
+      cpu: "200m"
+      memory: "512Mi"
+  worker:
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+
+postgres:
+  storage: "5Gi"
+  image: postgres:16
+
+redis:
+  image: redis:7
+
+config:
+  ACCESS_TOKEN_EXPIRE_MINUTES: "60"
+
+secrets:
+  POSTGRES_USER: "netdevops_user"
+  POSTGRES_PASSWORD: "netdevops_pass"
+  POSTGRES_DB: "netdevops_db"
+  SECRET_KEY: "super-secret-key"
+  VAULT_URL: "http://vault:8200"
+  VAULT_TOKEN: "root"
+
+pgadmin:
+  email: "admin@example.com"
+  password: "change_me"

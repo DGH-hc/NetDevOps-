@@ -8,24 +8,23 @@ import time
 from fastapi import FastAPI, Response
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-
 from starlette.middleware.base import BaseHTTPMiddleware
 from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
+# -----------------------------
 # Correct absolute imports
-from app.api import devices_api, users_api, jobs_api
-from app.api.audit_api import router as audit_router
-from app.db.database import Base, engine
+# -----------------------------
+from app.api.routers import router as api_router      # PHASE-0 FIX
 from app.core.config import settings, load_vault_into_settings
 from app.metrics import request_latency_seconds
-from app.api.v1.health import router as health_router 
 
 # ============================
 # Logging Setup
 # ============================
-os.makedirs("/app/logs", exist_ok=True)
+LOG_DIR = "/app/app/logs"
+os.makedirs(LOG_DIR, exist_ok=True)
 
-log_path = "/app/logs/app.log"
+log_path = os.path.join(LOG_DIR, "app.log")
 handler = RotatingFileHandler(log_path, maxBytes=5 * 1024 * 1024, backupCount=3)
 
 logging.basicConfig(
@@ -34,7 +33,7 @@ logging.basicConfig(
     handlers=[handler, logging.StreamHandler()]
 )
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("netdevops")
 logger.info("🚀 FastAPI container starting...")
 
 
@@ -82,13 +81,11 @@ def startup_event():
 
 
 # ============================
-# Routers
+# Routers (PHASE-0 FIX)
 # ============================
-app.include_router(devices_api.router)
-app.include_router(users_api.router)
-app.include_router(jobs_api.router)
-app.include_router(audit_router, prefix="/api")
-app.include_router(health_router, prefix="/api/v1")
+# All routes from app/api/v1/* automatically mounted under /api
+app.include_router(api_router, prefix="/api")
+
 
 # ============================
 # Metrics Endpoint
@@ -107,7 +104,7 @@ def home():
         "message": "🚀 Network DevOps Automation Platform Backend is Live!",
         "docs": "/docs",
         "metrics": "/metrics",
-        "api_routes": ["/devices", "/users", "/jobs", "/api/audit"]
+        "api_routes": "/api/v1",
     }
 
 
@@ -115,7 +112,6 @@ def home():
 # Static Dashboard
 # ============================
 static_dir = os.path.join(os.path.dirname(__file__), "static")
-
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 

@@ -1,0 +1,62 @@
+# -------------------------
+# Python cache & bytecode
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -------------------------
+# Environments
+# -------------------------
+env/
+venv/
+.venv/
+
+# -------------------------
+# IDE / Editor files
+# -------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------
+# Environment variables
+# -------------------------
+.env
+.env.local
+.env.dev
+.env.prod
+
+# -------------------------
+# Logs
+# -------------------------
+logs/
+app/logs/
+*.log
+
+# -------------------------
+# Docker
+# -------------------------
+*.pid
+*.tar
+*.bak
+
+# -------------------------
+# Alembic
+# -------------------------
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# -------------------------
+# Compiled wheels / build
+# -------------------------
+build/
+dist/
+*.egg-info/
+
+# -------------------------
+# Kubernetes & Helm extras
+# -------------------------
+.kube/
+helm-chart-*/ 

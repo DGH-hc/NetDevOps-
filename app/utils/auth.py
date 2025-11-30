@@ -4,10 +4,10 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from db.database import SessionLocal
-from models.user import UserDB
-from db.database import get_db
-from core.security import verify_password, get_password_hash
+from app.db.database import SessionLocal
+from app.models.user import UserDB
+from app.db.database import get_db
+from app.core.security import verify_password, get_password_hash
 
 # -------------------------------
 # 🔐 JWT Configuration

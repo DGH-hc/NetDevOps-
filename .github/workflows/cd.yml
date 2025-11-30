@@ -1,0 +1,27 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  push-ghcr:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: |
+          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+
+      - name: Build images
+        run: |
+          docker build -t ghcr.io/${{ secrets.GHCR_OWNER }}/netdevops-app:latest .
+          docker build -t ghcr.io/${{ secrets.GHCR_OWNER }}/netdevops-worker:latest .
+
+      - name: Push images
+        run: |
+          docker push ghcr.io/${{ secrets.GHCR_OWNER }}/netdevops-app:latest
+          docker push ghcr.io/${{ secrets.GHCR_OWNER }}/netdevops-worker:latest
