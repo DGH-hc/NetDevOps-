@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: netdevops-worker
+  namespace: netdevops
+spec:
+  selector:
+    app: netdevops-worker
+  ports:
+    - port: 5555
+      targetPort: 5555

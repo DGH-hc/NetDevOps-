@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "netdevops.fullname" . }}
+data:
+  POSTGRES_USER: "{{ .Values.postgres.user }}"
+  POSTGRES_PASSWORD: "{{ .Values.postgres.password }}"
+  POSTGRES_DB: "{{ .Values.postgres.db }}"
+  DATABASE_URL: "{{ .Values.database_url }}"
+  REDIS_URL: "{{ .Values.redis_url }}"
+  SECRET_KEY: "{{ .Values.secret_key }}"
+  ACCESS_TOKEN_EXPIRE_MINUTES: "{{ .Values.ACCESS_TOKEN_EXPIRE_MINUTES }}"
+  PGADMIN_DEFAULT_EMAIL: "{{ .Values.pgadmin.email }}"
+  PGADMIN_DEFAULT_PASSWORD: "{{ .Values.pgadmin.password }}"

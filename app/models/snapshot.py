@@ -1,6 +1,6 @@
 # app/models/snapshot.py
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func, Text
-from db.database import Base
+from app.db.database import Base
 from sqlalchemy.orm import relationship
 
 class ConfigSnapshot(Base):

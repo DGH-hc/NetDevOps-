@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, JSON
 from datetime import datetime
-from db.database import Base
+from app.db.database import Base
 
 class AuditEvent(Base):
     __tablename__ = "audit_events"

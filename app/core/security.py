@@ -25,6 +25,12 @@ def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
 
+# REQUIRED FOR BACKWARD COMPATIBILITY
+# (Your app uses get_password_hash, so we map it to hash_password)
+def get_password_hash(password: str) -> str:
+    return hash_password(password)
+
+
 # -----------------------------
 # JWT: Create access token
 # -----------------------------
@@ -33,13 +39,12 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     expire = datetime.utcnow() + (expires_delta or timedelta(minutes=30))
     to_encode.update({"exp": expire})
 
-    # ADD ROLE TO TOKEN
+    # Default role injection
     if "role" not in to_encode:
         to_encode["role"] = "operator"
 
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
     return encoded_jwt
-
 
 
 # -----------------------------

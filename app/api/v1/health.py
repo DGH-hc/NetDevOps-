@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter
 from sqlalchemy import text
-from app.db.session import SessionLocal
+from app.db.database import SessionLocal
 from app.core.config import settings
 import redis
 

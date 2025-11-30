@@ -1,24 +1,32 @@
 # app/core/config.py
 try:
-    # pydantic v2.12+ moved BaseSettings to pydantic-settings
+    # pydantic v2.12+ uses pydantic_settings
     from pydantic_settings import BaseSettings
-except Exception:
-    # fallback for older pydantic versions
-    from pydantic import BaseSettings
+    from pydantic import ConfigDict
+except ImportError:
+    # fallback for older installations
+    from pydantic import BaseSettings, ConfigDict
+
 
 class Settings(BaseSettings):
+    # allow extra environment variables instead of failing
+    model_config = ConfigDict(extra="allow")
+
     # app config
     DATABASE_URL: str
     REDIS_URL: str = "redis://redis:6379/1"
     SECRET_KEY: str | None = None
     VAULT_URL: str | None = None
     VAULT_TOKEN: str | None = None
+    CELERY_BROKER_URL: str
+    CELERY_RESULT_BACKEND: str
 
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
 
-# create settings instance at import-time (simple)
+
+# create settings instance at import-time
 settings = Settings()
 
 def load_vault_into_settings():

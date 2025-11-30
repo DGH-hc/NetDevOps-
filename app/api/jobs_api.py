@@ -3,16 +3,16 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from typing import List
 
-from db.database import get_db
-from models.job import JobDB, JobAttempt, JobLog
-from models.device import DeviceDB
-from worker.celery_app import push_config_job
+from app.db.database import get_db
+from app.models.job import JobDB, JobAttempt, JobLog
+from app.models.device import DeviceDB
+from app.worker.celery_app import push_config_job
 
 # 🔐 RBAC
-from api.deps import require_role
+from app.api.deps import require_role
 
 # 📝 Audit logging
-from utils.audit import audit
+from app.utils.audit import audit
 
 router = APIRouter(prefix="/jobs", tags=["jobs"])
 

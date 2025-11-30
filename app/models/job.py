@@ -1,8 +1,8 @@
 # app/models/job.py
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, func
 from sqlalchemy.orm import relationship
-from models.device import DeviceDB 
-from db.database import Base
+from app.models.device import DeviceDB 
+from app.db.database import Base
 
 class JobDB(Base):
     __tablename__ = "jobs"
