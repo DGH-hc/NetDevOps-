@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-router = APIRouter(prefix="/audit", tags=["audit"])
+router = APIRouter()
 
-@router.get("/")
-async def audit_root():
-    return {"status": "ok", "message": "audit API placeholder"}
+@router.get("/", summary="Audit logs")
+def list_audit_logs():
+    return {"message": "audit endpoint working"}
