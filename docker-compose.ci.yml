@@ -11,8 +11,7 @@ services:
       POSTGRES_USER: test_user
       POSTGRES_PASSWORD: test_pass
       POSTGRES_DB: test_db
-    ports:
-      - "5432:5432"
+    # ❌ NO PORTS IN CI
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U test_user"]
       interval: 5s
@@ -25,6 +24,7 @@ services:
   redis:
     image: redis:7
     container_name: ci_redis
+    # ❌ NO PORTS IN CI
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 3s
@@ -33,14 +33,11 @@ services:
 
   # ----------------------------------------
   # Mock Device (Simulated REST Device)
-  # Used for config fetch/apply tests in CI
   # ----------------------------------------
   mock-device:
     image: ghcr.io/dgh-hc/mockdevice:latest
-    # If you don’t have this image yet, tell me: I can generate a small Python Flask server for you.
     container_name: ci_mock_device
-    ports:
-      - "5001:5001"
+    # ❌ NO PORTS IN CI
     healthcheck:
       test: ["CMD", "curl", "-f", "http://mock-device:5001/health"]
       interval: 5s
@@ -48,8 +45,7 @@ services:
       retries: 10
 
   # ----------------------------------------
-  # App (FastAPI)
-  # Built using your updated Dockerfile
+  # App (FastAPI) — internal service only
   # ----------------------------------------
   app:
     build:
@@ -67,14 +63,14 @@ services:
       DATABASE_URL: postgresql+psycopg2://test_user:test_pass@db:5432/test_db
       REDIS_URL: redis://redis:6379/0
     healthcheck:
+      # Internal check — does NOT need host ports
       test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
       interval: 5s
       timeout: 3s
       retries: 10
 
   # ----------------------------------------
-  # Worker (Celery Worker)
-  # Uses ROLE=worker to activate worker mode
+  # Worker (Celery)
   # ----------------------------------------
   worker:
     build:
