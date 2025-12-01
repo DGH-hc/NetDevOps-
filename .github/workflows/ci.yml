@@ -1,5 +1,4 @@
 name: CI - Docker Compose Integration Tests
-
 on:
   push:
     branches: [ main, master ]
@@ -8,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
-  id-token: write
 
 env:
   COMPOSE_FILE: docker-compose.ci.yml
@@ -23,102 +20,75 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # Optional: login to GHCR if you need to push images or pull private images
-      # - name: Login to GHCR
-      #   uses: docker/login-action@v2
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Ensure docker-compose CLI available
+      - name: Ensure docker & compose available
         run: |
           docker --version
           docker compose version
 
-      - name: Build app & worker images (cache-friendly)
-        run: |
-          # Build images referenced by docker-compose.ci.yml (so compose up won't need to pull)
-          docker compose -f $COMPOSE_FILE build --progress=plain --pull
+      - name: Build images referenced by compose
+        run: docker compose -f $COMPOSE_FILE build --pull --progress=plain
 
       - name: Start CI stack
-        run: |
-          # Start in detached mode
-          docker compose -f $COMPOSE_FILE up -d --remove-orphans
+        run: docker compose -f $COMPOSE_FILE up -d --remove-orphans
 
-      - name: Wait for dependent services (Postgres + Redis + mock-device)
+      - name: Print App Logs (before health check)
+        run: |
+          echo "===== APP LOGS (pre-health) ====="
+          docker logs ci_app || true
+
+      - name: Wait for Services (Postgres, Redis, mock-device)
         run: |
           set -euo pipefail
-          # Wait for postgres (inside container): use pg_isready in postgres container
-          echo "Waiting for postgres..."
+          # Wait for postgres
           for i in $(seq 1 30); do
             docker compose -f $COMPOSE_FILE exec -T db sh -c "pg_isready -U ${POSTGRES_USER:-test_user}" && break
-            echo "Postgres not ready yet ($i)..."; sleep 2
+            echo "Postgres not ready ($i)..."; sleep 2
           done
           # Wait for redis
-          echo "Waiting for redis..."
           for i in $(seq 1 30); do
             docker compose -f $COMPOSE_FILE exec -T redis sh -c "redis-cli ping" | grep -q PONG && break
-            echo "Redis not ready yet ($i)..."; sleep 2
+            echo "Redis not ready ($i)..."; sleep 2
           done
-          # Wait for mock-device health endpoint internally (mock-device must listen on :5001)
-          echo "Waiting for mock-device..."
+          # Wait for mock-device internal health
           for i in $(seq 1 30); do
             docker compose -f $COMPOSE_FILE exec -T mock-device sh -c "curl -fsS http://localhost:5001/health >/dev/null 2>&1" && break
-            echo "mock-device not ready yet ($i)..."; sleep 2
+            echo "mock-device not ready ($i)..."; sleep 2
           done
- 
-        -name: Print App Logs (before health check)
+      - name: Print App Logs (before health check)
         run: |
-            echo "===== APP LOGS ====="
-            docker logs ci_app || true
+         echo "===== APP LOGS (pre-health) ====="
+         docker logs ci_app || true
 
- 
-      - name: Wait for app to become healthy
-        id: wait_for_app
+      - name: Wait for App Health Endpoint
         run: |
           set -euo pipefail
-          echo "Waiting for app (internal) to respond at http://localhost:8000/health inside container..."
           for i in $(seq 1 60); do
-            # Run curl inside the app container to hit localhost:8000
             if docker compose -f $COMPOSE_FILE exec -T app sh -c "curl -fsS http://localhost:8000/health >/dev/null 2>&1"; then
               echo "App is healthy"
               exit 0
             fi
-            echo "App not healthy yet ($i)..."
-            sleep 2
+            echo "App not healthy yet ($i)..."; sleep 2
           done
           echo "App never became healthy" >&2
           exit 1
 
-      - name: Run application tests (inside app container)
-        id: run_tests
+      - name: Run Tests (inside app)
         run: |
           set -euo pipefail
-          # Adjust the test command if you use something other than pytest
-          docker compose -f $COMPOSE_FILE exec -T app sh -c "
-            echo 'Installing test deps (if any)'; \
-            # Optionally install test-only deps here, or keep them in image
+          docker compose -f $COMPOSE_FILE exec -T app sh -c "\
             if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi; \
-            echo 'Running tests'; pytest -q || exit 2
+            pytest -q \
           "
 
-      - name: Upload test results & logs on failure
+      - name: Collect logs on failure
         if: failure()
         run: |
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           mkdir -p ci-logs
-          echo "Collecting docker-compose logs..."
           docker compose -f $COMPOSE_FILE logs --no-color > ci-logs/compose_logs_${TIMESTAMP}.log || true
-          for svc in db redis mock-device app worker; do
-            echo "----- logs for ${svc} -----" >> ci-logs/compose_logs_${TIMESTAMP}.log
-            docker logs --no-tail -t ${"ci_"${svc}} 2>&1 >> ci-logs/compose_logs_${TIMESTAMP}.log || true
-          done
+          docker logs ci_app 2>&1 >> ci-logs/compose_logs_${TIMESTAMP}.log || true
+          docker logs ci_worker 2>&1 >> ci-logs/compose_logs_${TIMESTAMP}.log || true
           tar -czf ci-logs-${TIMESTAMP}.tar.gz ci-logs || true
-        continue-on-error: true
 
       - name: Upload logs artifact (on failure)
         if: failure()
@@ -131,17 +101,4 @@ jobs:
 
       - name: Tear down stack (always)
         if: always()
-        run: |
-          docker compose -f $COMPOSE_FILE down --volumes --remove-orphans
-
-      # Optional: Deployment via SSH (uncomment and set secrets to enable)
-      # - name: Deploy to server (SSH) (optional)
-      #   if: success() && github.ref == 'refs/heads/main'
-      #   uses: appleboy/ssh-action@v1.0.3
-      #   with:
-      #     host: ${{ secrets.SERVER_HOST }}
-      #     username: ${{ secrets.SERVER_USER }}
-      #     key: ${{ secrets.SERVER_PRIVATE_KEY }}
-      #     port: ${{ secrets.SERVER_PORT || 22 }}
-      #     script: |
-      #       echo "Deploy commands here..."
+        run: docker compose -f $COMPOSE_FILE down --volumes --remove-orphans
