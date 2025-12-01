@@ -1,12 +1,27 @@
+# -------------------------------
+# Image configuration (CI/CD overrides tag)
+# -------------------------------
 image:
-  repository: netdevops
-  tag: "dev"
-  pullPolicy: IfNotPresent
+  app:
+    repository: ghcr.io/dgh-hc/netdevops-app
+    tag: "latest"         # Overridden by deploy-helm.yml with commit SHA
+    pullPolicy: IfNotPresent
 
+  worker:
+    repository: ghcr.io/dgh-hc/netdevops-worker
+    tag: "latest"         # Overridden by deploy-helm.yml with commit SHA
+    pullPolicy: IfNotPresent
+
+# -------------------------------
+# Replicas
+# -------------------------------
 replicaCount:
   app: 2
   worker: 1
 
+# -------------------------------
+# Resource configs
+# -------------------------------
 resources:
   app:
     limits:
@@ -15,6 +30,7 @@ resources:
     requests:
       cpu: "200m"
       memory: "512Mi"
+
   worker:
     limits:
       cpu: "500m"
@@ -23,16 +39,33 @@ resources:
       cpu: "200m"
       memory: "256Mi"
 
+# -------------------------------
+# PostgreSQL (StatefulSet)
+# -------------------------------
 postgres:
-  storage: "5Gi"
+  enabled: true
   image: postgres:16
+  storage: "5Gi"
+  port: 5432
 
+# -------------------------------
+# Redis
+# -------------------------------
 redis:
+  enabled: true
   image: redis:7
+  port: 6379
 
+# -------------------------------
+# ConfigMap values
+# These appear inside Kubernetes (envFrom -> ConfigMap)
+# -------------------------------
 config:
   ACCESS_TOKEN_EXPIRE_MINUTES: "60"
 
+# -------------------------------
+# Secrets that map to envFrom (K8s Secret)
+# -------------------------------
 secrets:
   POSTGRES_USER: "netdevops_user"
   POSTGRES_PASSWORD: "netdevops_pass"
@@ -41,6 +74,33 @@ secrets:
   VAULT_URL: "http://vault:8200"
   VAULT_TOKEN: "root"
 
+# -------------------------------
+# pgAdmin (Optional service)
+# -------------------------------
 pgadmin:
+  enabled: false           # Enable only if templates include pgadmin
   email: "admin@example.com"
   password: "change_me"
+
+# -------------------------------
+# Health probe configs
+# -------------------------------
+health:
+  livenessPath: /metrics
+  readinessPath: /metrics
+
+# -------------------------------
+# Service
+# -------------------------------
+service:
+  type: ClusterIP
+  port: 8000
+
+# -------------------------------
+# Names of Kubernetes objects
+# -------------------------------
+names:
+  configMap: netdevops-config
+  secret: netdevops-secrets
+  postgres: postgres
+  redis: redis
