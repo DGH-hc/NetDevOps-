@@ -21,7 +21,7 @@ from app.metrics import request_latency_seconds
 # ============================
 # Logging Setup
 # ============================
-LOG_DIR = "/app/app/logs"
+LOG_DIR = "/app/logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
 log_path = os.path.join(LOG_DIR, "app.log")
