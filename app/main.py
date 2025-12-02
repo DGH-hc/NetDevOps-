@@ -97,6 +97,13 @@ app.include_router(api_router, prefix="/api")
 def metrics():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
+#=============================
+# Health Endpoint (GLOBAL)
+#=============================
+@app.get("/health")
+def root_health():
+    return {"status": "ok"}
+
 
 # ============================
 # Root Endpoint
