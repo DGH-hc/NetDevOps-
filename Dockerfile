@@ -18,13 +18,19 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN useradd -m appuser
-USER appuser
-  
+# copy dependencies installed in builder
 COPY --from=builder /install /usr/local
+
+# copy project code
 COPY . /app
 
+# ---- FIX: create logs directory as ROOT ----
 RUN mkdir -p /app/logs && chmod -R 777 /app/logs
+
+# Now create runtime user
+RUN useradd -m appuser
+USER appuser
+# ---- FIX ENDS ----
 
 ENV PYTHONUNBUFFERED=1
 
