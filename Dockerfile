@@ -20,9 +20,11 @@ WORKDIR /app
 
 RUN useradd -m appuser
 USER appuser
-
+  
 COPY --from=builder /install /usr/local
 COPY . /app
+
+RUN makdir -p /app/logs && chmod -R 777 /app/logs 
 
 ENV PYTHONUNBUFFERED=1
 

@@ -17,11 +17,14 @@ from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 from app.api.routers import router as api_router      # PHASE-0 FIX
 from app.core.config import settings, load_vault_into_settings
 from app.metrics import request_latency_seconds
+from app.logger import logger 
 
 # ============================
 # Logging Setup
 # ============================
 LOG_DIR = "/app/logs"
+LOG_FILE = os.path.join(LOG_DIR, "app.log")
+
 os.makedirs(LOG_DIR, exist_ok=True)
 
 log_path = os.path.join(LOG_DIR, "app.log")
@@ -34,7 +37,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("netdevops")
-logger.info("🚀 FastAPI container starting...")
+logger.info("App starting...")
 
 
 # ============================
