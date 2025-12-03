@@ -39,31 +39,27 @@ jobs:
       - name: Wait for Services (Postgres, Redis, mock-device)
         run: |
           set -euo pipefail
-          # Wait for postgres
+          # Wait for Postgres
           for i in $(seq 1 30); do
-            docker compose -f $COMPOSE_FILE exec -T db sh -c "pg_isready -U ${POSTGRES_USER:-test_user}" && break
+            docker compose -f $COMPOSE_FILE exec -T db sh -c "pg_isready -U test_user" && break
             echo "Postgres not ready ($i)..."; sleep 2
           done
-          # Wait for redis
+          # Wait for Redis
           for i in $(seq 1 30); do
             docker compose -f $COMPOSE_FILE exec -T redis sh -c "redis-cli ping" | grep -q PONG && break
             echo "Redis not ready ($i)..."; sleep 2
           done
-          # Wait for mock-device internal health
+          # Wait for mock-device
           for i in $(seq 1 30); do
             docker compose -f $COMPOSE_FILE exec -T mock-device sh -c "curl -fsS http://localhost:5001/health >/dev/null 2>&1" && break
             echo "mock-device not ready ($i)..."; sleep 2
           done
-      - name: Print App Logs (before health check)
-        run: |
-         echo "===== APP LOGS (pre-health) ====="
-         docker logs ci_app || true
 
       - name: Wait for App Health Endpoint
         run: |
           set -euo pipefail
           for i in $(seq 1 60); do
-            if docker compose -f $COMPOSE_FILE exec -T app sh -c "curl -fsS http://localhost:8000/health >/dev/null 2>&1"; then
+            if docker compose -f $COMPOSE_FILE exec -T ci_app sh -c "curl -fsS http://localhost:8000/api/health >/dev/null 2>&1"; then
               echo "App is healthy"
               exit 0
             fi
@@ -75,8 +71,7 @@ jobs:
       - name: Run Tests (inside app)
         run: |
           set -euo pipefail
-          docker compose -f $COMPOSE_FILE exec -T app sh -c "\
-            if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi; \
+          docker compose -f $COMPOSE_FILE exec -T ci_app sh -c "\
             pytest -q \
           "
 
@@ -87,7 +82,6 @@ jobs:
           mkdir -p ci-logs
           docker compose -f $COMPOSE_FILE logs --no-color > ci-logs/compose_logs_${TIMESTAMP}.log || true
           docker logs ci_app 2>&1 >> ci-logs/compose_logs_${TIMESTAMP}.log || true
-          docker logs ci_worker 2>&1 >> ci-logs/compose_logs_${TIMESTAMP}.log || true
           tar -czf ci-logs-${TIMESTAMP}.tar.gz ci-logs || true
 
       - name: Upload logs artifact (on failure)
