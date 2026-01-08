@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: netdevops-migrate
+  namespace: netdevops-staging
+spec:
+  backoffLimit: 3
+  activeDeadlineSeconds: 300
+  ttlSecondsAfterFinished: 60
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: netdevops:974fd97
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              /app/scripts/wait_for_db.sh &&
+              alembic upgrade head
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"

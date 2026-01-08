@@ -9,6 +9,27 @@ import redis
 router = APIRouter()
 
 
+# --------------------------------------------------
+# LIVENESS PROBE (used by Kubernetes)
+# --------------------------------------------------
+@router.get("/health/live", tags=["system"])
+def liveness():
+    return {"status": "alive"}
+
+
+# --------------------------------------------------
+# READINESS PROBE (used by Kubernetes)
+# MUST BE FAST AND NON-BLOCKING
+# --------------------------------------------------
+@router.get("/health/ready", tags=["system"])
+def readiness():
+    return {"status": "ready"}
+
+
+# --------------------------------------------------
+# FULL SYSTEM HEALTH (diagnostics only)
+# NOT used by Kubernetes probes
+# --------------------------------------------------
 @router.get("/health", tags=["system"])
 def health_check():
     status = {
@@ -26,7 +47,7 @@ def health_check():
     finally:
         try:
             db.close()
-        except:
+        except Exception:
             pass
 
     # --- REDIS CHECK ---

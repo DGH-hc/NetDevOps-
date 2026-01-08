@@ -1,106 +1,70 @@
-# -------------------------------
-# Image configuration (CI/CD overrides tag)
-# -------------------------------
 image:
-  app:
-    repository: ghcr.io/dgh-hc/netdevops-app
-    tag: "latest"         # Overridden by deploy-helm.yml with commit SHA
-    pullPolicy: IfNotPresent
+  repository: netdevops 
+  tag: 974fd97
+  pullPolicy: IfNotPresent
 
-  worker:
-    repository: ghcr.io/dgh-hc/netdevops-worker
-    tag: "latest"         # Overridden by deploy-helm.yml with commit SHA
-    pullPolicy: IfNotPresent
+environment: dev
 
-# -------------------------------
-# Replicas
-# -------------------------------
-replicaCount:
-  app: 2
-  worker: 1
+api:
+  enabled: true
+  replicas: 1
+  command:
+    - uvicorn
+    - app.main:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - "8000"
 
-# -------------------------------
-# Resource configs
-# -------------------------------
-resources:
-  app:
-    limits:
-      cpu: "1"
-      memory: "1Gi"
-    requests:
-      cpu: "200m"
-      memory: "512Mi"
+worker:
+  replicas: 1
+  command:
+    - celery
+    - -A
+    - app.worker.celery_app:celery_app
+    - worker
+    - --loglevel=info
 
-  worker:
-    limits:
-      cpu: "500m"
-      memory: "512Mi"
-    requests:
-      cpu: "200m"
-      memory: "256Mi"
+migrations:
+  enabled: true
+  command:
+    - alembic
+    - upgrade
+    - head
 
-# -------------------------------
-# PostgreSQL (StatefulSet)
-# -------------------------------
-postgres:
+resources: 
+  requests:
+    cpu : "100m"
+    memory: "128Mi"
+
+postgres: 
   enabled: true
   image: postgres:16
-  storage: "5Gi"
   port: 5432
+  storage:
+    size: 5Gi
 
-# -------------------------------
-# Redis
-# -------------------------------
-redis:
-  enabled: true
-  image: redis:7
-  port: 6379
-
-# -------------------------------
-# ConfigMap values
-# These appear inside Kubernetes (envFrom -> ConfigMap)
-# -------------------------------
-config:
-  ACCESS_TOKEN_EXPIRE_MINUTES: "60"
-
-# -------------------------------
-# Secrets that map to envFrom (K8s Secret)
-# -------------------------------
 secrets:
-  POSTGRES_USER: "netdevops_user"
-  POSTGRES_PASSWORD: "netdevops_pass"
-  POSTGRES_DB: "netdevops_db"
-  SECRET_KEY: "super-secret-key"
-  VAULT_URL: "http://vault:8200"
-  VAULT_TOKEN: "root"
+  database:
+    user: netdevops
+    password: netdevops
+    name: netdevops 
+  app:
+    secretKey: dev-secret-key
 
-# -------------------------------
-# pgAdmin (Optional service)
-# -------------------------------
-pgadmin:
-  enabled: false           # Enable only if templates include pgadmin
-  email: "admin@example.com"
-  password: "change_me"
+pdb:
+  enabled: true
+  minAvailable: 1
 
-# -------------------------------
-# Health probe configs
-# -------------------------------
-health:
-  livenessPath: /metrics
-  readinessPath: /metrics
+hpa: 
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
 
-# -------------------------------
-# Service
-# -------------------------------
-service:
-  type: ClusterIP
-  port: 8000
-
-# -------------------------------
-# Names of Kubernetes objects
-# -------------------------------
-names:
-  configMap: netdevops-config
-  secret: netdevops-secrets
-  postgres: postgres
-  redis: redis
+ingress:
+  enabled: true
+  className: nginx
+  host: netdevops.local
+  path: /
+  

@@ -1,40 +1,58 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netdevops-app
-  namespace: netdevops
+  name: {{ include "netdevops.fullname" . }}-api
+  labels:
+    app.kubernetes.io/name: {{ include "netdevops.name" . }}
+    app.kubernetes.io/component: api
 spec:
-  replicas: {{ .Values.replicaCount.app }}
+  {{- if not .Values.hpa.enabled }}
+  replicas: {{ .Values.api.replicas }}
+  {{- end }}
   selector:
     matchLabels:
-      app: netdevops-app
+      app.kubernetes.io/name: {{ include "netdevops.name" . }}
+      app.kubernetes.io/component: api
   template:
     metadata:
       labels:
-        app: netdevops-app
+        app.kubernetes.io/name: {{ include "netdevops.name" . }}
+        app.kubernetes.io/component: api
     spec:
-      containers:
-        - name: app
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+      serviceAccountName: netdevops-api 
+      containers: 
+         - name: api
+           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+           env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: netdevops-db
+                  key: DATABASE_URL
+
+           command:
+            {{- toYaml .Values.api.command | nindent 12 }}
+
+           ports:
             - containerPort: 8000
-          envFrom:
-            - configMapRef:
-                name: netdevops-config
-            - secretRef:
-                name: netdevops-secrets
-          readinessProbe:
+
+           readinessProbe:
             httpGet:
-              path: /metrics
+              path: /health/ready
               port: 8000
-            initialDelaySeconds: 8
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
             periodSeconds: 10
-          livenessProbe:
+            failureThreshold: 6
+
+           livenessProbe:
             httpGet:
-              path: /metrics
+              path: /health/live
               port: 8000
-            initialDelaySeconds: 20
+            initialDelaySeconds: 15
             periodSeconds: 20
-          resources:
-            {{- toYaml .Values.resources.app | nindent 12 }}
+
+           resources:
+            {{- toYaml .Values.resources | nindent 12 }}

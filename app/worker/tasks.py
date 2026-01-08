@@ -1,58 +1,89 @@
-from app.worker.celery_app import celery_app
-from app.db.database import SessionLocal
-from app.models.job import Job, JobAttempt, JobLog
+# app/worker/tasks.py
+
 from datetime import datetime
+from app.db.database import SessionLocal
+from app.models.job import JobDB, JobAttempt, JobLog
 
-@celery_app.task(bind=True)
-def run_job(self, job_id):
+try:
+    from app.worker.celery_app import celery_app
+except ImportError:
+    celery_app = None
+
+
+@celery_app.task(bind=True, name="run_job")
+def run_job(self, job_id: int):
+    if celery_app is None:
+        raise RuntimeError("Celery is not enabled in this environment")
+
     db = SessionLocal()
-
-    job = db.query(Job).get(job_id)
-    job.status = "RUNNING"
-    db.add(job)
-    db.commit()
-
-    attempt = JobAttempt(
-        job_id=job_id,
-        attempt_no=1,
-        started_at=datetime.utcnow()
-    )
-    db.add(attempt)
-    db.commit()
+    job = None
+    attempt = None
 
     try:
-        log_output = "Executing job... (placeholder)\nJob complete."
-        exit_code = 0
+        job = db.get(JobDB, job_id)
+        if not job:
+            raise ValueError(f"Job {job_id} not found")
 
-        log = JobLog(
-            job_id=job_id,
-            attempt_id=attempt.id,
-            output=log_output,
-            exit_code=exit_code
+        job.status = "RUNNING"
+        db.add(job)
+        db.commit()
+
+        attempt_no = (
+            db.query(JobAttempt)
+            .filter(JobAttempt.job_id == job_id)
+            .count()
+            + 1
         )
-        db.add(log)
+
+        attempt = JobAttempt(
+            job_id=job_id,
+            attempt_no=attempt_no,
+            started_at=datetime.utcnow(),
+        )
+        db.add(attempt)
+        db.commit()
+        db.refresh(attempt)
+
+        db.add(
+            JobLog(
+                job_id=job_id,
+                attempt_id=attempt.id,
+                output="Executing job...\nJob completed successfully.",
+                exit_code=0,
+            )
+        )
 
         job.status = "SUCCESS"
         attempt.completed_at = datetime.utcnow()
-        attempt.exit_code = exit_code
+        attempt.exit_code = 0
 
-        db.commit()
-        return {"status": "SUCCESS"}
-
-    except Exception as e:
-        log = JobLog(
-            job_id=job_id,
-            attempt_id=attempt.id,
-            output=str(e),
-            exit_code=1
-        )
-        db.add(log)
-        db.commit()
-
-        job.status = "FAILED"
         db.add(job)
+        db.add(attempt)
         db.commit()
-        return {"status": "FAILED"}
+
+        return {"job_id": job_id, "status": "SUCCESS"}
+
+    except Exception as exc:
+        db.add(
+            JobLog(
+                job_id=job_id,
+                attempt_id=attempt.id if attempt else None,
+                output=str(exc),
+                exit_code=1,
+            )
+        )
+
+        if job:
+            job.status = "FAILED"
+            db.add(job)
+
+        if attempt:
+            attempt.completed_at = datetime.utcnow()
+            attempt.exit_code = 1
+            db.add(attempt)
+
+        db.commit()
+        raise
 
     finally:
         db.close()

@@ -1,3 +1,4 @@
+from app.models.job import JobDB
 from sqlalchemy.orm import Session
 from app.database import engine, Base, SessionLocal
 from app.models import Device, User, Job  # adjust these imports to your actual model names
@@ -28,8 +29,8 @@ def seed_database():
 
         # Example jobs
         jobs = [
-            Job(name="Backup Configuration", status="Pending"),
-            Job(name="Software Update", status="Completed"),
+            JobDB(name="Backup Configuration", status="Pending"),
+            JobDB(name="Software Update", status="Completed"),
         ]
 
         # Add only if not already seeded
