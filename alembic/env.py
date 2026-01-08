@@ -21,7 +21,7 @@ from app.models.device import DeviceDB
 from app.models.job import JobDB, JobAttempt, JobLog
 from app.models.audit import AuditEvent
 from app.models.snapshot import ConfigSnapshot
-from app.core.config import settings
+
 
 # ------------------------------------------
 # Alembic Config Setup
@@ -39,11 +39,12 @@ target_metadata = Base.metadata
 # ------------------------------------------
 # Replace sqlalchemy.url dynamically with .env
 # ------------------------------------------
-config.set_main_option(
-    "sqlalchemy.url",
-    settings.DATABASE_URL
-)
+database_url = os.getenv("DATABASE_URL")
 
+if not database_url:
+     raise RuntimeError("DATABASE_URL is not set")
+
+config.set_main_option("sqlalchemy.url", database_url)
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode."""

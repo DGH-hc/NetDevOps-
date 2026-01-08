@@ -1,28 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netdevops-worker
-  namespace: netdevops
+  name: {{ include "netdevops.fullname" . }}-worker
+  labels:
+    app.kubernetes.io/name: {{ include "netdevops.name" . }}
+    app.kubernetes.io/component: worker
 spec:
-  replicas: {{ .Values.replicaCount.worker }}
+  replicas: {{ .Values.worker.replicas }}
   selector:
     matchLabels:
-      app: netdevops-worker
+      app.kubernetes.io/name: {{ include "netdevops.name" . }}
+      app.kubernetes.io/component: worker
   template:
     metadata:
       labels:
-        app: netdevops-worker
+        app.kubernetes.io/name: {{ include "netdevops.name" . }}
+        app.kubernetes.io/component: worker
     spec:
+      serviceAccountName: netdevops-worker
       containers:
         - name: worker
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["celery"]
-          args: ["-A", "app.worker.celery_app.app", "worker", "--loglevel=info"]
-          envFrom:
-            - configMapRef:
-                name: netdevops-config
-            - secretRef:
-                name: netdevops-secrets
+
+          command: {{ toYaml .Values.worker.command | nindent 12 }}
+
           resources:
-            {{- toYaml .Values.resources.worker | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}

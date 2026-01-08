@@ -9,9 +9,9 @@ run:
 	docker run -p 8000:8000 netdevops:dev
 
 # Run Celery worker inside container
-worker:
-	docker run netdevops:dev \
-		celery -A app.worker.celery_app.app worker --loglevel=info
+#worker:
+#	docker run netdevops:dev \ 
+#		celery -A app.worker.celery_app.app worker --loglevel=info
 
 # Apply Alembic migrations
 migrate:

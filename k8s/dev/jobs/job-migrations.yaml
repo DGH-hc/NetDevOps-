@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: alembic-migrate
-  namespace: netdevops
+
 spec:
   template:
     spec:
@@ -13,6 +13,6 @@ spec:
           command: ["alembic", "upgrade", "head"]
           envFrom:
             - configMapRef:
-                name: netdevops-config
+                name: netdevops-app-config
             - secretRef:
-                name: netdevops-secrets
+                name: netdevops-app-secret

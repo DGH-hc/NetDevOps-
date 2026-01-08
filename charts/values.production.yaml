@@ -1,0 +1,26 @@
+environment: production
+
+image:
+  tag: ""   # MUST be explicitly set in CI
+
+api:
+  replicas: 3
+
+worker:
+  replicas: 2
+
+resources:
+  api:
+    requests:
+      cpu: "200m"
+      memory: "512Mi"
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  worker:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"

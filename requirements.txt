@@ -1,21 +1,40 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-pydantic
-python-jose
-passlib[bcrypt]
-jinja2
-requests
-python-multipart
-psycopg2-binary 
+# --- Web Framework ---
+fastapi==0.124.4
+uvicorn[standard]==0.38.0
+
+# --- ORM / DB ---
+sqlalchemy==2.0.45
+psycopg2-binary==2.9.11
+alembic==1.17.2
+
+# --- Validation / Security ---
+pydantic==2.12.5
+pydantic-settings==2.0.3
+python-jose==3.5.0
+passlib[bcrypt]==1.7.4
+cryptography==46.0.3
+
+# --- Templates / HTTP ---
+jinja2==3.1.6
+requests==2.32.5
+python-multipart==0.0.20
+
+# --- Background / Messaging ---
 celery==5.3.6
 redis==5.0.1
-pydantic-settings==2.0.3
-netmiko>=4.3.0
-paramiko>=3.4.0
-cryptography>=40.0.0
-python-dotenv>=1.0.0
+
+# --- Networking / Automation ---
+netmiko==4.6.0
+paramiko==4.0.0
+
+# --- Config / Secrets ---
+python-dotenv==1.2.1
 hvac==1.2.1
-alembic
-prometheus-client
-pytest 
+
+# --- Observability ---
+prometheus-client==0.23.1
+
+# --- Testing (Phase 0 only) ---
+pytest==9.0.2
+
+prometheus-fastapi-instrumentator==6.1.0

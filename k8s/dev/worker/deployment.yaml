@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netdevops-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netdevops-worker
+  template:
+    metadata:
+      labels:
+        app: netdevops-worker
+    spec:
+      containers:
+        - name: worker
+          image: netdevops:dev
+          imagePullPolicy: IfNotPresent
+          command:
+            - celery
+            - -A
+            - app.worker.celery_app.app
+            - worker
+            - --loglevel=info
+
+          envFrom:
+            - configMapRef:
+                name: netdevops-app-config
+            - secretRef:
+                name: netdevops-app-secret
+
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

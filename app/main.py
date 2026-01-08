@@ -4,19 +4,22 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 import time
+import redis 
 
 from fastapi import FastAPI, Response
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy import text
 from starlette.middleware.base import BaseHTTPMiddleware
-from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+
 
 # -----------------------------
 # Correct absolute imports
 # -----------------------------
 from app.api.routers import router as api_router      # PHASE-0 FIX
 from app.core.config import settings, load_vault_into_settings
-from app.metrics import request_latency_seconds
+from app.db.database import engine
+from app.metrics import setup_metrics 
 from app.logger import logger 
 
 # ============================
@@ -39,26 +42,6 @@ logging.basicConfig(
 logger = logging.getLogger("netdevops")
 logger.info("App starting...")
 
-
-# ============================
-# Metrics Middleware
-# ============================
-class MetricsMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request, call_next):
-        start_time = time.time()
-        response = await call_next(request)
-        elapsed = time.time() - start_time
-
-        request_latency_seconds.labels(
-            endpoint=request.url.path,
-            method=request.method
-        ).observe(elapsed)
-
-        return response
-
-
-# ============================
-# FastAPI App
 # ============================
 app = FastAPI(
     title="Network DevOps Automation Platform",
@@ -66,8 +49,7 @@ app = FastAPI(
     version="2.0.0"
 )
 
-app.add_middleware(MetricsMiddleware)
-
+setup_metrics(app)
 
 # ============================
 # Startup Event
@@ -90,19 +72,34 @@ def startup_event():
 app.include_router(api_router, prefix="/api")
 
 
-# ============================
-# Metrics Endpoint
-# ============================
-@app.get("/metrics")
-def metrics():
-    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 #=============================
-# Health Endpoint (GLOBAL)
+# Health: Liveness
 #=============================
-@app.get("/health")
-def root_health():
-    return {"status": "ok"}
+@app.get("/health/live")
+def health_live():
+    return {"status": "alive"}
+
+#=============================
+#Health: Readiness
+#=============================
+@app.get("/health/ready")
+def health_ready():
+     #Check database
+     try:
+         with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+     except Exception as e:
+         return {"statue": "not ready", "reason":"database unavailable"}
+
+     #check Redis
+     try: 
+         r = redis.Redis.form_url(settings.REDIS_URL)
+         r.ping()
+     except Exception as e :
+         return {"status": "not ready", "rason": "redis unavailable"}
+
+     return {"status": "ready"}       
 
 
 # ============================
