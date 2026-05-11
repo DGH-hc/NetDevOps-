@@ -1,0 +1,16 @@
+{
+  "test": "pod_kill",
+  "namespace": "app",
+  "target_pod": "postgres-0",
+  "replica_count": 2,
+  "start_time": "05:23:50",
+  "recovery_time": "05:23:53",
+  "downtime_seconds": 3,
+  "failover_successful": true,
+  "observations": [
+    "postgres-1 remained running during failure",
+    "no crashloop observed",
+    "pod recreated successfully",
+    "application remained stable during test"
+  ]
+}

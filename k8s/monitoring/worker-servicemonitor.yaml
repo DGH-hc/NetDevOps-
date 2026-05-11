@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: netdevops-worker
+  namespace: monitoring
+  labels:
+    release: monitoring  
+spec:
+  selector:
+    matchLabels:
+      app: netdevops-worker
+  namespaceSelector:
+    matchNames:
+      - app
+  endpoints:
+    - port: metrics
+      path: /metrics 
+      interval: 15s

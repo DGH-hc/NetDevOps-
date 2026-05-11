@@ -1,5 +1,5 @@
 image:
-  repository: netdevops 
+  repository: corporatecatalyst/netdevops 
   tag: 974fd97
   pullPolicy: IfNotPresent
 

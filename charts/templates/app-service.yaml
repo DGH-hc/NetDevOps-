@@ -1,10 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
+metadata:
   name: {{ include "netdevops.fullname" . }}-api
   labels:
     app.kubernetes.io/name: {{ include "netdevops.name" . }}
     app.kubernetes.io/component: api
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8000"
+    prometheus.io/path: "/metrics"
 spec:
   type: ClusterIP
   selector:

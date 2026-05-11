@@ -10,34 +10,20 @@ router = APIRouter()
 
 
 # --------------------------------------------------
-# LIVENESS PROBE (used by Kubernetes)
-# --------------------------------------------------
-@router.get("/health/live", tags=["system"])
-def liveness():
-    return {"status": "alive"}
-
-
-# --------------------------------------------------
-# READINESS PROBE (used by Kubernetes)
-# MUST BE FAST AND NON-BLOCKING
-# --------------------------------------------------
-@router.get("/health/ready", tags=["system"])
-def readiness():
-    return {"status": "ready"}
-
-
-# --------------------------------------------------
-# FULL SYSTEM HEALTH (diagnostics only)
+# FULL SYSTEM HEALTH (Diagnostics Only)
 # NOT used by Kubernetes probes
 # --------------------------------------------------
-@router.get("/health", tags=["system"])
+@router.get("/health/full", tags=["system"])
 def health_check():
     status = {
         "postgres": "unknown",
         "redis": "unknown",
     }
 
-    # --- PostgreSQL CHECK ---
+    # ---------------------------
+    # PostgreSQL Check
+    # ---------------------------
+    db = None
     try:
         db = SessionLocal()
         db.execute(text("SELECT 1"))
@@ -45,17 +31,29 @@ def health_check():
     except Exception as e:
         status["postgres"] = f"error: {str(e)}"
     finally:
-        try:
-            db.close()
-        except Exception:
-            pass
+        if db:
+            try:
+                db.close()
+            except Exception:
+                pass
 
-    # --- REDIS CHECK ---
+    # ---------------------------
+    # Redis Check
+    # ---------------------------
     try:
         r = redis.Redis.from_url(settings.REDIS_URL)
-        r.ping()
-        status["redis"] = "ok"
-    except Exception as e:
-        status["redis"] = f"error: {str(e)}"
+        r.set("health_check", "ok")
+        value = r.get("health_check")
 
-    return status
+        if value.decode() == "ok":
+            status["redis"] = "ok"
+        else: 
+             status["redis"] = "error: value mismatch"
+
+    except Exception as e:
+        status["redis"] = f"error: {str(e)}" 
+
+    return {
+        "debug": "health/full executed",
+        "status": status
+    }      

@@ -1,0 +1,8 @@
+{
+  "serviceaccount": "netdevops-postgres",
+  "namespace": "app",
+  "rbac_bindings": "none",
+  "cluster_permissions": "none",
+  "api_access": "forbidden",
+  "reason": "ServiceAccount exists only for Vault Kubernetes authentication. No RBAC permissions granted."
+}

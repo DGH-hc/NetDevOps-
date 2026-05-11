@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: netdevops-worker
+  namespace: app
 spec:
   replicas: 1
   selector:
@@ -14,25 +15,35 @@ spec:
     spec:
       containers:
         - name: worker
-          image: netdevops:dev
-          imagePullPolicy: IfNotPresent
+          image: corporatecatalyst/netdevops-app:latest
+          imagePullPolicy: Always
+
           command:
-            - celery
-            - -A
-            - app.worker.celery_app.app
-            - worker
-            - --loglevel=info
+            - sh
+            - -c
+            - celery -A app.worker.celery_app worker --loglevel=info
+
+          env:
+            - name: PROMETHEUS_MULTIPROC_DIR
+              value: /tmp/prometheus-shared
 
           envFrom:
             - configMapRef:
                 name: netdevops-app-config
             - secretRef:
-                name: netdevops-app-secret
+                name: netdevops-app-secret 
 
-          resources:
-            requests:
-              cpu: "200m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
+          volumeMounts:
+            - name: logs
+              mountPath: /app/logs
+            - name: prometheus-shared
+              mountPath: /tmp/prometheus-shared
+
+      volumes:
+        - name: logs
+          emptyDir: {}
+
+        # 🔥 FIX HERE
+        - name: prometheus-shared
+          persistentVolumeClaim:
+            claimName: prometheus-pvc

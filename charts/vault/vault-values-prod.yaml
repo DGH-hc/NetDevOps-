@@ -1,0 +1,38 @@
+server:
+  dev:
+    enabled: false
+
+  standalone:
+    enabled: true
+    config: |
+      disable_mlock = true
+
+      listener "tcp" {
+        address       = "0.0.0.0:8200"
+        tls_disable   = 0
+        tls_cert_file = "/vault/tls/tls.crt"
+        tls_key_file  = "/vault/tls/tls.key"
+      }
+
+      storage "file" {
+        path = "/vault/data"
+      }
+
+      ui = true
+
+  dataStorage:
+    enabled: true
+    size: 10Gi
+
+  volumes:
+    - name: vault-tls
+      secret:
+        secretName: vault-tls
+
+  volumeMounts:
+    - name: vault-tls
+      mountPath: /vault/tls
+      readOnly: true
+
+ui:
+  enabled: true

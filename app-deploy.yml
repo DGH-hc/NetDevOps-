@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+        app.kubernetes.io/name: app
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "app"
+        vault.hashicorp.com/vault-addr: "http://vault-internal.vault.svc:8200"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
+
+        vault.hashicorp.com/agent-inject-secret-config: "secret/data/app/config"
+        vault.hashicorp.com/agent-inject-file-config: "config"
+        vault.hashicorp.com/agent-inject-template-config: | 
+          {{- with secret "secret/data/app/config" -}}
+          DB_USER={{ .Data.data.DB_USER }}
+          DB_PASS={{ .Data.data.DB_PASS }}
+          {{- end -}} 
+    spec:
+      serviceAccountName: app-server
+      containers:
+        - name: app
+          image: alpine:3.19
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Starting app"
+              if [ ! -f /vault/secrets/config ]; then
+                echo "Vault secrets missing"; exit 1
+              fi
+              . /vault/secrets/config
+              echo "DB_USER=$DB_USER"
+              echo "DB_PASS=$DB_PASS"
+              sleep 3600

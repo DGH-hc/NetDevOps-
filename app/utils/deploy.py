@@ -1,24 +1,65 @@
 # app/utils/deploy.py
+
 import os
+import logging
 import traceback
 from datetime import datetime
-from netmiko import ConnectHandler, NetMikoTimeoutException, NetMikoAuthenticationException
 from typing import List, Tuple
 
-SNAPSHOT_DIR = os.path.join(os.path.dirname(__file__), "..", "snapshots")
+from netmiko import (
+    ConnectHandler,
+    NetMikoTimeoutException,
+    NetMikoAuthenticationException,
+)
+
+# ============================
+# Logging
+# ============================
+logger = logging.getLogger("netdevops.deploy")
+
+# ============================
+# Snapshot Config
+# ============================
+SNAPSHOT_DIR = "/tmp/snapshots"
+MAX_SNAPSHOT_SIZE = 5 * 1024 * 1024  # 5MB
+
 os.makedirs(SNAPSHOT_DIR, exist_ok=True)
 
+# ============================
+# Snapshot Helpers
+# ============================
 def snapshot_filename(device_id: int) -> str:
     ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
     return f"device_{device_id}_snapshot_{ts}.cfg"
 
-def save_snapshot_to_fs(device_id: int, text: str) -> str:
-    fname = snapshot_filename(device_id)
-    path = os.path.abspath(os.path.join(SNAPSHOT_DIR, fname))
-    with open(path, "w", encoding="utf-8") as fh:
-        fh.write(text)
-    return path
 
+def save_snapshot_to_fs(device_id: int, text: str) -> str:
+    try:
+        size = len(text.encode("utf-8"))
+        if size > MAX_SNAPSHOT_SIZE:
+            raise ValueError(f"Snapshot too large: {size} bytes")
+
+        fname = snapshot_filename(device_id)
+        path = os.path.abspath(os.path.join(SNAPSHOT_DIR, fname))
+
+        # Atomic write
+        tmp_path = f"{path}.tmp"
+        with open(tmp_path, "w", encoding="utf-8") as fh:
+            fh.write(text)
+
+        os.replace(tmp_path, path)
+
+        logger.info(f"Snapshot saved: {path}")
+        return path
+
+    except Exception as e:
+        logger.error(f"Snapshot save failed: {e}")
+        raise
+
+
+# ============================
+# Connection Builder
+# ============================
 def build_conn_args(device) -> dict:
     args = {
         "host": device.ip,
@@ -28,64 +69,108 @@ def build_conn_args(device) -> dict:
         "device_type": device.platform,
         "timeout": 60,
     }
+
     if getattr(device, "private_key_path", None):
         args["use_keys"] = True
         args["key_file"] = device.private_key_path
+
     return args
 
-def fetch_running_config(device) -> Tuple[int, str]:
-    """Return (exit_code, text). exit_code 0=ok, >0 error."""
-    try:
-        conn_args = build_conn_args(device)
-        with ConnectHandler(**conn_args) as conn:
-            # common command - may need to vary by platform
-            command = "show running-config" if "cisco" in device.platform else "show configuration"
-            text = conn.send_command(command, expect_string=None)
-            return 0, text
-    except (NetMikoTimeoutException, NetMikoAuthenticationException) as e:
-        return 2, f"netmiko error: {e}"
-    except Exception as e:
-        return 1, f"error: {e}\n{traceback.format_exc()}"
 
-def apply_config(device, config_lines: List[str]) -> Tuple[int, str]:
-    """Apply a set of config lines (send_config_set). Returns (exit_code, output)."""
+# ============================
+# Fetch Config
+# ============================
+def fetch_running_config(device) -> Tuple[int, str]:
     try:
         conn_args = build_conn_args(device)
+
+        with ConnectHandler(**conn_args) as conn:
+            command = (
+                "show running-config"
+                if "cisco" in device.platform.lower()
+                else "show configuration"
+            )
+
+            text = conn.send_command(command)
+            logger.info(f"Fetched config for device {device.id}")
+
+            return 0, text
+
+    except (NetMikoTimeoutException, NetMikoAuthenticationException) as e:
+        logger.warning(f"Netmiko error: {e}")
+        return 2, str(e)
+
+    except Exception as e:
+        logger.error(f"Fetch failed: {e}")
+        return 1, traceback.format_exc()
+
+
+# ============================
+# Apply Config
+# ============================
+def apply_config(device, config_lines: List[str]) -> Tuple[int, str]:
+    try:
+        conn_args = build_conn_args(device)
+
         with ConnectHandler(**conn_args) as conn:
             output = conn.send_config_set(config_lines)
-            return 0, output
-    except (NetMikoTimeoutException, NetMikoAuthenticationException) as e:
-        return 2, f"netmiko error: {e}"
-    except Exception as e:
-        return 1, f"error: {e}\n{traceback.format_exc()}"
 
+        logger.info(f"Config applied to device {device.id}")
+        return 0, output
+
+    except (NetMikoTimeoutException, NetMikoAuthenticationException) as e:
+        logger.warning(f"Netmiko error: {e}")
+        return 2, str(e)
+
+    except Exception as e:
+        logger.error(f"Apply config failed: {e}")
+        return 1, traceback.format_exc()
+
+
+# ============================
+# Verify Config
+# ============================
 def verify_config(device, verify_commands: List[str]) -> Tuple[bool, str]:
-    """
-    Run verification commands. Return (ok_bool, combined_output).
-    Verification commands depend on the job (e.g., show ip interface brief; show bgp summary).
-    """
     outputs = []
+
     try:
         conn_args = build_conn_args(device)
+
         with ConnectHandler(**conn_args) as conn:
             for cmd in verify_commands:
                 out = conn.send_command(cmd)
                 outputs.append(f"$ {cmd}\n{out}\n")
+
         combined = "\n".join(outputs)
-        # Simple heuristic: if any line contains "error" or "Invalid" -> fail
+
         lowered = combined.lower()
         if "error" in lowered or "invalid" in lowered or "% " in combined:
+            logger.warning(f"Verification failed for device {device.id}")
             return False, combined
-        return True, combined
-    except Exception as e:
-        return False, f"verify error: {e}\n{traceback.format_exc()}"
 
+        logger.info(f"Verification passed for device {device.id}")
+        return True, combined
+
+    except Exception as e:
+        logger.error(f"Verification error: {e}")
+        return False, traceback.format_exc()
+
+
+# ============================
+# Rollback
+# ============================
 def rollback_from_snapshot(device, snapshot_path: str) -> Tuple[int, str]:
-    """Read file and push as config. Returns (exit_code, output)."""
     try:
+        if not os.path.exists(snapshot_path):
+            raise FileNotFoundError(snapshot_path)
+
         with open(snapshot_path, "r", encoding="utf-8") as fh:
             lines = fh.read().splitlines()
-        # Use apply_config to push lines back
+
+        logger.warning(f"Rollback triggered for device {device.id}")
+
         return apply_config(device, lines)
+
     except Exception as e:
-        return 1, f"rollback read error: {e}\n{traceback.format_exc()}"
+        logger.error(f"Rollback failed: {e}")
+        return 1, traceback.format_exc()

@@ -1,10 +1,15 @@
 environment: production
 
+hpa:
+  enabled: false 
+
 image:
-  tag: ""   # MUST be explicitly set in CI
+  repository: corporatecatalyst/netdevops
+  tag: "latest"
+  pullPolicy: Always 
 
 api:
-  replicas: 3
+  replicas: 1
 
 worker:
   replicas: 2
