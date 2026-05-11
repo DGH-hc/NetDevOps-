@@ -2,10 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: netdevops-app
+  namespace: app
+  labels:
+    app: netdevops-app
 spec:
   selector:
     app: netdevops-app
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 8000
   type: ClusterIP

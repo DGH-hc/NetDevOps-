@@ -14,7 +14,9 @@ SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
 # Create SQLAlchemy engine
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
-    pool_pre_ping=True
+    pool_pre_ping=True,
+    pool_timeout=3,
+    connect_args={"connect_timeout": 3}
 )
 
 # Create session factory

@@ -19,10 +19,12 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 FROM python:3.11.6-slim
 
 ENV PYTHONUNBUFFERED=1
+ENV PROMETHEUS_MULTIPROC_DIR=/tmp/prometheus
+
+RUN mkdir -p /tmp/prometheus && chmod 777 /tmp/prometheus
 
 WORKDIR /app
 
-# non-root user
 RUN useradd -m appuser
 
 COPY --from=builder /install /usr/local
@@ -34,5 +36,3 @@ RUN mkdir -p /app/logs \
 USER appuser
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-# IMPORTANT:
-# Runtime behavior is controlled by Kubernetes / Helm.

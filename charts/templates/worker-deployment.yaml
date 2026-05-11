@@ -26,4 +26,4 @@ spec:
           command: {{ toYaml .Values.worker.command | nindent 12 }}
 
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.resources.worker | nindent 12 }}

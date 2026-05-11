@@ -1,0 +1,12 @@
+Test: Pod Failure (Postgres)
+
+Start Time: 05:23:50
+Action: Deleted postgres-0
+Event Timeline:
+- 05:23:50 → pod deletion initiated
+- 05:23:51 → pod terminating
+- 05:23:52 → new pod scheduled
+- 05:23:53 → pod ready
+
+Recovery Time: 3 seconds
+Result: No visible application disruption

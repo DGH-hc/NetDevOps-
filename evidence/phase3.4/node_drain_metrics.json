@@ -1,0 +1,13 @@
+{
+  "test": "node_drain",
+  "drained_node": "aegis-worker",
+  "pods_evicted": ["postgres-0", "netdevops-app"],
+  "surviving_pod": "postgres-1",
+  "recovery_behavior": [
+    "postgres-1 remained running",
+    "application pod was rescheduled successfully",
+    "postgres-0 rescheduled after node recovery"
+  ],
+  "downtime_observed": false,
+  "notes": "temporary Pending state observed due to node cordon"
+}

@@ -1,0 +1,14 @@
+{
+  "allowed_paths": [
+    "api -> postgres:5432",
+    "api -> vault:8200",
+    "pods -> kube-dns:53",
+    "monitoring -> api:8000/metrics"
+  ],
+  "blocked_paths": [
+    "attacker -> postgres",
+    "attacker -> vault",
+    "worker -> postgres",
+    "pods -> internet"
+  ]
+}

@@ -31,29 +31,72 @@ spec:
     matchLabels:
       app.kubernetes.io/name: {{ include "netdevops.name" . }}
       app.kubernetes.io/component: postgres
+
   template:
     metadata:
       labels:
         app.kubernetes.io/name: {{ include "netdevops.name" . }}
         app.kubernetes.io/component: postgres
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "netdevops-postgres"
+        vault.hashicorp.com/agent-inject-secret-db: "secret/data/netdevops/db"
+        vault.hashicorp.com/agent-inject-template-db: |
+          {{`{{- with secret "secret/data/netdevops/db" -}}`}}
+          export POSTGRES_USER="{{`{{ .Data.data.POSTGRES_USER }}`}}"
+          export POSTGRES_PASSWORD="{{`{{ .Data.data.POSTGRES_PASSWORD }}`}}"
+          export POSTGRES_DB="{{`{{ .Data.data.POSTGRES_DB }}`}}"
+          {{`{{- end }}`}}
+
     spec:
       serviceAccountName: netdevops-postgres
+
       containers:
         - name: postgres
+
+    
           image: {{ .Values.postgres.image }}
+          imagePullPolicy: IfNotPresent
+
+          securityContext:
+            runAsUser: 0
+
+          command: ["/bin/sh", "-c"]
+          args:
+            - . /vault/secrets/db && exec docker-entrypoint.sh postgres
+
           ports:
             - containerPort: {{ .Values.postgres.port }}
-          envFrom:
-            - secretRef:
-                name: {{ include "netdevops.fullname" . }}-db
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - pg_isready -h 127.0.0.1 -p 5432 
+            initialDelaySeconds: 10
+            periodSeconds: 5  
+            timeoutSeconds: 3
+            failureThreshold: 3
+
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
+
   volumeClaimTemplates:
     - metadata:
         name: data
       spec:
-        accessModes: ["ReadWriteOnce"]
+        accessModes:
+          - ReadWriteOnce
         resources:
           requests:
             storage: {{ .Values.postgres.storage.size }}

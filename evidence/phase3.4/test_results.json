@@ -1,0 +1,21 @@
+{
+  "worker_failure": {
+    "recovery_seconds": 6,
+    "service_impact": false,
+    "status": "pass"
+  },
+  "database_failure": {
+    "recovery_seconds": 4,
+    "app_crashed": false,
+    "worker_crashed": false,
+    "request_level_availability": "not guaranteed",
+    "status": "pass_with_limitation"
+  },
+  "control_plane_failure": {
+    "recovery_seconds": 35,
+    "cluster_recovered": true,
+    "manual_intervention": false,
+    "data_loss": false,
+    "status": "pass"
+  }
+}

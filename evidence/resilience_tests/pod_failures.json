@@ -1,0 +1,7 @@
+{
+  "test": "pod_failure",
+  "component": "postgres",
+  "pod_deleted": "postgres-0",
+  "recovery_seconds": 28,
+  "timestamp": "2026-03-09"
+}

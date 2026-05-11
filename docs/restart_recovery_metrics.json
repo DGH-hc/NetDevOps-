@@ -1,0 +1,32 @@
+{
+  "phase": "3.1",
+  "environment": {
+    "cluster_type": "Kind",
+    "node_type": "single-node",
+    "vault_storage": "file",
+    "vault_ha": false
+  },
+  "scenarios": [
+    {
+      "event": "clean_pod_deletion",
+      "vault_state": "unsealed",
+      "downtime_seconds": 11,
+      "recovery_behavior": "StatefulSet recreated pod, Vault agent re-authenticated, database reached 2/2 Running",
+      "notes": "Measured from pod deletion command to Ready state"
+    },
+    {
+      "event": "pod_restart_with_vault_sealed",
+      "vault_state": "sealed",
+      "downtime_seconds": 240,
+      "recovery_behavior": "Pod blocked in Init:0/1 until Vault manually unsealed",
+      "notes": "Recovery time dependent on human unseal action"
+    },
+    {
+      "event": "docker_runtime_restart",
+      "vault_state": "sealed_on_restart",
+      "behavior": "Pod sandbox recreated; containers terminated with exit code 255; manual Vault unseal required",
+      "estimated_recovery_seconds": 240,
+      "notes": "Simulated node-level disruption via Docker restart"
+    }
+  ]
+}

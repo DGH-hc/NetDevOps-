@@ -1,0 +1,22 @@
+NAMESPACE            NAME                                                READY   STATUS    RESTARTS         AGE    IP            NODE                      NOMINATED NODE   READINESS GATES
+app                  netdevops-api-7c6dfdcbd6-v9xdv                      1/1     Running   0                10h    10.244.0.21   netdevops-control-plane   <none>           <none>
+app                  netdevops-postgres-0                                2/2     Running   0                13h    10.244.0.20   netdevops-control-plane   <none>           <none>
+app                  netdevops-worker-6c748596c5-69nm2                   1/1     Running   35 (4h22m ago)   16d    10.244.0.12   netdevops-control-plane   <none>           <none>
+app                  netdevops-worker-6c748596c5-jc87b                   1/1     Running   35 (4h22m ago)   16d    10.244.0.11   netdevops-control-plane   <none>           <none>
+external-secrets     external-secrets-7798f65f59-wd5vh                   1/1     Running   53 (14h ago)     26d    10.244.0.2    netdevops-control-plane   <none>           <none>
+external-secrets     external-secrets-cert-controller-6475989584-zgnq6   1/1     Running   53 (14h ago)     26d    10.244.0.4    netdevops-control-plane   <none>           <none>
+external-secrets     external-secrets-webhook-5bf6897bb-24m4j            1/1     Running   28 (14h ago)     26d    10.244.0.3    netdevops-control-plane   <none>           <none>
+falco                falco-sn6ns                                         2/2     Running   8 (14h ago)      3d7h   10.244.0.15   netdevops-control-plane   <none>           <none>
+kube-system          coredns-7d764666f9-9fcrz                            1/1     Running   28 (14h ago)     26d    10.244.0.9    netdevops-control-plane   <none>           <none>
+kube-system          coredns-7d764666f9-b27zs                            1/1     Running   28 (14h ago)     26d    10.244.0.8    netdevops-control-plane   <none>           <none>
+kube-system          etcd-netdevops-control-plane                        1/1     Running   50 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          kindnet-9sstv                                       1/1     Running   49 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          kube-apiserver-netdevops-control-plane              1/1     Running   50 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          kube-controller-manager-netdevops-control-plane     1/1     Running   50 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          kube-proxy-g6mhf                                    1/1     Running   49 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          kube-scheduler-netdevops-control-plane              1/1     Running   50 (14h ago)     47d    172.18.0.2    netdevops-control-plane   <none>           <none>
+kube-system          metrics-server-7d5d94f9bc-9nrsf                     1/1     Running   47 (13h ago)     26d    10.244.0.10   netdevops-control-plane   <none>           <none>
+local-path-storage   local-path-provisioner-67b8995b4b-2hv4m             1/1     Running   55 (14h ago)     26d    10.244.0.5    netdevops-control-plane   <none>           <none>
+monitoring           prom-test                                           1/1     Running   0                9h     10.244.0.26   netdevops-control-plane   <none>           <none>
+vault                vault-0                                             1/1     Running   18 (14h ago)     17d    10.244.0.7    netdevops-control-plane   <none>           <none>
+vault                vault-agent-injector-8c76487db-xrw8n                1/1     Running   20 (14h ago)     19d    10.244.0.6    netdevops-control-plane   <none>           <none>

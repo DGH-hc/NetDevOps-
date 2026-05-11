@@ -1,0 +1,36 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+
+metadata:
+  name: postgres-alerts
+  namespace: monitoring
+
+  labels:
+    release: monitoring
+
+spec:
+  groups:
+    - name: postgres.rules
+
+      rules:
+        - alert: PostgreSQLDown
+          expr: pg_up == 0
+          for: 2m
+
+          labels:
+            severity: critical
+
+          annotations:
+            summary: PostgreSQL instance is down
+            description: postgres-exporter cannot reach PostgreSQL for more than 2 minutes.
+
+        - alert: PostgresExporterDown
+          expr: up{job="postgres-exporter"} == 0
+          for: 2m
+
+          labels:
+            severity: warning
+
+          annotations:
+            summary: postgres-exporter is down
+            description: Prometheus cannot scrape postgres-exporter for more than 2 minutes.

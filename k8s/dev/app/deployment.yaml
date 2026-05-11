@@ -1,29 +1,85 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: netdevops-app
+  namespace: app
+  labels:
+    app: netdevops-app
+    component: api
+
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: netdevops-app
+
   template:
     metadata:
       labels:
         app: netdevops-app
+        component: api
+
     spec:
+      # 🔥 FIX: shared volume permissions
+      securityContext:
+        fsGroup: 1000
+
+      # 🔥 FIX: ensure volume is writable before app starts
+      initContainers:
+        - name: fix-permissions
+          image: busybox
+          command: ["sh", "-c", "chmod -R 777 /tmp/prometheus-shared"]
+          volumeMounts:
+            - name: prometheus-shared
+              mountPath: /tmp/prometheus-shared
+
       containers:
         - name: app
-          image: netdevops:dev
-          imagePullPolicy: IfNotPresent
+          image: corporatecatalyst/netdevops-app:v1
+          imagePullPolicy: Always
+
+          # 🔥 CRITICAL: THIS DEFINES APP ROLE
+          command:
+            - uvicorn
+            - app.main:app
+            - --host
+            - 0.0.0.0
+            - --port
+            - "8000"
+
           ports:
             - containerPort: 8000
+
+          # 🔥 FIX: container user
+          securityContext:
+            runAsUser: 1000
+
+          env:
+            - name: PROMETHEUS_MULTIPROC_DIR
+              value: /tmp/prometheus-shared
 
           envFrom:
             - configMapRef:
                 name: netdevops-app-config
             - secretRef:
                 name: netdevops-app-secret
+
+          volumeMounts:
+            - name: logs
+              mountPath: /app/logs
+
+            - name: prometheus-shared
+              mountPath: /tmp/prometheus-shared
+
+          # 🔥 HEALTH CHECKS
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
 
           readinessProbe:
             httpGet:
@@ -32,25 +88,10 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
 
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            initialDelaySeconds: 15
-            periodSeconds: 20
-
-          resources:
-            requests:
-              cpu: "200m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
-
-          volumeMounts:
-            - name: logs
-              mountPath: /app/logs
-
       volumes:
         - name: logs
           emptyDir: {}
+
+        - name: prometheus-shared
+          persistentVolumeClaim:
+            claimName: prometheus-pvc

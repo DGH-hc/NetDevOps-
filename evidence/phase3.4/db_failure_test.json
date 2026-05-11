@@ -1,0 +1,10 @@
+{
+  "test": "postgres_failure",
+  "liveness_ok": true,
+  "readiness_failed": true,
+  "error_code_observed": [503],
+  "connection_drop_observed": true,
+  "reason": "single replica causes zero endpoints",
+  "recovered": true,
+  "recovery_time_seconds": 10
+}
