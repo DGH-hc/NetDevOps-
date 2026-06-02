@@ -94,9 +94,15 @@ async def metrics_middleware(request, call_next):
 
     duration = time.time() - start_time
 
-    path = request.url.path
-    method = request.method
+    route = request.scope.get("route")
 
+    if route: 
+        path = route.path
+    else:
+        path = request.url.path
+
+    method = request.method  
+                  
     http_requests_total.labels(method=method, endpoint=path).inc()
     http_request_duration_seconds.labels(method=method, endpoint=path).observe(duration)
 
