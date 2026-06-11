@@ -1,0 +1,4 @@
+# HELP http_requests_total Total HTTP requests
+# TYPE http_requests_total counter
+http_requests_total{api_path="/health",method="GET"} 747.0
+http_requests_total{api_path="/metrics",method="GET"} 338.0
