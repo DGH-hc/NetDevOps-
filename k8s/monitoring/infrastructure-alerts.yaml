@@ -1,0 +1,73 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: infrastructure-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+
+spec:
+  groups:
+    - name: infrastructure.rules
+      rules:
+
+        - alert: NodeCPUHigh
+          expr: |
+              (
+                 100 *
+                 (
+                   1 -
+                    avg by(instance)(
+                       rate(node_cpu_seconds_total{mode="idle"}[2m])
+                   )
+                 )
+                ) > 70
+          for: 10s
+          labels:
+            severity: warning
+          annotations:
+            summary: "High CPU usage on node"
+            description: "CPU usage exceeded 70%."
+
+        - alert: NodeMemoryHigh
+          expr: |
+            (
+              1 - (
+                node_memory_MemAvailable_bytes
+                /
+                node_memory_MemTotal_bytes
+              )
+            ) * 100 > 90
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High memory usage on node"
+            description: "Memory usage exceeded 90%."
+
+        - alert: DiskSpaceLow
+          expr: |
+            (
+              (
+                node_filesystem_size_bytes{fstype!="tmpfs"}
+                -
+                node_filesystem_avail_bytes{fstype!="tmpfs"}
+              )
+              /
+              node_filesystem_size_bytes{fstype!="tmpfs"}
+            ) * 100 > 85
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Disk space running low"
+            description: "Filesystem usage exceeded 85%."
+
+        - alert: NodeDown
+          expr: up{job="node-exporter"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Node exporter down"
+            description: "Node exporter target is unreachable."
