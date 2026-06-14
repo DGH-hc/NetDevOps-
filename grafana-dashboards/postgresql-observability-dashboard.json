@@ -22,8 +22,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -117,8 +116,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -211,8 +209,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -305,8 +302,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -399,8 +395,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -493,8 +488,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -576,8 +570,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "pg_up",

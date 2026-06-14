@@ -1,10 +1,12 @@
 # app/main.py
 
+from importlib.resources import path
 import shutil 
 import logging
 from logging.handlers import RotatingFileHandler
 import os
-import time 
+import time
+from urllib import response 
 PROM_DIR = "/tmp/prometheus-shared" 
 
 from fastapi import FastAPI, HTTPException
@@ -68,19 +70,19 @@ app = FastAPI(
 http_requests_total = Counter(
     "http_requests_total",
     "Total HTTP requests",
-    ["method", "endpoint"]
+    ["method", "api_path"]
 )
 
 http_errors_total = Counter(
     "http_errors_total",
     "Total HTTP errors",
-    ["method", "endpoint", "status"]
+    ["method", "api_path", "status"]
 )
 
 http_request_duration_seconds = Histogram(
     "http_request_duration_seconds",
     "HTTP request latency",
-    ["method", "endpoint"]
+    ["method", "api_path"]
 )
 
 # ==========================================================
@@ -103,15 +105,22 @@ async def metrics_middleware(request, call_next):
 
     method = request.method  
                   
-    http_requests_total.labels(method=method, endpoint=path).inc()
-    http_request_duration_seconds.labels(method=method, endpoint=path).observe(duration)
+    http_requests_total.labels(
+       method=method,
+       api_path=path
+    ).inc()
+
+    http_request_duration_seconds.labels(
+      method=method,
+      api_path=path
+    ).observe(duration)
 
     if response.status_code >= 400:
-        http_errors_total.labels(
-            method=method,
-            endpoint=path,
-            status=response.status_code
-        ).inc()
+     http_errors_total.labels(
+        method=method,
+        api_path=path,
+        status=response.status_code
+    ).inc()
 
     return response
 
