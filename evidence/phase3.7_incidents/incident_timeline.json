@@ -1,0 +1,41 @@
+[
+    {
+        "incident_id": "INC-001",
+        "timeline": [
+            {
+                "timestamp": "21:05:18.611052300",
+                "event": "sensitive_file_access"
+            },
+            {
+                "timestamp": "21:19:43.386001109",
+                "event": "container_shell"
+            }
+        ]
+    },
+    {
+        "incident_id": "INC-002",
+        "timeline": [
+            {
+                "timestamp": "2026-06-19T22:42:39Z",
+                "event": "pod_terminated"
+            },
+            {
+                "timestamp": "2026-06-19T22:42:42Z",
+                "event": "pod_started"
+            }
+        ]
+    },
+    {
+        "incident_id": "INC-003",
+        "timeline": [
+            {
+                "timestamp": "2026-06-19T22:42:39Z",
+                "event": "pod_terminated"
+            },
+            {
+                "timestamp": "2026-06-19T22:42:39Z",
+                "event": "cpu_metric_detected"
+            }
+        ]
+    }
+]

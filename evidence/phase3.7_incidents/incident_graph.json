@@ -1,0 +1,56 @@
+[
+    {
+        "incident_id": "INC-001",
+        "nodes": [
+            "container_shell",
+            "sensitive_file_access",
+            "runtime_compromise"
+        ],
+        "edges": [
+            {
+                "from": "container_shell",
+                "to": "runtime_compromise"
+            },
+            {
+                "from": "sensitive_file_access",
+                "to": "runtime_compromise"
+            }
+        ]
+    },
+    {
+        "incident_id": "INC-002",
+        "nodes": [
+            "pod_terminated",
+            "pod_started",
+            "pod_restart_cycle"
+        ],
+        "edges": [
+            {
+                "from": "pod_terminated",
+                "to": "pod_restart_cycle"
+            },
+            {
+                "from": "pod_started",
+                "to": "pod_restart_cycle"
+            }
+        ]
+    },
+    {
+        "incident_id": "INC-003",
+        "nodes": [
+            "cpu_metric_detected",
+            "pod_terminated",
+            "resource_pressure"
+        ],
+        "edges": [
+            {
+                "from": "cpu_metric_detected",
+                "to": "resource_pressure"
+            },
+            {
+                "from": "pod_terminated",
+                "to": "resource_pressure"
+            }
+        ]
+    }
+]
