@@ -1,0 +1,335 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{app}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-th7dq",
+                "namespace": "app",
+                "resourceVersion": "1033295",
+                "uid": "98e576df-ab64-477e-bc58-91276048d475"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:39Z",
+            "message": "Stopping container app",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:39Z",
+                "name": "netdevops-app-78d8bd544f-th7dq.18ba9cc212e1fe51",
+                "namespace": "app",
+                "resourceVersion": "1055686",
+                "uid": "903dd2db-3022-40be-b3df-f08fe3adb777"
+            },
+            "reason": "Killing",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:39Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055690",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:39Z",
+            "message": "Successfully assigned app/netdevops-app-78d8bd544f-wc85l to aegis-worker2",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:39Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc21489bf99",
+                "namespace": "app",
+                "resourceVersion": "1055694",
+                "uid": "409a3ac0-23de-4c30-832d-9daa0eb48248"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "",
+            "source": {
+                "component": "default-scheduler"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:40Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{fix-permissions}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:40Z",
+            "message": "Pulling image \"busybox\"",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:40Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc22fe840f6",
+                "namespace": "app",
+                "resourceVersion": "1055701",
+                "uid": "f7052aea-0847-4e89-96a6-7172384833aa"
+            },
+            "reason": "Pulling",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:42Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{fix-permissions}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:42Z",
+            "message": "Successfully pulled image \"busybox\" in 1.769s (1.769s including waiting). Image size: 1925780 bytes.",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:42Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc299683613",
+                "namespace": "app",
+                "resourceVersion": "1055709",
+                "uid": "037a7a7c-ab23-4120-b0c5-036cdcb9c380"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:42Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{fix-permissions}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:42Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:42Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc29a62d2d0",
+                "namespace": "app",
+                "resourceVersion": "1055710",
+                "uid": "0d915473-8385-4ffa-8998-e4c0f62069ec"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:42Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{fix-permissions}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:42Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:42Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc2a031d645",
+                "namespace": "app",
+                "resourceVersion": "1055711",
+                "uid": "6da3b800-bfaf-48dc-b240-c0a78f917879"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:42Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{app}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:42Z",
+            "message": "Container image \"corporatecatalyst/netdevops-app:fix-http-errors\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:42Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc2c58e223b",
+                "namespace": "app",
+                "resourceVersion": "1055713",
+                "uid": "0d9827f6-7322-4624-be46-fe545246ef13"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:42Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{app}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:42Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:42Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc2c7f48f87",
+                "namespace": "app",
+                "resourceVersion": "1055717",
+                "uid": "c981cb54-bacd-444c-8ef6-fa46522d1433"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:43Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{app}",
+                "kind": "Pod",
+                "name": "netdevops-app-78d8bd544f-wc85l",
+                "namespace": "app",
+                "resourceVersion": "1055692",
+                "uid": "06e4be01-7644-4ccc-9b95-8a996d8d6621"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:43Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:43Z",
+                "name": "netdevops-app-78d8bd544f-wc85l.18ba9cc2cd81a561",
+                "namespace": "app",
+                "resourceVersion": "1055718",
+                "uid": "2542f026-50c0-4489-966d-33e58ede28a4"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "aegis-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "aegis-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-06-19T22:42:39Z",
+            "involvedObject": {
+                "apiVersion": "apps/v1",
+                "kind": "ReplicaSet",
+                "name": "netdevops-app-78d8bd544f",
+                "namespace": "app",
+                "resourceVersion": "968313",
+                "uid": "8c11648d-9fbf-44ae-a975-fa828525cfed"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-06-19T22:42:39Z",
+            "message": "Created pod: netdevops-app-78d8bd544f-wc85l",
+            "metadata": {
+                "creationTimestamp": "2026-06-19T22:42:39Z",
+                "name": "netdevops-app-78d8bd544f.18ba9cc2141756dc",
+                "namespace": "app",
+                "resourceVersion": "1055691",
+                "uid": "d13e91e8-bb2e-443c-8846-17b514ceb9db"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "replicaset-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "replicaset-controller"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

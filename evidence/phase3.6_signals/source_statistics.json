@@ -1,0 +1,7 @@
+{
+  "falco": 100,
+  "k8s": 4,
+  "prometheus": 0,
+  "total_raw": 104,
+  "total_unique": 4
+}

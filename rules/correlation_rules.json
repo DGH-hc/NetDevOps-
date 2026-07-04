@@ -1,0 +1,29 @@
+[
+  {
+    "incident_type": "runtime_compromise",
+    "conditions": [
+      "container_shell",
+      "sensitive_file_access"
+    ],
+    "severity": "CRITICAL",
+    "root_cause_hint": "Possible container compromise through interactive shell and sensitive file access."
+  },
+  {
+    "incident_type": "pod_restart_cycle",
+    "conditions": [
+      "pod_terminated",
+      "pod_started"
+    ],
+    "severity": "MEDIUM",
+    "root_cause_hint": "Pod was terminated and restarted. Investigate the restart reason."
+  },
+  {
+    "incident_type": "resource_pressure",
+    "conditions": [
+      "cpu_metric_detected",
+      "pod_terminated"
+    ],
+    "severity": "HIGH",
+    "root_cause_hint": "High resource usage may have contributed to pod termination."
+  }
+]
