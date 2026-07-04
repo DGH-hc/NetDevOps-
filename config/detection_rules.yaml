@@ -1,0 +1,47 @@
+falco:
+  - match: "Sensitive file opened for reading"
+    event_type: "sensitive_file_access"
+    severity: "medium"
+
+  - match: "Shell spawned"
+    event_type: "container_shell"
+    severity: "high"
+
+  - match: "A shell was spawned in a container"
+    event_type: "container_shell"
+    severity: "high"
+
+k8s:
+  - match: "BackOff"
+    event_type: "pod_crash"
+    severity: "high"
+
+  - match: "NodeNotReady"
+    event_type: "node_availability_issue"
+    severity: "medium"
+
+  - match: "NodeReady"
+    event_type: "node_recovered"
+    severity: "low"
+
+  - match: "Unhealthy"
+    event_type: "service_health_issue"
+    severity: "medium"
+
+  - match: "Killing"
+    event_type: "pod_terminated"
+    severity: "medium"
+
+  - match: "Started"
+    event_type: "pod_started"
+    severity: "low"
+
+  - match: "SuccessfulCreate"
+    event_type: "workload_created"
+    severity: "low"  
+
+prometheus:
+  - metric: "cpu_usage"
+    threshold: 90
+    event_type: "cpu_spike"
+    severity: "medium"

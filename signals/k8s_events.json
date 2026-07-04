@@ -1,0 +1,50 @@
+[
+  {
+    "event_id": "evt-000101",
+    "timestamp": "2026-06-19T22:42:39Z",
+    "source": "k8s",
+    "severity": "medium",
+    "severity_score": 2,
+    "event_type": "pod_terminated",
+    "entity": "netdevops-app-78d8bd544f-th7dq",
+    "raw": {
+      "reason": "Killing"
+    }
+  },
+  {
+    "event_id": "evt-000102",
+    "timestamp": "2026-06-19T22:42:42Z",
+    "source": "k8s",
+    "severity": "low",
+    "severity_score": 1,
+    "event_type": "pod_started",
+    "entity": "netdevops-app-78d8bd544f-wc85l",
+    "raw": {
+      "reason": "Started"
+    }
+  },
+  {
+    "event_id": "evt-000103",
+    "timestamp": "2026-06-19T22:42:43Z",
+    "source": "k8s",
+    "severity": "low",
+    "severity_score": 1,
+    "event_type": "pod_started",
+    "entity": "netdevops-app-78d8bd544f-wc85l",
+    "raw": {
+      "reason": "Started"
+    }
+  },
+  {
+    "event_id": "evt-000104",
+    "timestamp": "2026-06-19T22:42:39Z",
+    "source": "k8s",
+    "severity": "low",
+    "severity_score": 1,
+    "event_type": "workload_created",
+    "entity": "netdevops-app-78d8bd544f",
+    "raw": {
+      "reason": "SuccessfulCreate"
+    }
+  }
+]
