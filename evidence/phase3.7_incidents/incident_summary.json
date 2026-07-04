@@ -1,0 +1,50 @@
+[
+    {
+        "incident_id": "INC-001",
+        "incident_type": "runtime_compromise",
+        "start_time": "21:05:18.611052300",
+        "end_time": "21:19:43.386001109",
+        "severity": "CRITICAL",
+        "signals": [
+            "container_shell",
+            "sensitive_file_access"
+        ],
+        "root_cause_hint": "Possible container compromise through interactive shell and sensitive file access.",
+        "affected_components": [
+            "netdevops-app",
+            "pg_isready"
+        ]
+    },
+    {
+        "incident_id": "INC-002",
+        "incident_type": "pod_restart_cycle",
+        "start_time": "2026-06-19T22:42:39Z",
+        "end_time": "2026-06-19T22:42:42Z",
+        "severity": "MEDIUM",
+        "signals": [
+            "pod_terminated",
+            "pod_started"
+        ],
+        "root_cause_hint": "Pod was terminated and restarted. Investigate the restart reason.",
+        "affected_components": [
+            "netdevops-app-78d8bd544f-th7dq",
+            "netdevops-app-78d8bd544f-wc85l"
+        ]
+    },
+    {
+        "incident_id": "INC-003",
+        "incident_type": "resource_pressure",
+        "start_time": "2026-06-19T22:42:39Z",
+        "end_time": "2026-06-19T22:42:39Z",
+        "severity": "HIGH",
+        "signals": [
+            "cpu_metric_detected",
+            "pod_terminated"
+        ],
+        "root_cause_hint": "High resource usage may have contributed to pod termination.",
+        "affected_components": [
+            "cluster",
+            "netdevops-app-78d8bd544f-th7dq"
+        ]
+    }
+]
