@@ -1,0 +1,30 @@
+{
+    "status": "collected",
+    "pods": [
+        {
+            "pod": "netdevops-app-78d8bd544f-wc85l",
+            "cpu_usage": "4m",
+            "memory_usage": "128Mi"
+        },
+        {
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "cpu_usage": "2m",
+            "memory_usage": "334Mi"
+        },
+        {
+            "pod": "postgres-0",
+            "cpu_usage": "11m",
+            "memory_usage": "56Mi"
+        },
+        {
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "cpu_usage": "3m",
+            "memory_usage": "26Mi"
+        },
+        {
+            "pod": "redis-7459445dbc-cjmjb",
+            "cpu_usage": "6m",
+            "memory_usage": "22Mi"
+        }
+    ]
+}

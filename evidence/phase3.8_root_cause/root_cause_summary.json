@@ -1,0 +1,23 @@
+[
+    {
+        "incident_id": "INC-001",
+        "incident_type": "runtime_compromise",
+        "severity": "CRITICAL",
+        "root_cause": "Likely runtime compromise caused by interactive shell activity and sensitive file access.",
+        "confidence": 0.95
+    },
+    {
+        "incident_id": "INC-002",
+        "incident_type": "pod_restart_cycle",
+        "severity": "MEDIUM",
+        "root_cause": "Likely workload restart. Investigate pod events and deployment history.",
+        "confidence": 0.75
+    },
+    {
+        "incident_id": "INC-003",
+        "incident_type": "resource_pressure",
+        "severity": "HIGH",
+        "root_cause": "Likely resource exhaustion caused pod instability.",
+        "confidence": 0.85
+    }
+]

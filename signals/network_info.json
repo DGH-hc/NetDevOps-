@@ -1,0 +1,15 @@
+{
+    "status": "collected",
+    "network_policies": [
+        {
+            "name": "allow-all-test",
+            "pod_selector": {},
+            "policy_types": [
+                "Ingress",
+                "Egress"
+            ],
+            "ingress_rules": 0,
+            "egress_rules": 0
+        }
+    ]
+}

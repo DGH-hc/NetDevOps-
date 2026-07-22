@@ -1,0 +1,75 @@
+{
+    "status": "collected",
+    "events": [
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Scheduled",
+            "type": "Normal",
+            "message": "Successfully assigned app/netdevops-app-78d8bd544f-4c97s to aegis-worker",
+            "timestamp": null
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"busybox\"",
+            "timestamp": "2026-07-16T20:16:57Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"busybox\" in 1.683s (1.683s including waiting). Image size: 1925780 bytes.",
+            "timestamp": "2026-07-16T20:16:58Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-16T20:16:58Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-16T20:16:58Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"corporatecatalyst/netdevops-app:fix-http-errors\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-16T20:16:59Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-16T20:16:59Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-16T20:16:59Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f-wc85l",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Stopping container app",
+            "timestamp": "2026-07-16T20:16:56Z"
+        },
+        {
+            "pod": "netdevops-app-78d8bd544f",
+            "reason": "SuccessfulCreate",
+            "type": "Normal",
+            "message": "Created pod: netdevops-app-78d8bd544f-4c97s",
+            "timestamp": "2026-07-16T20:16:56Z"
+        }
+    ]
+}

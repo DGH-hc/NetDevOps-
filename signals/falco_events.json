@@ -5,8 +5,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:11.770954794+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -52,8 +66,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:16.767374462+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -99,8 +127,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:21.777324214+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -146,8 +188,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:26.761917050+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -193,8 +249,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:31.779336052+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -240,8 +310,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:36.761018055+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -287,8 +371,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:41.771818849+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -334,8 +432,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:46.767782184+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -381,8 +493,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:51.783050728+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -428,8 +554,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:56.769221438+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -475,8 +615,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:01.773779399+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -522,8 +676,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:06.764822485+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -569,8 +737,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:11.776456487+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -616,8 +798,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:16.762722322+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -663,8 +859,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:21.772030783+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -710,8 +920,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:26.761928035+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -757,8 +981,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:31.773363205+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -804,8 +1042,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:36.767885707+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -851,8 +1103,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:41.777417626+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -898,8 +1164,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:46.772353086+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -945,8 +1225,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:51.773174921+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -992,8 +1286,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:56:56.768130007+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1039,8 +1347,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:01.772090176+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1086,8 +1408,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:06.769506137+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1133,8 +1469,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:11.773229056+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1180,8 +1530,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:16.766551349+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1227,8 +1591,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:21.772255352+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1274,8 +1652,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:26.768272937+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1321,8 +1713,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:31.777282107+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1368,8 +1774,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:36.765529859+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1415,8 +1835,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:41.779439861+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1462,8 +1896,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:46.765790030+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1509,8 +1957,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:51.771444657+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1556,8 +2018,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:57:56.764716243+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1603,8 +2079,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:01.781055996+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1650,8 +2140,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:06.759076415+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1697,8 +2201,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:11.773748459+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1744,8 +2262,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:16.768263502+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1791,8 +2323,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:21.773751212+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1838,8 +2384,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:26.765722840+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1885,8 +2445,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:31.782609426+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1932,8 +2506,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:36.766942178+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -1979,8 +2567,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:41.774261722+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2026,8 +2628,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:46.766185807+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2073,8 +2689,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:51.773722642+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2120,8 +2750,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:58:56.769494811+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2167,8 +2811,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:01.774218647+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2214,8 +2872,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:06.761114150+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2261,8 +2933,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:11.770793152+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2308,8 +2994,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:16.763461404+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2355,8 +3055,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:21.774376073+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2402,8 +3116,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:26.765614783+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2449,8 +3177,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:31.780121119+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2496,8 +3238,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:36.766643330+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2543,8 +3299,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:41.773545124+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2590,8 +3360,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:46.775921500+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2637,8 +3421,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:51.781654961+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2684,8 +3482,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:59:56.764741297+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2731,8 +3543,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:01.780904424+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2778,8 +3604,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:06.763867343+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2825,8 +3665,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:11.771036262+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2872,8 +3726,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:16.764441889+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2919,8 +3787,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:21.772776308+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -2966,8 +3848,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:26.763461144+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3013,8 +3909,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:31.775445105+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3060,8 +3970,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:36.762781107+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3107,8 +4031,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:41.770635110+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3154,8 +4092,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:46.761581486+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3201,8 +4153,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:51.773458572+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3248,8 +4214,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:00:56.765421158+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3295,8 +4275,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:01.785232035+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3342,8 +4336,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:06.765439538+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3389,8 +4397,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:11.773727540+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3436,8 +4458,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:16.762392000+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3483,8 +4519,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:21.779072961+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3530,8 +4580,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:26.766022380+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3577,8 +4641,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:31.782082466+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3624,8 +4702,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:36.763323926+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3671,8 +4763,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:41.780739220+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3718,8 +4824,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:46.768278389+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3765,8 +4885,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:51.777260599+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3812,8 +4946,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:01:56.766327685+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3859,8 +5007,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:01.775862063+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3906,8 +5068,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:06.767400315+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -3953,8 +5129,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:11.778359442+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4000,8 +5190,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:16.772101611+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4047,8 +5251,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:21.773608280+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4094,8 +5312,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:26.765170532+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4141,8 +5373,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:31.782647035+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4188,8 +5434,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:36.768437704+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4235,8 +5495,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:41.771829456+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4282,8 +5556,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:46.765451167+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4329,8 +5617,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:51.781520502+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4376,8 +5678,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:02:56.763325130+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4423,8 +5739,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:01.770509716+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4470,8 +5800,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:06.772674260+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4517,8 +5861,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:11.782015887+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4564,8 +5922,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:16.766544639+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4611,8 +5983,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:21.763574058+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -4658,8 +6044,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T16:03:26.767100893+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=containerd-shim gggparent=systemd evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=containerd-shim command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",

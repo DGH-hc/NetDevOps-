@@ -1,0 +1,30 @@
+[
+    {
+        "deployment_name": "netdevops-app",
+        "namespace": "app",
+        "replicas": 1,
+        "image": "corporatecatalyst/netdevops-app:fix-http-errors",
+        "service_account": "default"
+    },
+    {
+        "deployment_name": "netdevops-worker",
+        "namespace": "app",
+        "replicas": 1,
+        "image": "corporatecatalyst/netdevops-app:latest",
+        "service_account": "default"
+    },
+    {
+        "deployment_name": "postgres-exporter",
+        "namespace": "app",
+        "replicas": 1,
+        "image": "prometheuscommunity/postgres-exporter:latest",
+        "service_account": "default"
+    },
+    {
+        "deployment_name": "redis",
+        "namespace": "app",
+        "replicas": 1,
+        "image": "redis:7",
+        "service_account": "default"
+    }
+]

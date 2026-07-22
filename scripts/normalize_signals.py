@@ -1,4 +1,5 @@
 import json
+import hashlib
 import yaml
 from datetime import datetime, timezone  
 from pathlib import Path
@@ -47,6 +48,93 @@ def next_event_id():
     event_counter += 1
     return event_id
 
+# -------------------------
+# MITRE Enrichment
+# -------------------------
+
+def extract_mitre(tags):
+
+    mitre = {
+        "technique": None,
+        "tactic": None
+    }
+
+    if not tags:
+        return mitre
+
+    for tag in tags:
+
+        if tag.startswith("T"):
+            mitre["technique"] = tag
+
+        elif tag.startswith("mitre_"):
+            mitre["tactic"] = (
+                tag
+                .replace("mitre_", "")
+                .replace("_", " ")
+                .title()
+            )
+
+    return mitre
+
+
+# -------------------------
+# Confidence Scoring
+# -------------------------
+
+def calculate_confidence(severity, source):
+
+    score = 0.50
+
+    # Severity contribution
+    severity_bonus = {
+        "low": 0.10,
+        "medium": 0.20,
+        "high": 0.30,
+        "critical": 0.40
+    }
+
+    score += severity_bonus.get(
+        severity,
+        0.0
+    )
+
+    # Source reliability contribution
+    source_bonus = {
+        "falco": 0.10,
+        "k8s": 0.05,
+        "prometheus": 0.05
+    }
+
+    score += source_bonus.get(
+        source,
+        0.0
+    )
+
+    return round(
+        min(score, 1.0),
+        2
+    )
+
+# -------------------------
+# Event Fingerprinting
+# -------------------------
+
+def generate_fingerprint(
+    source,
+    event_type,
+    entity
+):
+
+    fingerprint_source = (
+        f"{source}|"
+        f"{event_type}|"
+        f"{json.dumps(entity, sort_keys=True)}"
+    )
+
+    return hashlib.sha256(
+        fingerprint_source.encode("utf-8")
+    ).hexdigest()
 
 # -------------------------
 # Severity Scores
@@ -101,13 +189,15 @@ with open("signals/falco_raw.log", "r") as f:
             continue
 
         
-        entity = "unknown"
-
-        if matched_rule["event_type"] == "sensitive_file_access":
-            entity = "pg_isready"
-
-        elif matched_rule["event_type"] == "container_shell":
-            entity = "netdevops-app"
+        entity = {
+            "process": event["output_fields"].get("proc.name"),
+            "container_id": event["output_fields"].get("container.id"),
+            "container_name": event["output_fields"].get("container.name"),
+            "pod_name": event["output_fields"].get("k8s.pod.name"),
+            "namespace": event["output_fields"].get("k8s.ns.name"),
+            "host": event.get("hostname"),
+            "user": event["output_fields"].get("user.name")
+}
 
         falco_events.append(
             {
@@ -118,8 +208,20 @@ with open("signals/falco_raw.log", "r") as f:
                 "severity_score": SEVERITY_SCORES[
                     matched_rule["severity"]
                 ],
+                "confidence": calculate_confidence(
+                    matched_rule["severity"],
+                    "falco"
+                ),
                 "event_type": matched_rule["event_type"],
                 "entity": entity,
+                "fingerprint": generate_fingerprint(
+                    "falco",
+                    matched_rule["event_type"],
+                    entity 
+                ),
+                "mitre": extract_mitre(
+                    event.get("tags", [])
+                ),
                 "raw": event 
             }
         )
@@ -154,6 +256,30 @@ for item in data["items"]:
     if not matched_rule:
         continue
 
+    entity = {
+        "name": item.get(
+            "involvedObject",
+            {}
+        ).get(
+            "name",
+            ""
+        ),
+        "kind": item.get(
+            "involvedObject",
+            {}
+        ).get(
+            "kind",
+            ""
+        ),
+        "namespace": item.get(
+            "metadata",
+            {}
+        ).get(
+            "namespace",
+            ""
+        )
+    }
+
     k8s_events.append(
         {
             "event_id": next_event_id(),
@@ -165,13 +291,16 @@ for item in data["items"]:
             "severity_score": SEVERITY_SCORES[
                 matched_rule["severity"]
             ],
+            "confidence": calculate_confidence(
+                matched_rule["severity"],
+                "k8s"
+            ),
             "event_type": matched_rule["event_type"],
-            "entity": item.get(
-                "involvedObject",
-                {}
-            ).get(
-                "name",
-                ""
+            "entity": entity,
+            "fingerprint": generate_fingerprint(
+                "k8s",
+                matched_rule["event_type"],
+                entity
             ),
             "raw": {
                 "reason": reason
@@ -183,7 +312,6 @@ with open("signals/k8s_events.json", "w") as f:
     json.dump(k8s_events, f, indent=2)
 
 print(f"Generated {len(k8s_events)} k8s events")
-
 
 # =====================================================
 # PROMETHEUS
@@ -225,6 +353,12 @@ if cpu_result:
     # -----------------------------------------------------
 
     if cpu_usage >= 80:
+        entity = {
+            "name": "cluster",
+            "metric": "cpu_usage",
+            "collector": "prometheus",
+            "resource_type": "cluster"
+         }
 
         prom_events.append(
             {
@@ -235,11 +369,25 @@ if cpu_result:
                 "source": "prometheus",
                 "severity": "medium",
                 "severity_score": SEVERITY_SCORES["medium"],
+                "confidence": calculate_confidence(
+                  "medium",
+                  "prometheus"
+                ),
                 "event_type": "cpu_metric_detected",
-                "entity": "cluster",
+                "entity": entity,
+                "fingerprint": generate_fingerprint(
+                    "prometheus",
+                    "cpu_metric_detected",
+                    entity 
+                ),
                 "raw": {
-                    "cpu_usage": cpu_usage
-                }
+                       "metric": "cpu_usage",
+                       "value": cpu_usage,
+                       "unit": "%",
+                       "threshold": 80,
+                       "comparison": ">=",
+                       "status": "threshold_exceeded"
+                    }
             }
         )
 
@@ -273,10 +421,15 @@ seen = set()
 
 for event in all_events:
 
+    entity = event["entity"]
+
     key = (
         event["source"],
         event["event_type"],
-        event["entity"]
+        json.dumps(
+            entity,
+            sort_keys=True
+        )
     )
 
     if key not in seen:

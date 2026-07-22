@@ -1,0 +1,30 @@
+[
+    {
+        "id": "runtime_compromise",
+        "name": "Runtime Compromise",
+        "priority": 100,
+        "required_signals": [],
+        "optional_signals": [],
+        "hint": "Likely runtime compromise caused by interactive shell activity and sensitive file access.",
+        "confidence": 0.95
+        
+    },
+    {
+        "id": "resource_pressure",
+        "name": "Resource Pressure",
+        "priority": 90,
+        "required_signals": [],
+        "optional_signals": [],
+        "hint": "Likely resource exhaustion caused pod instability.",
+        "confidence": 0.85
+    },
+    {
+        "id": "pod_restart_cycle",
+        "name": "Pod Restart Cycle",
+        "priority": 80,
+        "required_signals": [],
+        "optional_signals": [],
+        "hint": "Likely workload restart. Investigate pod events and deployment history.",
+        "confidence": 0.75
+    }
+]

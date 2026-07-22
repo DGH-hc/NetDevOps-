@@ -5,8 +5,22 @@
     "source": "falco",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.8,
     "event_type": "sensitive_file_access",
-    "entity": "pg_isready",
+    "entity": {
+      "process": "pg_isready",
+      "container_id": "c96925e188c1",
+      "container_name": null,
+      "pod_name": null,
+      "namespace": null,
+      "host": "aegis-control-plane",
+      "user": "root"
+    },
+    "fingerprint": "f27135ecfa6d702d7995254e5ce0a66831220aa14ebb975d66b24994e48a1bf7",
+    "mitre": {
+      "technique": "T1555",
+      "tactic": "Credential Access"
+    },
     "raw": {
       "hostname": "aegis-control-plane",
       "output": "2026-07-04T15:55:11.770954794+0000: Warning Sensitive file opened for reading by non-trusted program | file=/etc/shadow gparent=<NA> ggparent=<NA> gggparent=<NA> evt_type=openat user=root user_uid=0 user_loginuid=-1 process=pg_isready proc_exepath=/usr/bin/perl parent=<NA> command=pg_isready /usr/bin/pg_isready -U netdevops terminal=0 container_id=c96925e188c1 container_name=<NA> container_image_repository=<NA> container_image_tag=<NA> k8s_pod_name=<NA> k8s_ns_name=<NA>",
@@ -52,8 +66,14 @@
     "source": "k8s",
     "severity": "medium",
     "severity_score": 2,
+    "confidence": 0.75,
     "event_type": "pod_terminated",
-    "entity": "netdevops-app-78d8bd544f-th7dq",
+    "entity": {
+      "name": "netdevops-app-78d8bd544f-th7dq",
+      "kind": "Pod",
+      "namespace": "app"
+    },
+    "fingerprint": "c0b3d7ab3a560f96689738222f9e4d4ed2ffb7157dc065a1d56bd70bed313809",
     "raw": {
       "reason": "Killing"
     }
@@ -64,8 +84,14 @@
     "source": "k8s",
     "severity": "low",
     "severity_score": 1,
+    "confidence": 0.65,
     "event_type": "pod_started",
-    "entity": "netdevops-app-78d8bd544f-wc85l",
+    "entity": {
+      "name": "netdevops-app-78d8bd544f-wc85l",
+      "kind": "Pod",
+      "namespace": "app"
+    },
+    "fingerprint": "a61401d6388616c57e5d82ab379e6fcda9a9ea8176002a35b518adb8e5172438",
     "raw": {
       "reason": "Started"
     }
@@ -76,8 +102,14 @@
     "source": "k8s",
     "severity": "low",
     "severity_score": 1,
+    "confidence": 0.65,
     "event_type": "workload_created",
-    "entity": "netdevops-app-78d8bd544f",
+    "entity": {
+      "name": "netdevops-app-78d8bd544f",
+      "kind": "ReplicaSet",
+      "namespace": "app"
+    },
+    "fingerprint": "c56a660697fb817f0015134326697918b7e1b0b3f660f0695c2ab3edab2d47d7",
     "raw": {
       "reason": "SuccessfulCreate"
     }

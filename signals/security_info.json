@@ -1,0 +1,75 @@
+{
+    "status": "collected",
+    "pods": [
+        {
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "service_account": "default",
+            "containers": [
+                {
+                    "container": "app",
+                    "run_as_user": 1000,
+                    "run_as_non_root": null,
+                    "allow_privilege_escalation": null,
+                    "read_only_root_filesystem": null,
+                    "privileged": null
+                }
+            ]
+        },
+        {
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "service_account": "default",
+            "containers": [
+                {
+                    "container": "worker",
+                    "run_as_user": null,
+                    "run_as_non_root": null,
+                    "allow_privilege_escalation": null,
+                    "read_only_root_filesystem": null,
+                    "privileged": null
+                }
+            ]
+        },
+        {
+            "pod": "postgres-0",
+            "service_account": "default",
+            "containers": [
+                {
+                    "container": "postgres",
+                    "run_as_user": null,
+                    "run_as_non_root": null,
+                    "allow_privilege_escalation": null,
+                    "read_only_root_filesystem": null,
+                    "privileged": null
+                }
+            ]
+        },
+        {
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "service_account": "default",
+            "containers": [
+                {
+                    "container": "postgres-exporter",
+                    "run_as_user": null,
+                    "run_as_non_root": null,
+                    "allow_privilege_escalation": null,
+                    "read_only_root_filesystem": null,
+                    "privileged": null
+                }
+            ]
+        },
+        {
+            "pod": "redis-7459445dbc-cjmjb",
+            "service_account": "default",
+            "containers": [
+                {
+                    "container": "redis",
+                    "run_as_user": null,
+                    "run_as_non_root": null,
+                    "allow_privilege_escalation": null,
+                    "read_only_root_filesystem": null,
+                    "privileged": null
+                }
+            ]
+        }
+    ]
+}

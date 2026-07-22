@@ -1,0 +1,26 @@
+[
+    {
+        "incident_id": "INC-001",
+        "incident_type": "runtime_compromise",
+        "affected_components": [
+            "netdevops-app",
+            "pg_isready"
+        ]
+    },
+    {
+        "incident_id": "INC-002",
+        "incident_type": "pod_restart_cycle",
+        "affected_components": [
+            "netdevops-app-78d8bd544f-th7dq",
+            "netdevops-app-78d8bd544f-wc85l"
+        ]
+    },
+    {
+        "incident_id": "INC-003",
+        "incident_type": "resource_pressure",
+        "affected_components": [
+            "cluster",
+            "netdevops-app-78d8bd544f-th7dq"
+        ]
+    }
+]

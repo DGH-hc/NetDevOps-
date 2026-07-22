@@ -1,0 +1,40 @@
+{
+  "runtime_compromise": {
+    "recommendations": [
+      "Isolate the affected pod from the network.",
+      "Review Falco alerts related to the incident.",
+      "Inspect container logs for suspicious activity.",
+      "Verify recent deployment and image changes.",
+      "Rotate any potentially exposed credentials."
+    ]
+  },
+
+  "pod_restart_cycle": {
+    "recommendations": [
+      "Inspect pod logs for crash reasons.",
+      "Check Kubernetes events for restart triggers.",
+      "Review deployment rollout history.",
+      "Verify container readiness and liveness probes.",
+      "Investigate application startup failures."
+    ]
+  },
+
+  "resource_pressure": {
+    "recommendations": [
+      "Review CPU and memory utilization metrics.",
+      "Check node resource availability.",
+      "Inspect resource requests and limits.",
+      "Identify resource-intensive workloads.",
+      "Consider scaling the affected workload."
+    ]
+  },
+
+  "default": {
+    "recommendations": [
+      "Perform manual investigation.",
+      "Review collected evidence.",
+      "Analyze Kubernetes events and logs.",
+      "Escalate to the platform engineering team if required."
+    ]
+  }
+}
