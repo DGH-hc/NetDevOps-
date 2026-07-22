@@ -1,0 +1,50 @@
+{
+  "incident": {
+    "incident_id": "",
+    "incident_type": "",
+    "severity": "",
+    "status": "",
+    "detected_at": "",
+    "namespace": "",
+    "workload": ""
+  },
+
+  "summary": {
+    "title": "",
+    "description": ""
+  },
+
+  "phase3_7":{
+    "summary":{},
+    "graph":{},
+    "timeline": {}
+  },
+
+  "signals": [],
+
+  "affected_components": [],
+
+  "context": {
+    "logs": {},
+    "deployment": {},
+    "metrics": {},
+    "events": {},
+    "network": {},
+    "security": {},
+    "recent_changes": {}
+  },
+
+  "root_cause": {
+    "hint": "",
+    "confidence": 0.0
+  },
+
+  "timeline": [],
+
+  "evidence": [],
+
+  "metadata": {
+    "enriched_at": "",
+    "schema_version": "1.0"
+  }
+}
