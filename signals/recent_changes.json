@@ -1,0 +1,19 @@
+{
+    "status": "collected",
+    "collected_at": "2026-07-30T15:40:40.411635+00:00",
+    "deployment_count": 1,
+    "deployments": [
+        {
+            "name": "redis",
+            "namespace": "app",
+            "generation": 1,
+            "resource_version": "453012",
+            "created": "2026-03-30T05:56:34Z",
+            "replicas": 1,
+            "images": [
+                "redis:7"
+            ],
+            "observed_at": "2026-07-30T15:40:40.411389+00:00"
+        }
+    ]
+}

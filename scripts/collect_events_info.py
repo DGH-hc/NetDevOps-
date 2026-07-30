@@ -1,107 +1,75 @@
+from kubernetes import client, config
 import json
-import subprocess
 from pathlib import Path
 
-
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "signals"
-    / "events_info.json"
-)
+OUTPUT_FILE = Path("signals/events_info.json")
 
 
 def collect_events():
-    """
-    Collect Kubernetes events.
-    """
+    config.load_kube_config()
 
-    command = [
-        "kubectl",
-        "get",
-        "events",
-        "-n",
-        "app",
-        "-o",
-        "json"
-    ]
+    v1 = client.CoreV1Api()
 
-    try:
+    events = v1.list_event_for_all_namespaces().items
 
-        result = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            check=True
-        )
+    collected_events = []
 
-    except subprocess.CalledProcessError:
+    for event in events:
+        timestamp = None
 
-        return {
-            "status": "not_collected",
-            "events": []
-        }
+        if event.event_time:
+            timestamp = event.event_time.isoformat()
 
-    raw = json.loads(result.stdout)
+        elif event.last_timestamp:
+            timestamp = event.last_timestamp.isoformat()
 
-    events = []
+        elif event.first_timestamp:
+            timestamp = event.first_timestamp.isoformat()
 
-    for item in raw["items"]:
-
-        involved = item.get("involvedObject", {})
-
-        events.append(
+        collected_events.append(
             {
-                "pod": involved.get("name", ""),
-                "reason": item.get("reason", ""),
-                "type": item.get("type", ""),
-                "message": item.get("message", ""),
-                "timestamp": (
-                    item.get("eventTime")
-                 or item.get("lastTimestamp")
-                 or item.get("firstTimestamp")
-                 or item.get("metadata", {}).get("creationTimestamp", "")
-                )
+                "namespace": event.metadata.namespace,
+                "pod": (
+                    event.involved_object.name
+                    if event.involved_object
+                    else None
+                ),
+                "reason": event.reason,
+                "type": event.type,
+                "message": event.message,
+                "timestamp": timestamp,
             }
         )
 
-    return {
-        "status": "collected",
-        "events": events
-    }
-
-
-def main():
-
-    print("----------------------------------------")
-    print(" Kubernetes Events Collector")
-    print("----------------------------------------")
-
-    data = collect_events()
-
     OUTPUT_FILE.parent.mkdir(
         parents=True,
-        exist_ok=True
+        exist_ok=True,
     )
 
-    with open(
-        OUTPUT_FILE,
+    with OUTPUT_FILE.open(
         "w",
-        encoding="utf-8"
-    ) as file:
-
+        encoding="utf-8",
+    ) as f:
         json.dump(
-            data,
-            file,
-            indent=4
+            {
+                "status": "collected",
+                "events": collected_events,
+            },
+            f,
+            indent=4,
         )
 
     print(
-        f"✓ Collected {len(data['events'])} event(s)"
+        f"Collected {len(collected_events)} Kubernetes event(s)"
     )
 
-    print(f"✓ Saved : {OUTPUT_FILE}")
+    print(
+        f"Output written to: {OUTPUT_FILE}"
+    )
+
+
+def main():
+    collect_events()
 
 
 if __name__ == "__main__":

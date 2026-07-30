@@ -81,11 +81,17 @@ def collect_deployment(incident):
             "deployment_name": "",
             "namespace": "",
             "replicas": "",
+            "available_replicas": "",
+            "ready_replicas": "",
+            "updated_replicas": "",
             "image": "",
-            "service_account": ""
+            "service_account": "",
+            "timestamp": "",
         }
 
-    deployments = load_json(DEPLOYMENT_INFO_FILE)
+    data = load_json(DEPLOYMENT_INFO_FILE)
+
+    deployments = data.get("deployments", [])
 
     for deployment in deployments:
 
@@ -106,8 +112,12 @@ def collect_deployment(incident):
         "deployment_name": "",
         "namespace": "",
         "replicas": "",
+        "available_replicas": "",
+        "ready_replicas": "",
+        "updated_replicas": "",
         "image": "",
-        "service_account": ""
+        "service_account": "",
+        "timestamp": "",
     }
 
 def collect_metrics(incident):

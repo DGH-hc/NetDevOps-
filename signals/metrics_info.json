@@ -1,30 +1,37 @@
 {
     "status": "collected",
+    "collected_at": "2026-07-30T15:39:07.991794+00:00",
+    "pod_count": 5,
     "pods": [
         {
-            "pod": "netdevops-app-78d8bd544f-wc85l",
-            "cpu_usage": "4m",
-            "memory_usage": "128Mi"
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "cpu_usage": "3m",
+            "memory_usage": "131Mi",
+            "timestamp": "2026-07-30T15:39:07.991426+00:00"
         },
         {
             "pod": "netdevops-worker-545d565b8-4vhwh",
             "cpu_usage": "2m",
-            "memory_usage": "334Mi"
+            "memory_usage": "353Mi",
+            "timestamp": "2026-07-30T15:39:07.991781+00:00"
         },
         {
             "pod": "postgres-0",
-            "cpu_usage": "11m",
-            "memory_usage": "56Mi"
+            "cpu_usage": "6m",
+            "memory_usage": "56Mi",
+            "timestamp": "2026-07-30T15:39:07.991785+00:00"
         },
         {
             "pod": "postgres-exporter-855bc75948-tqkz4",
-            "cpu_usage": "3m",
-            "memory_usage": "26Mi"
+            "cpu_usage": "2m",
+            "memory_usage": "26Mi",
+            "timestamp": "2026-07-30T15:39:07.991788+00:00"
         },
         {
             "pod": "redis-7459445dbc-cjmjb",
             "cpu_usage": "6m",
-            "memory_usage": "22Mi"
+            "memory_usage": "21Mi",
+            "timestamp": "2026-07-30T15:39:07.991792+00:00"
         }
     ]
 }

@@ -1,0 +1,96 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "AegisAI Input Package",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "package_version",
+            "generated_by",
+            "incident",
+            "root_cause",
+            "signals",
+            "affected_components",
+            "timeline",
+            "evidence",
+            "recommendations"
+        ],
+        "properties": {
+            "package_version": {
+                "type": "string"
+            },
+            "generated_by": {
+                "type": "string"
+            },
+            "incident": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "detected_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                }
+            },
+            "root_cause": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "hint": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "confidence": {
+                        "type": [
+                            "number",
+                            "null"
+                        ]
+                    }
+                }
+            },
+            "signals": {
+                "type": "array"
+            },
+            "affected_components": {
+                "type": "array"
+            },
+            "timeline": {
+                "type": "array"
+            },
+            "evidence": {
+                "type": "array"
+            },
+            "recommendations": {
+                "type": "array"
+            }
+        }
+    }
+}
