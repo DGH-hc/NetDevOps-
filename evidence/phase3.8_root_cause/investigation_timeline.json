@@ -1,47 +1,1081 @@
-[
-    {
-        "incident_id": "INC-001",
-        "timeline": [
-            {
-                "timestamp": "21:05:18.611052300",
-                "event": "sensitive_file_access",
-                "status": "observed"
-            },
-            {
-                "timestamp": "21:19:43.386001109",
-                "event": "container_shell",
-                "status": "observed"
-            }
+{
+    "summary": {
+        "total_events": 71,
+        "first_event": "2026-07-30T09:54:38+00:00",
+        "last_event": "2026-07-30T15:39:07.991792+00:00",
+        "sources": [
+            "Falco",
+            "Kubernetes Events",
+            "Metrics"
         ]
     },
-    {
-        "incident_id": "INC-002",
-        "timeline": [
-            {
-                "timestamp": "2026-06-19T22:42:39Z",
-                "event": "pod_terminated",
-                "status": "observed"
+    "timeline": [
+        {
+            "timestamp": "2026-07-30T09:54:38+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": "Starting kubelet.",
+                "timestamp": "2026-07-30T09:54:38+00:00"
             },
-            {
-                "timestamp": "2026-06-19T22:42:42Z",
-                "event": "pod_started",
-                "status": "observed"
-            }
-        ]
-    },
-    {
-        "incident_id": "INC-003",
-        "timeline": [
-            {
-                "timestamp": "2026-06-19T22:42:39Z",
-                "event": "pod_terminated",
-                "status": "observed"
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:39+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "NodeHasSufficientMemory",
+                "type": "Normal",
+                "message": "Node aegis-control-plane status is now: NodeHasSufficientMemory",
+                "timestamp": "2026-07-30T09:54:39+00:00"
             },
-            {
-                "timestamp": "2026-06-19T22:42:39Z",
-                "event": "cpu_metric_detected",
-                "status": "observed"
-            }
-        ]
-    }
-]
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:41+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "NodeHasSufficientMemory",
+                "type": "Normal",
+                "message": "Node aegis-worker status is now: NodeHasSufficientMemory",
+                "timestamp": "2026-07-30T09:54:41+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:42+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Rebooted",
+                "type": "Warning",
+                "message": "Node aegis-control-plane has been rebooted, boot id: 24c00730-c399-4c7c-8b7d-cff846a84490",
+                "timestamp": "2026-07-30T09:54:42+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:43+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "SandboxChanged",
+                "type": "Normal",
+                "message": "Pod sandbox changed, it will be killed and re-created.",
+                "timestamp": "2026-07-30T09:54:43+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:44+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Pulling",
+                "type": "Normal",
+                "message": "Pulling image \"busybox\"",
+                "timestamp": "2026-07-30T09:54:44+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:44+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "coredns-7d764666f9-24dfx",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: Get \"http://10.244.0.4:8181/ready\": dial tcp 10.244.0.4:8181: connect: connection refused",
+                "timestamp": "2026-07-30T09:54:44+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:44.897828+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T09:54:44.897828+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:45+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-prbw2",
+                "reason": "Started",
+                "type": "Normal",
+                "message": "Container started",
+                "timestamp": "2026-07-30T09:54:45+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:45.654670+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker2",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T09:54:45.654670+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:45.949250+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T09:54:45.949250+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:46+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-worker-545d565b8-4vhwh",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Successfully pulled image \"corporatecatalyst/netdevops-app:latest\" in 1.897s (1.897s including waiting). Image size: 95460836 bytes.",
+                "timestamp": "2026-07-30T09:54:46+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:47+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Successfully pulled image \"busybox\" in 1.536s (3.344s including waiting). Image size: 1925780 bytes.",
+                "timestamp": "2026-07-30T09:54:47+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:48+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Created",
+                "type": "Normal",
+                "message": "Container created",
+                "timestamp": "2026-07-30T09:54:48+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:48+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: Get \"http://10.244.1.4:3000/api/health\": dial tcp 10.244.1.4:3000: connect: connection refused",
+                "timestamp": "2026-07-30T09:54:48+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:49+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Started",
+                "type": "Normal",
+                "message": "Container started",
+                "timestamp": "2026-07-30T09:54:49+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:54:59+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "kube-scheduler",
+                "reason": "LeaderElection",
+                "type": "Normal",
+                "message": "aegis-control-plane_f525ab0b-7d20-4273-b635-c87ab87c0fd3 became leader",
+                "timestamp": "2026-07-30T09:54:59+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:00+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "kube-controller-manager",
+                "reason": "LeaderElection",
+                "type": "Normal",
+                "message": "aegis-control-plane_111894b3-5735-4d63-b4a6-82c48ea391b9 became leader",
+                "timestamp": "2026-07-30T09:55:00+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:01+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "RegisteredNode",
+                "type": "Normal",
+                "message": "Node aegis-control-plane event: Registered Node aegis-control-plane in Controller",
+                "timestamp": "2026-07-30T09:55:01+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:05+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "metrics-server-67cbccccd9-glwlz",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+                "timestamp": "2026-07-30T09:55:05+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:06+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "coredns-7d764666f9-24dfx",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+                "timestamp": "2026-07-30T09:55:06+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:11+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "coredns-7d764666f9-4p9j7",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+                "timestamp": "2026-07-30T09:55:11+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:15+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-fd7t6",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T09:55:15+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:15+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "metrics-server-67cbccccd9-glwlz",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": read tcp 10.244.1.1:56948->10.244.1.5:10250: read: connection reset by peer",
+                "timestamp": "2026-07-30T09:55:15+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:16+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-jj55l",
+                "reason": "Created",
+                "type": "Normal",
+                "message": "Container created",
+                "timestamp": "2026-07-30T09:55:16+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:16+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Liveness probe failed: Get \"http://10.244.1.2:8080/livez\": dial tcp 10.244.1.2:8080: connect: connection refused",
+                "timestamp": "2026-07-30T09:55:16+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:17+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-prbw2",
+                "reason": "Created",
+                "type": "Normal",
+                "message": "Container created",
+                "timestamp": "2026-07-30T09:55:17+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:25+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "local-path-storage",
+                "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/kindest/local-path-provisioner:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T09:55:25+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:26+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "local-path-storage",
+                "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+                "reason": "Created",
+                "type": "Normal",
+                "message": "Container created",
+                "timestamp": "2026-07-30T09:55:26+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:45+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-prbw2",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T09:55:45+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:46+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-fd7t6",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T09:55:46+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T09:55:55+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-jj55l",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T09:55:55+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:31+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": "Starting kubelet.",
+                "timestamp": "2026-07-30T14:45:31+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:32+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "etcd-aegis-control-plane",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"registry.k8s.io/etcd:3.6.6-0\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:45:32+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:33+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "NodeHasSufficientPID",
+                "type": "Normal",
+                "message": "Node aegis-worker status is now: NodeHasSufficientPID",
+                "timestamp": "2026-07-30T14:45:33+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:34+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "NodeHasSufficientMemory",
+                "type": "Normal",
+                "message": "Node aegis-worker status is now: NodeHasSufficientMemory",
+                "timestamp": "2026-07-30T14:45:34+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:34+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "Rebooted",
+                "type": "Warning",
+                "message": "Node aegis-worker has been rebooted, boot id: 81d2bc3b-f777-4f83-8e17-62b697f4729b",
+                "timestamp": "2026-07-30T14:45:34+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:35+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "SandboxChanged",
+                "type": "Normal",
+                "message": "Pod sandbox changed, it will be killed and re-created.",
+                "timestamp": "2026-07-30T14:45:35+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:35+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Rebooted",
+                "type": "Warning",
+                "message": "Node aegis-control-plane has been rebooted, boot id: 81d2bc3b-f777-4f83-8e17-62b697f4729b",
+                "timestamp": "2026-07-30T14:45:35+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:36+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Pulling",
+                "type": "Normal",
+                "message": "Pulling image \"busybox\"",
+                "timestamp": "2026-07-30T14:45:36+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:37+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-worker-545d565b8-4vhwh",
+                "reason": "Pulling",
+                "type": "Normal",
+                "message": "Pulling image \"corporatecatalyst/netdevops-app:latest\"",
+                "timestamp": "2026-07-30T14:45:37+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:38+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-worker-545d565b8-4vhwh",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Successfully pulled image \"corporatecatalyst/netdevops-app:latest\" in 1.695s (1.695s including waiting). Image size: 95460836 bytes.",
+                "timestamp": "2026-07-30T14:45:38+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:38.274972+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker2",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T14:45:38.274972+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:38.714907+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T14:45:38.714907+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:38.764408+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-worker",
+                "reason": "Starting",
+                "type": "Normal",
+                "message": null,
+                "timestamp": "2026-07-30T14:45:38.764408+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:39+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"quay.io/prometheus/alertmanager:v0.32.0\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:45:39+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:39+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: Get \"http://10.244.1.4:3000/api/health\": dial tcp 10.244.1.4:3000: connect: connection refused",
+                "timestamp": "2026-07-30T14:45:39+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:40+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Successfully pulled image \"busybox\" in 1.562s (3.373s including waiting). Image size: 1925780 bytes.",
+                "timestamp": "2026-07-30T14:45:40+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:41+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "app",
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "reason": "Started",
+                "type": "Normal",
+                "message": "Container started",
+                "timestamp": "2026-07-30T14:45:41+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:47+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "metrics-server-67cbccccd9-glwlz",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": context deadline exceeded",
+                "timestamp": "2026-07-30T14:45:47+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:50+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "kube-scheduler",
+                "reason": "LeaderElection",
+                "type": "Normal",
+                "message": "aegis-control-plane_fde14bcb-4211-4fe2-95c4-bf3732d266fc became leader",
+                "timestamp": "2026-07-30T14:45:50+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:52+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "kube-controller-manager",
+                "reason": "LeaderElection",
+                "type": "Normal",
+                "message": "aegis-control-plane_64bae1af-6b19-4c02-9f22-9a05a3f7ff12 became leader",
+                "timestamp": "2026-07-30T14:45:52+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:45:53+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "default",
+                "pod": "aegis-control-plane",
+                "reason": "RegisteredNode",
+                "type": "Normal",
+                "message": "Node aegis-control-plane event: Registered Node aegis-control-plane in Controller",
+                "timestamp": "2026-07-30T14:45:53+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:01+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "coredns-7d764666f9-4p9j7",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+                "timestamp": "2026-07-30T14:46:01+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:03+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"quay.io/prometheus-operator/prometheus-operator:v0.90.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:03+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:03+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "monitoring",
+                "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: Get \"https://10.244.3.3:10250/healthz\": dial tcp 10.244.3.3:10250: connect: connection refused",
+                "timestamp": "2026-07-30T14:46:03+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:07+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "metrics-server-67cbccccd9-glwlz",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+                "timestamp": "2026-07-30T14:46:07+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:07+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "metrics-server-67cbccccd9-glwlz",
+                "reason": "Killing",
+                "type": "Normal",
+                "message": "Container metrics-server failed liveness probe, will be restarted",
+                "timestamp": "2026-07-30T14:46:07+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:08+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-fd7t6",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:08+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:08+00:00",
+            "source": "Kubernetes Events",
+            "event": "Warning",
+            "status": "observed",
+            "details": {
+                "namespace": "kube-system",
+                "pod": "coredns-7d764666f9-24dfx",
+                "reason": "Unhealthy",
+                "type": "Warning",
+                "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+                "timestamp": "2026-07-30T14:46:08+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:09+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-jj55l",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:09+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:22+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "local-path-storage",
+                "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/kindest/local-path-provisioner:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:22+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:40+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-prbw2",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:40+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:41+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-fd7t6",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:41+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T14:46:47+00:00",
+            "source": "Kubernetes Events",
+            "event": "Normal",
+            "status": "observed",
+            "details": {
+                "namespace": "falco",
+                "pod": "falco-jj55l",
+                "reason": "Pulled",
+                "type": "Normal",
+                "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+                "timestamp": "2026-07-30T14:46:47+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T15:39:07.991426+00:00",
+            "source": "Metrics",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "cpu_usage": "3m",
+                "memory_usage": "131Mi",
+                "timestamp": "2026-07-30T15:39:07.991426+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T15:39:07.991781+00:00",
+            "source": "Metrics",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "netdevops-worker-545d565b8-4vhwh",
+                "cpu_usage": "2m",
+                "memory_usage": "353Mi",
+                "timestamp": "2026-07-30T15:39:07.991781+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T15:39:07.991785+00:00",
+            "source": "Metrics",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "postgres-0",
+                "cpu_usage": "6m",
+                "memory_usage": "56Mi",
+                "timestamp": "2026-07-30T15:39:07.991785+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T15:39:07.991788+00:00",
+            "source": "Metrics",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "postgres-exporter-855bc75948-tqkz4",
+                "cpu_usage": "2m",
+                "memory_usage": "26Mi",
+                "timestamp": "2026-07-30T15:39:07.991788+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": "2026-07-30T15:39:07.991792+00:00",
+            "source": "Metrics",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "redis-7459445dbc-cjmjb",
+                "cpu_usage": "6m",
+                "memory_usage": "21Mi",
+                "timestamp": "2026-07-30T15:39:07.991792+00:00"
+            },
+            "incident_id": "GLOBAL"
+        },
+        {
+            "timestamp": null,
+            "source": "Falco",
+            "event": "unknown",
+            "status": "observed",
+            "details": {
+                "pod": "netdevops-app-78d8bd544f-4c97s",
+                "namespace": "app",
+                "node": "aegis-worker",
+                "phase": "Running",
+                "service_account": "default",
+                "created_at": "2026-07-16T20:16:56Z",
+                "containers": [
+                    {
+                        "container": "app",
+                        "image": "corporatecatalyst/netdevops-app:fix-http-errors",
+                        "run_as_user": 1000,
+                        "run_as_non_root": null,
+                        "allow_privilege_escalation": null,
+                        "read_only_root_filesystem": null,
+                        "privileged": null,
+                        "capabilities": null
+                    }
+                ]
+            },
+            "incident_id": "GLOBAL"
+        }
+    ]
+}

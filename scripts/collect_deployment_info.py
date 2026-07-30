@@ -41,27 +41,48 @@ def collect_deployments():
     for deployment in deployments:
 
         spec = deployment.get("spec", {})
+        status = deployment.get("status",{})
         metadata = deployment.get("metadata", {})
         template = spec.get("template", {})
         pod_spec = template.get("spec", {})
         containers = pod_spec.get("containers", [])
 
-        deployment_data.append(
-            {
-                "deployment_name": metadata.get("name", ""),
-                "namespace": metadata.get("namespace", ""),
-                "replicas": spec.get("replicas", 0),
-                "image": (
-                    containers[0].get("image", "")
-                    if containers else ""
-                ),
-                "service_account": pod_spec.get(
-                   "serviceAccountName",
-                    "default"
-                )
-            }
-        )
+    deployment_data.append(
+    {
+        "deployment_name": metadata.get("name", ""),
+        "namespace": metadata.get("namespace", ""),
+        "replicas": spec.get("replicas", 0),
 
+        "available_replicas": status.get(
+            "availableReplicas",
+            0,
+        ),
+
+        "ready_replicas": status.get(
+            "readyReplicas",
+            0,
+        ), 
+
+        "updated_replicas": status.get(
+            "updatedReplicas",
+            0,
+        ),
+
+        "image": (
+            containers[0].get("image", "")
+            if containers else ""
+        ),
+
+        "service_account": pod_spec.get(
+            "serviceAccountName",
+            "default"
+        ),
+
+        "timestamp": metadata.get(
+            "creationTimestamp"
+        ),
+    }
+)
     return deployment_data
 
 
@@ -85,9 +106,12 @@ def main():
     ) as file:
 
         json.dump(
-            deployments,
+            {
+                "status": "collected",
+                "deployments": deployments,
+            },
             file,
-            indent=4
+            indent=4,
         )
 
     print(f"✓ Collected {len(deployments)} deployment(s)")

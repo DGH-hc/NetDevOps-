@@ -1,6 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
+from datetime import datetime, timezone 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -49,29 +50,39 @@ def collect_security():
 
             security = container.get("securityContext", {})
 
-            containers.append(
-                {
-                    "container": container.get("name", ""),
-                    "run_as_user": security.get("runAsUser"),
-                    "run_as_non_root": security.get("runAsNonRoot"),
-                    "allow_privilege_escalation": security.get("allowPrivilegeEscalation"),
-                    "read_only_root_filesystem": security.get("readOnlyRootFilesystem"),
-                    "privileged": security.get("privileged")
-                }
-            )
+        containers.append(
+            {
+               "container": container.get("name", ""),
+               "image": container.get("image"),
+               "run_as_user": security.get("runAsUser"),
+               "run_as_non_root": security.get("runAsNonRoot"),
+               "allow_privilege_escalation": security.get("allowPrivilegeEscalation"),
+               "read_only_root_filesystem": security.get("readOnlyRootFilesystem"),
+               "privileged": security.get("privileged"),
+               "capabilities": security.get("capabilities"),
+            }
+)
 
         pods.append(
-            {
-                "pod": pod_name,
-                "service_account": service_account,
-                "containers": containers
-            }
-        )
+         {
+           "pod": pod_name,
+            "namespace": item.get("metadata", {}).get("namespace", ""),
+            "node": spec.get("nodeName"),
+            "phase": item.get("status", {}).get("phase"),
+            "service_account": service_account,
+            "created_at": item.get("metadata", {}).get("creationTimestamp"),
+            "containers": containers
+        }
+)
 
     return {
-        "status": "collected",
-        "pods": pods
-    }
+    "status": "collected",
+    "collected_at": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "pod_count": len(pods),
+    "pods": pods
+}
 
 
 def main():
@@ -98,7 +109,7 @@ def main():
             indent=4
         )
 
-    print(f"✓ Collected {len(data['pods'])} pod(s)")
+    print(f"✓ Collected {data['pod_count']} pod(s)")
     print(f"✓ Saved : {OUTPUT_FILE}")
 
 

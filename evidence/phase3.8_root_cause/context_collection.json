@@ -6037,17 +6037,21 @@
                 "summary": "1507 log entries matched affected components."
             },
             "deployment": {
-                "deployment_name": "netdevops-app",
-                "namespace": "app",
-                "replicas": 1,
-                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
-                "service_account": "default",
-                "status": "collected"
+                "status": "not_found",
+                "deployment_name": "",
+                "namespace": "",
+                "replicas": "",
+                "available_replicas": "",
+                "ready_replicas": "",
+                "updated_replicas": "",
+                "image": "",
+                "service_account": "",
+                "timestamp": ""
             },
             "metrics": {
                 "status": "collected",
-                "cpu_usage": "4m",
-                "memory_usage": "128Mi"
+                "cpu_usage": "3m",
+                "memory_usage": "131Mi"
             },
             "events": {
                 "status": "not_collected",
@@ -6057,98 +6061,135 @@
             },
             "network": {
                 "status": "collected",
-                "network_policies": [
-                    {
-                        "name": "allow-all-test",
-                        "pod_selector": {},
-                        "policy_types": [
-                            "Ingress",
-                            "Egress"
-                        ],
-                        "ingress_rules": 0,
-                        "egress_rules": 0
-                    }
-                ]
+                "collected_at": "2026-07-30T15:39:33.396186+00:00",
+                "policy_count": 0,
+                "network_policies": []
             },
             "security": {
                 "status": "collected",
+                "collected_at": "2026-07-30T15:39:53.944994+00:00",
+                "pod_count": 5,
                 "pods": [
                     {
                         "pod": "netdevops-app-78d8bd544f-4c97s",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-07-16T20:16:56Z",
                         "containers": [
                             {
                                 "container": "app",
+                                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
                                 "run_as_user": 1000,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "netdevops-worker-545d565b8-4vhwh",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-10T11:33:52Z",
                         "containers": [
                             {
                                 "container": "worker",
+                                "image": "corporatecatalyst/netdevops-app:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-0",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T15:26:27Z",
                         "containers": [
                             {
                                 "container": "postgres",
+                                "image": "postgres:15",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-exporter-855bc75948-tqkz4",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T10:23:33Z",
                         "containers": [
                             {
                                 "container": "postgres-exporter",
+                                "image": "prometheuscommunity/postgres-exporter:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "redis-7459445dbc-cjmjb",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-03-30T05:56:34Z",
                         "containers": [
                             {
                                 "container": "redis",
+                                "image": "redis:7",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     }
                 ]
             },
             "recent_changes": {
-                "status": "unavailable",
-                "reason": "file_not_found",
-                "deployments": []
+                "status": "collected",
+                "collected_at": "2026-07-30T15:40:40.411635+00:00",
+                "deployment_count": 1,
+                "deployments": [
+                    {
+                        "name": "redis",
+                        "namespace": "app",
+                        "generation": 1,
+                        "resource_version": "453012",
+                        "created": "2026-03-30T05:56:34Z",
+                        "replicas": 1,
+                        "images": [
+                            "redis:7"
+                        ],
+                        "observed_at": "2026-07-30T15:40:40.411389+00:00"
+                    }
+                ]
             }
         }
     },
@@ -12190,17 +12231,21 @@
                 "summary": "1507 log entries matched affected components."
             },
             "deployment": {
-                "deployment_name": "netdevops-app",
-                "namespace": "app",
-                "replicas": 1,
-                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
-                "service_account": "default",
-                "status": "collected"
+                "status": "not_found",
+                "deployment_name": "",
+                "namespace": "",
+                "replicas": "",
+                "available_replicas": "",
+                "ready_replicas": "",
+                "updated_replicas": "",
+                "image": "",
+                "service_account": "",
+                "timestamp": ""
             },
             "metrics": {
-                "status": "collected",
-                "cpu_usage": "4m",
-                "memory_usage": "128Mi"
+                "status": "not_found",
+                "cpu_usage": "",
+                "memory_usage": ""
             },
             "events": {
                 "status": "not_collected",
@@ -12210,98 +12255,135 @@
             },
             "network": {
                 "status": "collected",
-                "network_policies": [
-                    {
-                        "name": "allow-all-test",
-                        "pod_selector": {},
-                        "policy_types": [
-                            "Ingress",
-                            "Egress"
-                        ],
-                        "ingress_rules": 0,
-                        "egress_rules": 0
-                    }
-                ]
+                "collected_at": "2026-07-30T15:39:33.396186+00:00",
+                "policy_count": 0,
+                "network_policies": []
             },
             "security": {
                 "status": "collected",
+                "collected_at": "2026-07-30T15:39:53.944994+00:00",
+                "pod_count": 5,
                 "pods": [
                     {
                         "pod": "netdevops-app-78d8bd544f-4c97s",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-07-16T20:16:56Z",
                         "containers": [
                             {
                                 "container": "app",
+                                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
                                 "run_as_user": 1000,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "netdevops-worker-545d565b8-4vhwh",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-10T11:33:52Z",
                         "containers": [
                             {
                                 "container": "worker",
+                                "image": "corporatecatalyst/netdevops-app:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-0",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T15:26:27Z",
                         "containers": [
                             {
                                 "container": "postgres",
+                                "image": "postgres:15",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-exporter-855bc75948-tqkz4",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T10:23:33Z",
                         "containers": [
                             {
                                 "container": "postgres-exporter",
+                                "image": "prometheuscommunity/postgres-exporter:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "redis-7459445dbc-cjmjb",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-03-30T05:56:34Z",
                         "containers": [
                             {
                                 "container": "redis",
+                                "image": "redis:7",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     }
                 ]
             },
             "recent_changes": {
-                "status": "unavailable",
-                "reason": "file_not_found",
-                "deployments": []
+                "status": "collected",
+                "collected_at": "2026-07-30T15:40:40.411635+00:00",
+                "deployment_count": 1,
+                "deployments": [
+                    {
+                        "name": "redis",
+                        "namespace": "app",
+                        "generation": 1,
+                        "resource_version": "453012",
+                        "created": "2026-03-30T05:56:34Z",
+                        "replicas": 1,
+                        "images": [
+                            "redis:7"
+                        ],
+                        "observed_at": "2026-07-30T15:40:40.411389+00:00"
+                    }
+                ]
             }
         }
     },
@@ -18343,12 +18425,16 @@
                 "summary": "1507 log entries matched affected components."
             },
             "deployment": {
-                "deployment_name": "netdevops-app",
-                "namespace": "app",
-                "replicas": 1,
-                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
-                "service_account": "default",
-                "status": "collected"
+                "status": "not_found",
+                "deployment_name": "",
+                "namespace": "",
+                "replicas": "",
+                "available_replicas": "",
+                "ready_replicas": "",
+                "updated_replicas": "",
+                "image": "",
+                "service_account": "",
+                "timestamp": ""
             },
             "metrics": {
                 "status": "not_found",
@@ -18363,98 +18449,135 @@
             },
             "network": {
                 "status": "collected",
-                "network_policies": [
-                    {
-                        "name": "allow-all-test",
-                        "pod_selector": {},
-                        "policy_types": [
-                            "Ingress",
-                            "Egress"
-                        ],
-                        "ingress_rules": 0,
-                        "egress_rules": 0
-                    }
-                ]
+                "collected_at": "2026-07-30T15:39:33.396186+00:00",
+                "policy_count": 0,
+                "network_policies": []
             },
             "security": {
                 "status": "collected",
+                "collected_at": "2026-07-30T15:39:53.944994+00:00",
+                "pod_count": 5,
                 "pods": [
                     {
                         "pod": "netdevops-app-78d8bd544f-4c97s",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-07-16T20:16:56Z",
                         "containers": [
                             {
                                 "container": "app",
+                                "image": "corporatecatalyst/netdevops-app:fix-http-errors",
                                 "run_as_user": 1000,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "netdevops-worker-545d565b8-4vhwh",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-10T11:33:52Z",
                         "containers": [
                             {
                                 "container": "worker",
+                                "image": "corporatecatalyst/netdevops-app:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-0",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T15:26:27Z",
                         "containers": [
                             {
                                 "container": "postgres",
+                                "image": "postgres:15",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "postgres-exporter-855bc75948-tqkz4",
+                        "namespace": "app",
+                        "node": "aegis-worker",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-05-11T10:23:33Z",
                         "containers": [
                             {
                                 "container": "postgres-exporter",
+                                "image": "prometheuscommunity/postgres-exporter:latest",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     },
                     {
                         "pod": "redis-7459445dbc-cjmjb",
+                        "namespace": "app",
+                        "node": "aegis-worker2",
+                        "phase": "Running",
                         "service_account": "default",
+                        "created_at": "2026-03-30T05:56:34Z",
                         "containers": [
                             {
                                 "container": "redis",
+                                "image": "redis:7",
                                 "run_as_user": null,
                                 "run_as_non_root": null,
                                 "allow_privilege_escalation": null,
                                 "read_only_root_filesystem": null,
-                                "privileged": null
+                                "privileged": null,
+                                "capabilities": null
                             }
                         ]
                     }
                 ]
             },
             "recent_changes": {
-                "status": "unavailable",
-                "reason": "file_not_found",
-                "deployments": []
+                "status": "collected",
+                "collected_at": "2026-07-30T15:40:40.411635+00:00",
+                "deployment_count": 1,
+                "deployments": [
+                    {
+                        "name": "redis",
+                        "namespace": "app",
+                        "generation": 1,
+                        "resource_version": "453012",
+                        "created": "2026-03-30T05:56:34Z",
+                        "replicas": 1,
+                        "images": [
+                            "redis:7"
+                        ],
+                        "observed_at": "2026-07-30T15:40:40.411389+00:00"
+                    }
+                ]
             }
         }
     }

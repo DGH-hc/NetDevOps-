@@ -1,6 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
+from datetime import datetime, timezone 
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -53,18 +54,24 @@ def collect_metrics():
             continue
 
         metrics.append(
-            {
-                "pod": parts[0],
-                "cpu_usage": parts[1],
-                "memory_usage": parts[2]
-            }
-        )
+    {
+        "pod": parts[0],
+        "cpu_usage": parts[1],
+        "memory_usage": parts[2],
+        "timestamp": datetime.now(
+            timezone.utc
+        ).isoformat(),
+    }
+)
 
     return {
-        "status": "collected",
-        "pods": metrics
-    }
-
+    "status": "collected",
+    "collected_at": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "pod_count": len(metrics),
+    "pods": metrics
+}
 
 def main():
 

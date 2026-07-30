@@ -1,6 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
+from datetime import datetime, timezone 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -52,20 +53,29 @@ def collect_recent_changes():
             for container in containers
         ]
 
-        deployments.append(
-            {
-                "name": metadata.get("name", ""),
-                "generation": metadata.get("generation"),
-                "created": metadata.get("creationTimestamp"),
-                "replicas": spec.get("replicas"),
-                "images": images
-            }
-        )
-
-    return {
-        "status": "collected",
-        "deployments": deployments
+    deployments.append(
+       {
+         "name": metadata.get("name", ""),
+         "namespace": metadata.get("namespace", ""),
+         "generation": metadata.get("generation"),
+         "resource_version": metadata.get("resourceVersion"),
+         "created": metadata.get("creationTimestamp"),
+         "replicas": spec.get("replicas"),
+         "images": images,
+         "observed_at": datetime.now(
+            timezone.utc
+        ).isoformat(),
     }
+)
+    
+    return {
+       "status": "collected",
+       "collected_at": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "deployment_count": len(deployments),
+    "deployments": deployments
+}
 
 
 def main():
@@ -94,8 +104,8 @@ def main():
         )
 
     print(
-        f"✓ Collected {len(data['deployments'])} deployment(s)"
-    )
+     f"✓ Collected {data['deployment_count']} deployment(s)"
+)
 
     print(f"✓ Saved : {OUTPUT_FILE}")
 

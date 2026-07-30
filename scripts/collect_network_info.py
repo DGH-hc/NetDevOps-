@@ -1,6 +1,7 @@
 import json
 import subprocess
 from pathlib import Path
+from datetime import datetime, timezone 
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,10 +37,14 @@ def collect_network():
     except subprocess.CalledProcessError:
 
         return {
-            "status": "not_collected",
-            "network_policies": []
-        }
-
+    "status": "collected",
+    "collected_at": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "policy_count": len(policies),
+    "network_policies": policies
+}
+    
     raw = json.loads(result.stdout)
 
     policies = []
@@ -50,17 +55,23 @@ def collect_network():
         spec = item.get("spec", {})
 
         policies.append(
-            {
-                "name": metadata.get("name", ""),
-                "pod_selector": spec.get("podSelector", {}),
-                "policy_types": spec.get("policyTypes", []),
-                "ingress_rules": len(spec.get("ingress", [])),
-                "egress_rules": len(spec.get("egress", []))
-            }
-        )
+    {
+        "name": metadata.get("name", ""),
+        "namespace": metadata.get("namespace", ""),
+        "pod_selector": spec.get("podSelector", {}),
+        "policy_types": spec.get("policyTypes", []),
+        "ingress_rules": len(spec.get("ingress", [])),
+        "egress_rules": len(spec.get("egress", [])),
+        "created_at": metadata.get("creationTimestamp"),
+    }
+)
 
     return {
         "status": "collected",
+        "collected_at": datetime.now(
+            timezone.utc
+        ).isoformat(),
+        "policy_count": len(policies),
         "network_policies": policies
     }
 
@@ -91,8 +102,8 @@ def main():
         )
 
     print(
-        f"✓ Collected {len(data['network_policies'])} network policy(s)"
-    )
+    f"✓ Collected {data['policy_count']} network policy(s)"
+)
 
     print(f"✓ Saved : {OUTPUT_FILE}")
 

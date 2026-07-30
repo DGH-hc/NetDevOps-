@@ -2,74 +2,3364 @@
     "status": "collected",
     "events": [
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
-            "reason": "Scheduled",
+            "reason": "SandboxChanged",
             "type": "Normal",
-            "message": "Successfully assigned app/netdevops-app-78d8bd544f-4c97s to aegis-worker",
-            "timestamp": null
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Pulling",
             "type": "Normal",
             "message": "Pulling image \"busybox\"",
-            "timestamp": "2026-07-16T20:16:57Z"
+            "timestamp": "2026-07-30T09:54:44+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Pulled",
             "type": "Normal",
-            "message": "Successfully pulled image \"busybox\" in 1.683s (1.683s including waiting). Image size: 1925780 bytes.",
-            "timestamp": "2026-07-16T20:16:58Z"
+            "message": "Successfully pulled image \"busybox\" in 1.536s (3.344s including waiting). Image size: 1925780 bytes.",
+            "timestamp": "2026-07-30T09:54:47+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Created",
             "type": "Normal",
             "message": "Container created",
-            "timestamp": "2026-07-16T20:16:58Z"
+            "timestamp": "2026-07-30T09:54:48+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Started",
             "type": "Normal",
             "message": "Container started",
-            "timestamp": "2026-07-16T20:16:58Z"
+            "timestamp": "2026-07-30T09:54:48+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Pulled",
             "type": "Normal",
             "message": "Container image \"corporatecatalyst/netdevops-app:fix-http-errors\" already present on machine and can be accessed by the pod",
-            "timestamp": "2026-07-16T20:16:59Z"
+            "timestamp": "2026-07-30T09:54:48+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Created",
             "type": "Normal",
             "message": "Container created",
-            "timestamp": "2026-07-16T20:16:59Z"
+            "timestamp": "2026-07-30T09:54:48+00:00"
         },
         {
+            "namespace": "app",
             "pod": "netdevops-app-78d8bd544f-4c97s",
             "reason": "Started",
             "type": "Normal",
             "message": "Container started",
-            "timestamp": "2026-07-16T20:16:59Z"
+            "timestamp": "2026-07-30T09:54:49+00:00"
         },
         {
-            "pod": "netdevops-app-78d8bd544f-wc85l",
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"busybox\"",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"busybox\" in 1.562s (3.373s including waiting). Image size: 1925780 bytes.",
+            "timestamp": "2026-07-30T14:45:40+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:40+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:40+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"corporatecatalyst/netdevops-app:fix-http-errors\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:40+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:40+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-app-78d8bd544f-4c97s",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:41+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"corporatecatalyst/netdevops-app:latest\"",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"corporatecatalyst/netdevops-app:latest\" in 1.897s (1.897s including waiting). Image size: 95460836 bytes.",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"corporatecatalyst/netdevops-app:latest\"",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"corporatecatalyst/netdevops-app:latest\" in 1.695s (1.695s including waiting). Image size: 95460836 bytes.",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "netdevops-worker-545d565b8-4vhwh",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"postgres:15\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"postgres:15\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"prometheuscommunity/postgres-exporter:latest\"",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"prometheuscommunity/postgres-exporter:latest\" in 1.812s (1.812s including waiting). Image size: 10965033 bytes.",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Pulling",
+            "type": "Normal",
+            "message": "Pulling image \"prometheuscommunity/postgres-exporter:latest\"",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Successfully pulled image \"prometheuscommunity/postgres-exporter:latest\" in 1.932s (1.932s including waiting). Image size: 10965033 bytes.",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "postgres-exporter-855bc75948-tqkz4",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"redis:7\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"redis:7\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "app",
+            "pod": "redis-7459445dbc-cjmjb",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T09:54:38+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-control-plane has been rebooted, boot id: 24c00730-c399-4c7c-8b7d-cff846a84490",
+            "timestamp": "2026-07-30T09:54:42+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T09:54:44.897828+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-control-plane event: Registered Node aegis-control-plane in Controller",
+            "timestamp": "2026-07-30T09:55:01+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-control-plane status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-control-plane has been rebooted, boot id: 81d2bc3b-f777-4f83-8e17-62b697f4729b",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T14:45:38.714907+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-control-plane",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-control-plane event: Registered Node aegis-control-plane in Controller",
+            "timestamp": "2026-07-30T14:45:53+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T09:54:38+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T09:54:41+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T09:54:41+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T09:54:38+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-worker has been rebooted, boot id: 24c00730-c399-4c7c-8b7d-cff846a84490",
+            "timestamp": "2026-07-30T09:54:42+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T09:54:45.949250+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-worker event: Registered Node aegis-worker in Controller",
+            "timestamp": "2026-07-30T09:55:01+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T14:45:34+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T14:45:34+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-worker status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T14:45:33+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-worker has been rebooted, boot id: 81d2bc3b-f777-4f83-8e17-62b697f4729b",
+            "timestamp": "2026-07-30T14:45:34+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T14:45:38.764408+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-worker event: Registered Node aegis-worker in Controller",
+            "timestamp": "2026-07-30T14:45:53+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T09:54:38+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T09:54:41+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T09:54:41+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T09:54:38+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-worker2 has been rebooted, boot id: 24c00730-c399-4c7c-8b7d-cff846a84490",
+            "timestamp": "2026-07-30T09:54:42+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T09:54:45.654670+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-worker2 event: Registered Node aegis-worker2 in Controller",
+            "timestamp": "2026-07-30T09:55:01+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": "Starting kubelet.",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasSufficientMemory",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasSufficientMemory",
+            "timestamp": "2026-07-30T14:45:33+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasNoDiskPressure",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasNoDiskPressure",
+            "timestamp": "2026-07-30T14:45:33+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeHasSufficientPID",
+            "type": "Normal",
+            "message": "Node aegis-worker2 status is now: NodeHasSufficientPID",
+            "timestamp": "2026-07-30T14:45:33+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "NodeAllocatableEnforced",
+            "type": "Normal",
+            "message": "Updated Node Allocatable limit across pods",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Rebooted",
+            "type": "Warning",
+            "message": "Node aegis-worker2 has been rebooted, boot id: 81d2bc3b-f777-4f83-8e17-62b697f4729b",
+            "timestamp": "2026-07-30T14:45:34+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "Starting",
+            "type": "Normal",
+            "message": null,
+            "timestamp": "2026-07-30T14:45:38.274972+00:00"
+        },
+        {
+            "namespace": "default",
+            "pod": "aegis-worker2",
+            "reason": "RegisteredNode",
+            "type": "Normal",
+            "message": "Node aegis-worker2 event: Registered Node aegis-worker2 in Controller",
+            "timestamp": "2026-07-30T14:45:53+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:46+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-fd7t6",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:41+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:55+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:09+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:09+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:09+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-jj55l",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:47+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:17+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:17+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:45+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco-driver-loader:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:09+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:09+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falco:0.44.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/falcosecurity/falcoctl:0.13.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "falco",
+            "pod": "falco-prbw2",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:40+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/coredns/coredns:v1.13.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"http://10.244.0.4:8181/ready\": dial tcp 10.244.0.4:8181: connect: connection refused",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+            "timestamp": "2026-07-30T09:55:06+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/coredns/coredns:v1.13.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-24dfx",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/coredns/coredns:v1.13.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+            "timestamp": "2026-07-30T09:55:11+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/coredns/coredns:v1.13.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "coredns-7d764666f9-4p9j7",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: HTTP probe failed with statuscode: 503",
+            "timestamp": "2026-07-30T14:46:01+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/etcd:3.6.6-0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/etcd:3.6.6-0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "etcd-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-566hm",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-8wq68",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/kindnetd:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kindnet-qk6kc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-apiserver:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-apiserver:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-apiserver-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-controller-manager:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-controller-manager:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager",
+            "reason": "LeaderElection",
+            "type": "Normal",
+            "message": "aegis-control-plane_111894b3-5735-4d63-b4a6-82c48ea391b9 became leader",
+            "timestamp": "2026-07-30T09:55:00+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-controller-manager",
+            "reason": "LeaderElection",
+            "type": "Normal",
+            "message": "aegis-control-plane_64bae1af-6b19-4c02-9f22-9a05a3f7ff12 became leader",
+            "timestamp": "2026-07-30T14:45:52+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-2ws7k",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-klc26",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-proxy:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-proxy-wg7vc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-scheduler:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:39+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:31+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-scheduler:v1.35.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler-aegis-control-plane",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:32+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler",
+            "reason": "LeaderElection",
+            "type": "Normal",
+            "message": "aegis-control-plane_f525ab0b-7d20-4273-b635-c87ab87c0fd3 became leader",
+            "timestamp": "2026-07-30T09:54:59+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "kube-scheduler",
+            "reason": "LeaderElection",
+            "type": "Normal",
+            "message": "aegis-control-plane_fde14bcb-4211-4fe2-95c4-bf3732d266fc became leader",
+            "timestamp": "2026-07-30T14:45:50+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/metrics-server/metrics-server:v0.9.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+            "timestamp": "2026-07-30T09:55:05+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"https://10.244.1.5:10250/readyz\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+            "timestamp": "2026-07-30T09:55:11+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": read tcp 10.244.1.1:56948->10.244.1.5:10250: read: connection reset by peer",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"https://10.244.1.5:10250/readyz\": dial tcp 10.244.1.5:10250: connect: connection refused",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
             "reason": "Killing",
             "type": "Normal",
-            "message": "Stopping container app",
-            "timestamp": "2026-07-16T20:16:56Z"
+            "message": "Container metrics-server failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T09:55:15+00:00"
         },
         {
-            "pod": "netdevops-app-78d8bd544f",
-            "reason": "SuccessfulCreate",
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "SandboxChanged",
             "type": "Normal",
-            "message": "Created pod: netdevops-app-78d8bd544f-4c97s",
-            "timestamp": "2026-07-16T20:16:56Z"
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/metrics-server/metrics-server:v0.9.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": context deadline exceeded",
+            "timestamp": "2026-07-30T14:45:47+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.1.5:10250/livez\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+            "timestamp": "2026-07-30T14:46:07+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"https://10.244.1.5:10250/readyz\": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "kube-system",
+            "pod": "metrics-server-67cbccccd9-glwlz",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Container metrics-server failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T14:46:07+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/local-path-provisioner:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:25+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:26+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:26+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "BackOff",
+            "type": "Warning",
+            "message": "Back-off restarting failed container local-path-provisioner in pod local-path-provisioner-67b8995b4b-dhv8k_local-path-storage(5f33bee2-4005-4e3c-b764-3a2cbf1c170d)",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/kindest/local-path-provisioner:v20251212-v0.29.0-alpha-105-g20ccfc88\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:22+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:22+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:22+00:00"
+        },
+        {
+            "namespace": "local-path-storage",
+            "pod": "local-path-provisioner-67b8995b4b-dhv8k",
+            "reason": "BackOff",
+            "type": "Warning",
+            "message": "Back-off restarting failed container local-path-provisioner in pod local-path-provisioner-67b8995b4b-dhv8k_local-path-storage(5f33bee2-4005-4e3c-b764-3a2cbf1c170d)",
+            "timestamp": "2026-07-30T14:46:08+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/alertmanager:v0.32.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/alertmanager:v0.32.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "alertmanager-monitoring-kube-prometheus-alertmanager-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/kiwigrid/k8s-sidecar:2.6.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/kiwigrid/k8s-sidecar:2.6.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/grafana/grafana:12.4.2\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"http://10.244.1.4:3000/api/health\": dial tcp 10.244.1.4:3000: connect: connection refused",
+            "timestamp": "2026-07-30T09:54:48+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/kiwigrid/k8s-sidecar:2.6.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/kiwigrid/k8s-sidecar:2.6.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"docker.io/grafana/grafana:12.4.2\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-grafana-54cbddbc6d-n9fnd",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"http://10.244.1.4:3000/api/health\": dial tcp 10.244.1.4:3000: connect: connection refused",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-operator:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"https://10.244.3.3:10250/healthz\": dial tcp 10.244.3.3:10250: connect: connection refused",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.3.3:10250/healthz\": dial tcp 10.244.3.3:10250: connect: connection refused",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Container kube-prometheus-stack failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T09:55:15+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-operator:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"https://10.244.3.3:10250/healthz\": dial tcp 10.244.3.3:10250: connect: connection refused",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"https://10.244.3.3:10250/healthz\": dial tcp 10.244.3.3:10250: connect: connection refused",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-prometheus-operator-7bbc46499d-qdqvv",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Container kube-prometheus-stack failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"http://10.244.1.2:8080/livez\": dial tcp 10.244.1.2:8080: connect: connection refused",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"http://10.244.1.2:8081/readyz\": dial tcp 10.244.1.2:8081: connect: connection refused",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Container kube-state-metrics failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T09:55:16+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Liveness probe failed: Get \"http://10.244.1.6:8080/livez\": dial tcp 10.244.1.6:8080: connect: connection refused",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Unhealthy",
+            "type": "Warning",
+            "message": "Readiness probe failed: Get \"http://10.244.1.6:8081/readyz\": dial tcp 10.244.1.6:8081: connect: connection refused",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-kube-state-metrics-67d5f7bf68-bhgmn",
+            "reason": "Killing",
+            "type": "Normal",
+            "message": "Container kube-state-metrics failed liveness probe, will be restarted",
+            "timestamp": "2026-07-30T14:46:03+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-jdb6g",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-ktdkk",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/node-exporter:v1.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:36+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "monitoring-prometheus-node-exporter-r9xjc",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T09:54:43+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:44+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/prometheus:v3.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:45+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T09:54:46+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "SandboxChanged",
+            "type": "Normal",
+            "message": "Pod sandbox changed, it will be killed and re-created.",
+            "timestamp": "2026-07-30T14:45:35+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:37+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:38+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus/prometheus:v3.11.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Pulled",
+            "type": "Normal",
+            "message": "Container image \"quay.io/prometheus-operator/prometheus-config-reloader:v0.90.1\" already present on machine and can be accessed by the pod",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Created",
+            "type": "Normal",
+            "message": "Container created",
+            "timestamp": "2026-07-30T14:45:39+00:00"
+        },
+        {
+            "namespace": "monitoring",
+            "pod": "prometheus-monitoring-kube-prometheus-prometheus-0",
+            "reason": "Started",
+            "type": "Normal",
+            "message": "Container started",
+            "timestamp": "2026-07-30T14:45:39+00:00"
         }
     ]
 }

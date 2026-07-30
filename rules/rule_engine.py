@@ -22,7 +22,7 @@ def determine_root_cause(summary):
 }
 
     return {
-        "id": "unknown",
+        "id": "unknown",        
         "name": "Unknown",
         "hint": "Unknown",
         "confidence": 0.10
