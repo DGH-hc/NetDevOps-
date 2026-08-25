@@ -1,4 +1,3 @@
-version: "3.9"
 
 services:
   # ----------------------------------------
@@ -36,6 +35,7 @@ services:
   # ----------------------------------------
   mock-device:
     image: ghcr.io/dgh-hc/mockdevice:latest
+    platform: linux/amd64
     container_name: ci_mock_device
     # ❌ NO PORTS IN CI
     healthcheck:

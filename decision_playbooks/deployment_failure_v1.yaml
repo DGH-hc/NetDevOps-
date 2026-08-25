@@ -1,0 +1,83 @@
+version: "1.0"
+
+playbook_id: "PB-K8S-001"
+
+incident_type: "deployment_failure"
+
+name: "Kubernetes Deployment Recovery Playbook"
+
+description: "Decision playbook for Kubernetes Deployment rollout failures, unavailable deployments, and failed rollouts."
+
+priority: "high"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.80
+
+  required_root_causes:
+    - Deployment rollout failure
+    - ReplicaSet unavailable
+    - Image pull failure
+    - Readiness probe failure
+
+  required_components:
+    - Kubernetes Deployment
+
+  severity_levels:
+    - high
+    - critical
+
+  incident_patterns:
+    - deployment_failure
+    - rollout_failed
+    - deployment_unavailable
+
+actions:
+  primary:
+    - ACT-002
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Deployment Available=True
+
+  expected_metrics:
+    - Available Replicas
+
+  health_checks:
+    - Deployment rollout completed
+
+  evidence_required:
+    - kubectl rollout status
+
+failure_path:
+  trigger_conditions:
+    - Rollout timeout
+
+  fallback_actions: []
+
+  escalation: "Platform Team"
+
+  stop_simulation: false
+
+metadata:
+  author: ""
+
+  created_date: ""
+
+  last_updated: ""
+
+  tags:
+    - kubernetes
+    - deployment
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

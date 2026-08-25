@@ -1,0 +1,99 @@
+version: "1.0"
+
+playbook_id: "PB-SEC-002"
+
+incident_type: "runtime_compromise"
+
+name: "Runtime Compromise Response Playbook"
+
+description: "Decision playbook for suspected runtime compromise involving suspicious container activity or sensitive file access."
+
+priority: "critical"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.90
+
+  required_root_causes:
+    - Runtime Compromise
+
+  required_components:
+    - netdevops-app
+
+  severity_levels:
+    - critical
+
+  incident_patterns:
+    - runtime_compromise
+
+actions:
+  primary:
+    - ACT-006
+    - ACT-007
+    - ACT-008
+    - ACT-009
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+  dependencies:
+    - action: ACT-006
+      depends_on: []
+
+    - action: ACT-007
+      depends_on:
+        - ACT-006
+
+    - action: ACT-008
+      depends_on:
+        - ACT-007
+
+    - action: ACT-009
+      depends_on:
+        - ACT-008
+
+validation:
+  success_criteria:
+    - Compromised workload isolated
+    - Threat contained
+
+  expected_metrics:
+    - No malicious activity detected
+
+  health_checks:
+    - Security evidence collected
+    - Runtime events reviewed
+
+  evidence_required:
+    - Container logs
+    - Runtime events
+    - Kubernetes audit logs
+
+failure_path:
+  trigger_conditions:
+    - Threat persists
+
+  fallback_actions: []
+
+  escalation: "Security Operations Team"
+
+  stop_simulation: true
+
+metadata:
+  author: ""
+  created_date: ""
+  last_updated: ""
+
+  tags:
+    - security
+    - runtime
+    - compromise
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

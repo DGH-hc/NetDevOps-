@@ -1,0 +1,16 @@
+.venv
+venv
+.pytest_cache
+.git
+__pycache__
+*.pyc
+*.pyo
+*.log
+ci-logs
+phase-3.10-audit.tar.gz
+phase-3.10-data-structure-search.txt
+phase-3.10-file-inventory.txt
+phase-3.10-git-history.txt
+phase-3.10-phase-reference-search.txt
+phase-3.10-recent-files.txt
+phase-3.10-relevant-files.txt

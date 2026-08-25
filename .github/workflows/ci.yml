@@ -59,7 +59,7 @@ jobs:
         run: |
           set -euo pipefail
           for i in $(seq 1 60); do
-            if docker compose -f $COMPOSE_FILE exec -T ci_app sh -c "curl -fsS http://localhost:8000/api/health >/dev/null 2>&1"; then
+            if docker compose -f $COMPOSE_FILE exec -T app sh -c "curl -fsS http://localhost:8000/api/health >/dev/null 2>&1"; then
               echo "App is healthy"
               exit 0
             fi
@@ -71,8 +71,21 @@ jobs:
       - name: Run Tests (inside app)
         run: |
           set -euo pipefail
-          docker compose -f $COMPOSE_FILE exec -T ci_app sh -c "\
-            pytest -q \
+          docker compose -f $COMPOSE_FILE exec -T app sh -c "\
+            PYTHONPATH=/app pytest -q \
+          "
+      - name: Run Phase 3.10 Dataset Gate
+        run: |
+          set -euo pipefail
+
+          docker compose -f $COMPOSE_FILE exec -T app sh -c "
+            PYTHONPATH=/app python -m scripts.build_aegis_dataset &&
+            python -m scripts.sanitize_aegis_dataset &&
+            python -m scripts.validate_aegis_provenance &&
+            python -m scripts.aegis_dataset_quality &&
+            python -m scripts.aegis_dataset_golden &&
+            python -m scripts.replay_aegis_dataset &&
+            python -m scripts.aegis_schema_compatibility
           "
 
       - name: Collect logs on failure

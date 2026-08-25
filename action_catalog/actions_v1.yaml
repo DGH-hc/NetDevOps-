@@ -1,0 +1,213 @@
+version: "1.0"
+
+actions:
+
+  ACT-001:
+
+    name: "Restart API Deployment"
+
+    category: "Infrastructure"
+
+    description: "Recommend restarting the Kubernetes Deployment to recover application availability."
+
+    operational_risk: "Low"
+
+    business_risk: "Medium"
+
+    estimated_recovery: "30 seconds"
+
+    prerequisites:
+      - Deployment exists
+      - Kubernetes API reachable
+      - Namespace exists
+
+    expected_outcome: "Application pods are recreated and service availability is restored."
+
+    validation:
+      - Pods enter Running state
+      - Readiness probe passes
+      - Health endpoint returns HTTP 200
+
+    enabled: true
+
+  ACT-002:
+
+    name: "Restart Kubernetes Deployment"
+
+    category: "Infrastructure"
+
+    description: "Recommend restarting the failed Kubernetes Deployment to recover a stalled or failed rollout."
+
+    operational_risk: "Low"
+
+    business_risk: "Medium"
+
+    estimated_recovery: "60 seconds"
+
+    prerequisites:
+      - Deployment exists
+      - Kubernetes API reachable
+      - Namespace exists
+
+    expected_outcome: "Deployment rollout completes successfully and the desired number of replicas become available."
+
+    validation:
+      - Deployment rollout completed
+      - Available replicas match desired replicas
+      - kubectl rollout status reports success
+
+    enabled: true
+
+  ACT-003:
+
+    name: "Recover Kubernetes Node"
+
+    category: "Infrastructure"
+
+    description: "Recommend recovering the affected Kubernetes node by verifying node health, restoring kubelet connectivity, or replacing the failed node if recovery is unsuccessful."
+
+    operational_risk: "Medium"
+
+    business_risk: "High"
+
+    estimated_recovery: "5-15 minutes"
+
+    prerequisites:
+      - Kubernetes API reachable
+      - Node exists
+      - Cluster administrator access
+
+    expected_outcome: "The affected node returns to Ready state or workloads are successfully rescheduled to healthy nodes."
+
+    validation:
+      - Node status is Ready
+      - All scheduled pods are Running
+      - No Pending pods remain due to node failure
+      - kubectl get nodes reports all nodes Ready
+
+    enabled: true
+
+  ACT-004:
+
+    name: "Recover CrashLoopBackOff Pod"
+
+    category: "Application"
+
+    description: "Recommend investigating the failing pod, reviewing logs, correcting configuration issues, and restarting the workload after the root cause has been resolved."
+
+    operational_risk: "Medium"
+
+    business_risk: "High"
+
+    estimated_recovery: "5-10 minutes"
+
+    prerequisites:
+      - Kubernetes API reachable
+      - Pod exists
+      - Application logs available
+
+    expected_outcome: "The affected pod enters the Running state without further restart loops."
+
+    validation:
+      - Pod status is Running
+      - Restart count remains stable
+      - Application health endpoint returns HTTP 200
+      - kubectl get pods shows Ready
+
+    enabled: true
+
+  ACT-005:
+
+    name: "Isolate Compromised Workload"
+
+    category: "Security"
+
+    description: "Recommend isolating the compromised workload, preserving forensic evidence, preventing lateral movement, and escalating the incident to the Security Operations Team."
+
+    operational_risk: "High"
+
+    business_risk: "Critical"
+
+    estimated_recovery: "15-30 minutes"
+
+    prerequisites:
+      - Kubernetes API reachable
+      - Security administrator access
+      - Audit logging enabled
+
+    expected_outcome: "The compromised workload is isolated, evidence is preserved, and further malicious activity is prevented."
+
+    validation:
+      - Workload isolated
+      - Network access restricted
+      - Security evidence collected
+      - Incident escalated
+
+    enabled: true
+
+  ACT-006:
+    name: "Collect Security Evidence"
+    category: "Security"
+    description: "Collect and preserve runtime, container, and Kubernetes evidence from the suspected compromised workload."
+    operational_risk: "Low"
+    business_risk: "High"
+    estimated_recovery: "5 minutes"
+    prerequisites:
+     - Kubernetes API reachable
+     - Audit logging enabled
+     - Security administrator access
+    expected_outcome: "Relevant security evidence is collected and preserved."
+    validation:
+      - Container logs collected
+      - Runtime events collected
+      - Kubernetes audit evidence collected
+    enabled: true
+
+  ACT-007:
+    name: "Isolate Compromised Workload"
+    category: "Security"
+    description: "Isolate the compromised workload to prevent continued malicious activity and lateral movement."
+    operational_risk: "High"
+    business_risk: "Critical"
+    estimated_recovery: "5-10 minutes"
+    prerequisites:
+      - Kubernetes API reachable
+      - Security administrator access
+      - Security evidence collected
+    expected_outcome: "The compromised workload is isolated."
+    validation:
+      - Workload isolated
+      - Network access restricted
+    enabled: true
+
+  ACT-008:
+    name: "Verify Workload Isolation"
+    category: "Security"
+    description: "Verify that the compromised workload remains isolated and that malicious activity is no longer continuing."
+    operational_risk: "Medium"
+    business_risk: "Critical"
+    estimated_recovery: "5 minutes"
+    prerequisites:
+      - Workload isolated
+      - Security evidence collected
+    expected_outcome: "Workload isolation is confirmed and no ongoing malicious activity is detected."
+    validation:
+      - Workload remains isolated
+      - No malicious processes detected
+    enabled: true
+
+  ACT-009:
+    name: "Escalate Security Incident"
+    category: "Security"
+    description: "Escalate the confirmed security incident to the Security Operations Team with the collected evidence."
+    operational_risk: "Low"
+    business_risk: "Critical"
+    estimated_recovery: "5 minutes"
+    prerequisites:
+     - Workload isolation verified
+     - Security evidence collected
+    expected_outcome: "The security incident is formally escalated with supporting evidence."
+    validation:
+     - Incident escalated
+     - Evidence attached to incident
+    enabled: true

@@ -1,0 +1,81 @@
+version: "1.0"
+
+playbook_id: "PB-K8S-004"
+
+incident_type: "pod_restart_cycle"
+
+name: "Pod Restart Cycle Recovery Playbook"
+
+description: "Decision playbook for workloads experiencing repeated pod termination and restart activity."
+
+priority: "high"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.70
+
+  required_root_causes:
+    - Pod Restart Cycle
+
+  required_components:
+    - netdevops-app-78d8bd544f-th7dq
+
+  severity_levels:
+    - medium
+    - high
+    - critical
+
+  incident_patterns:
+    - pod_restart_cycle
+
+actions:
+  primary:
+    - ACT-004
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Pods enter Running state
+    - Restart count stabilizes
+
+  expected_metrics:
+    - Restart Count Stable
+
+  health_checks:
+    - kubectl get pods
+    - kubectl describe pod
+
+  evidence_required:
+    - kubectl logs
+    - Kubernetes events
+
+failure_path:
+  trigger_conditions:
+    - Pod continues restarting
+
+  fallback_actions: []
+
+  escalation: "Platform Team"
+
+  stop_simulation: false
+
+metadata:
+  author: ""
+  created_date: ""
+  last_updated: ""
+
+  tags:
+    - kubernetes
+    - pod
+    - restart
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

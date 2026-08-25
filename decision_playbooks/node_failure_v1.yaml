@@ -1,0 +1,83 @@
+version: "1.0"
+
+playbook_id: "PB-K8S-002"
+
+incident_type: "node_failure"
+
+name: "Kubernetes Node Recovery Playbook"
+
+description: "Decision playbook for Kubernetes node failures, node unavailability, and node readiness issues."
+
+priority: "critical"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.80
+
+  required_root_causes:
+    - Node NotReady
+    - Node unreachable
+    - Kubelet failure
+    - Node resource exhaustion
+
+  required_components:
+    - Kubernetes Node
+
+  severity_levels:
+    - high
+    - critical
+
+  incident_patterns:
+    - node_failure
+    - node_not_ready
+    - node_unreachable
+
+actions:
+  primary:
+    - ACT-003
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Node Ready=True
+
+  expected_metrics:
+    - Ready Nodes
+
+  health_checks:
+    - kubectl get nodes
+
+  evidence_required:
+    - kubectl describe node
+
+failure_path:
+  trigger_conditions:
+    - Node remains NotReady
+
+  fallback_actions: []
+
+  escalation: "Platform Team"
+
+  stop_simulation: false
+
+metadata:
+  author: ""
+
+  created_date: ""
+
+  last_updated: ""
+
+  tags:
+    - kubernetes
+    - node
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

@@ -1,0 +1,367 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AegisAI Canonical Dataset",
+  "description": "Phase 3.10 canonical contract combining normalized incident data from Phases 3.6 through 3.9.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "dataset_version",
+      "incident",
+      "signals",
+      "correlation",
+      "timeline",
+      "root_cause",
+      "affected_components",
+      "evidence",
+      "context",
+      "decision",
+      "response_plan",
+      "simulation",
+      "validation",
+      "provenance"
+    ],
+    "properties": {
+      "dataset_version": {
+        "type": "string",
+        "const": "1.0"
+      },
+
+      "incident": {
+        "type": "object",
+        "required": [
+          "incident_id",
+          "incident_type",
+          "severity",
+          "confidence"
+        ],
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "incident_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "detected_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+
+      "signals": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+
+      "correlation": {
+        "type": "object",
+        "properties": {
+          "incident_id": {
+            "type": "string"
+          },
+          "related_events": {
+            "type": "array"
+          },
+          "incident_graph": {},
+          "summary": {}
+        },
+        "additionalProperties": true
+      },
+
+      "timeline": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "timestamp",
+            "event"
+          ],
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "minLength": 1
+            },
+            "event": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+
+      "root_cause": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "confidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "hint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": true
+      },
+
+      "affected_components": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+
+      "evidence": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+
+      "context": {
+        "type": "object",
+        "additionalProperties": true
+      },
+
+      "decision": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "playbook_id",
+          "playbook_name",
+          "playbook_version",
+          "decision_score",
+          "decision_trace"
+        ],
+        "properties": {
+          "decision_id": {
+            "type": "string"
+          },
+          "playbook_id": {
+            "type": "string"
+          },
+          "playbook_name": {
+            "type": "string"
+          },
+          "playbook_version": {
+            "type": "string"
+          },
+          "decision_score": {
+            "type": "number"
+          },
+          "score_breakdown": {
+            "type": "object"
+          },
+          "decision_trace": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "expected_evidence": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": true
+      },
+
+      "response_plan": {
+        "type": "object",
+        "required": [
+          "primary_actions",
+          "execution_order",
+          "dependency_graph"
+        ],
+        "properties": {
+          "primary_actions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "alternative_actions": {
+            "type": "array"
+          },
+          "prerequisites": {
+            "type": "array"
+          },
+          "post_actions": {
+            "type": "array"
+          },
+          "execution_order": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dependency_graph": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "expected_evidence": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": true
+      },
+
+      "simulation": {
+        "type": "object",
+        "required": [
+          "predicted_outcome",
+          "operational_risk",
+          "business_risk",
+          "success_probability",
+          "simulation_status",
+          "recovery_confidence"
+        ],
+        "properties": {
+          "predicted_outcome": {
+            "type": "string"
+          },
+          "estimated_recovery": {
+            "type": "string"
+          },
+          "operational_risk": {
+            "type": "string"
+          },
+          "business_risk": {
+            "type": "string"
+          },
+          "validation_checks": {
+            "type": "array"
+          },
+          "success_probability": {
+            "type": "string"
+          },
+          "simulation_status": {
+            "type": "string"
+          },
+          "recovery_confidence": {
+            "type": "object",
+            "required": [
+              "score",
+              "level"
+            ],
+            "properties": {
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "level": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      },
+
+      "validation": {
+        "type": "object",
+        "required": [
+          "validation_passed",
+          "checks_passed",
+          "overall_validation",
+          "validation_status"
+        ],
+        "properties": {
+          "validation_passed": {
+            "type": "boolean"
+          },
+          "checks_passed": {
+            "type": "boolean"
+          },
+          "overall_validation": {
+            "type": "boolean"
+          },
+          "validation_status": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+
+      "provenance": {
+        "type": "object",
+        "required": [
+          "source_phases"
+        ],
+        "properties": {
+          "source_phases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "3.6",
+                "3.7",
+                "3.8",
+                "3.9"
+              ]
+            },
+            "minItems": 1
+          },
+          "source_files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "generated_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+
+    "additionalProperties": false
+  }
+}

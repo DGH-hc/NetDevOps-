@@ -1,0 +1,278 @@
+[
+  {
+    "dataset_version": "1.0",
+    "incident": {
+      "incident_id": "INC-001",
+      "incident_type": "pod_restart_cycle",
+      "severity": "medium",
+      "confidence": 0.75,
+      "detected_at": "2026-06-19T22:42:39Z"
+    },
+    "signals": [
+      "pod_terminated",
+      "pod_started"
+    ],
+    "correlation": {
+      "incident_id": "INC-001",
+      "related_events": [
+        "pod_terminated",
+        "pod_started",
+        "pod_restart_cycle"
+      ],
+      "incident_graph": {
+        "incident_id": "INC-001",
+        "nodes": [
+          "pod_terminated",
+          "pod_started",
+          "pod_restart_cycle"
+        ],
+        "edges": [
+          {
+            "from": "pod_terminated",
+            "to": "pod_restart_cycle"
+          },
+          {
+            "from": "pod_started",
+            "to": "pod_restart_cycle"
+          }
+        ]
+      },
+      "summary": {
+        "incident_id": "INC-001",
+        "incident_type": "pod_restart_cycle",
+        "start_time": "2026-06-19T22:42:39Z",
+        "end_time": "2026-06-19T22:42:42Z",
+        "severity": "MEDIUM",
+        "signals": [
+          "pod_terminated",
+          "pod_started"
+        ],
+        "root_cause_hint": "Pod was terminated and restarted. Investigate the restart reason.",
+        "affected_components": [
+          {
+            "name": "netdevops-app-78d8bd544f-th7dq",
+            "kind": "Pod",
+            "namespace": "app"
+          },
+          {
+            "name": "netdevops-app-78d8bd544f-wc85l",
+            "kind": "Pod",
+            "namespace": "app"
+          }
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "pod_terminated",
+        "status": "observed"
+      },
+      {
+        "timestamp": "2026-06-19T22:42:42Z",
+        "event": "pod_started",
+        "status": "observed"
+      }
+    ],
+    "root_cause": {
+      "id": "pod_restart_cycle",
+      "name": "Pod Restart Cycle",
+      "hint": "Likely workload restart. Investigate pod events and deployment history.",
+      "confidence": 0.75
+    },
+    "affected_components": [
+      "netdevops-app-78d8bd544f-th7dq",
+      "netdevops-app-78d8bd544f-wc85l"
+    ],
+    "evidence": [
+      {
+        "type": "signal",
+        "name": "pod_terminated",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "signal",
+        "name": "pod_started",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "pod_terminated",
+        "source": "Incident Timeline"
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "2026-06-19T22:42:42Z",
+        "event": "pod_started",
+        "source": "Incident Timeline"
+      }
+    ],
+    "context": {
+      "package_version": "1.0",
+      "generated_by": "Phase3.8 AegisAI Package Builder"
+    },
+    "decision": {
+      "decision_id": "DEC-9142A6C5",
+      "playbook_id": "PB-K8S-004",
+      "playbook_name": "Pod Restart Cycle Recovery Playbook",
+      "playbook_version": "1.0",
+      "decision_score": 75,
+      "score_breakdown": {
+        "incident_type": 40,
+        "root_cause": 0,
+        "components": 20,
+        "severity": 10,
+        "confidence": 5
+      },
+      "decision_trace": [
+        {
+          "criterion": "incident_type",
+          "matched": true,
+          "score": 40,
+          "weight": 40,
+          "reason": "Incident type matches playbook"
+        },
+        {
+          "criterion": "root_cause",
+          "matched": false,
+          "score": 0,
+          "weight": 25,
+          "reason": "Root cause does not match playbook"
+        },
+        {
+          "criterion": "components",
+          "matched": true,
+          "score": 20,
+          "weight": 20,
+          "reason": "Affected components match playbook"
+        },
+        {
+          "criterion": "severity",
+          "matched": true,
+          "score": 10,
+          "weight": 10,
+          "reason": "Severity matches playbook"
+        },
+        {
+          "criterion": "confidence",
+          "matched": true,
+          "score": 5,
+          "weight": 5,
+          "reason": "Confidence meets playbook threshold"
+        }
+      ],
+      "expected_evidence": [
+        "kubectl logs",
+        "Kubernetes events"
+      ]
+    },
+    "response_plan": {
+      "primary_actions": [
+        {
+          "name": "Recover CrashLoopBackOff Pod",
+          "category": "Application",
+          "description": "Recommend investigating the failing pod, reviewing logs, correcting configuration issues, and restarting the workload after the root cause has been resolved.",
+          "operational_risk": "Medium",
+          "business_risk": "High",
+          "estimated_recovery": "5-10 minutes",
+          "prerequisites": [
+            "Kubernetes API reachable",
+            "Pod exists",
+            "Application logs available"
+          ],
+          "expected_outcome": "The affected pod enters the Running state without further restart loops.",
+          "validation": [
+            "Pod status is Running",
+            "Restart count remains stable",
+            "Application health endpoint returns HTTP 200",
+            "kubectl get pods shows Ready"
+          ],
+          "enabled": true,
+          "id": "ACT-004"
+        }
+      ],
+      "alternative_actions": [],
+      "prerequisites": [],
+      "post_actions": [],
+      "execution_order": [
+        {
+          "step": 1,
+          "phase": "Primary",
+          "action": {
+            "name": "Recover CrashLoopBackOff Pod",
+            "category": "Application",
+            "description": "Recommend investigating the failing pod, reviewing logs, correcting configuration issues, and restarting the workload after the root cause has been resolved.",
+            "operational_risk": "Medium",
+            "business_risk": "High",
+            "estimated_recovery": "5-10 minutes",
+            "prerequisites": [
+              "Kubernetes API reachable",
+              "Pod exists",
+              "Application logs available"
+            ],
+            "expected_outcome": "The affected pod enters the Running state without further restart loops.",
+            "validation": [
+              "Pod status is Running",
+              "Restart count remains stable",
+              "Application health endpoint returns HTTP 200",
+              "kubectl get pods shows Ready"
+            ],
+            "enabled": true,
+            "id": "ACT-004"
+          }
+        }
+      ],
+      "dependency_graph": [],
+      "expected_evidence": [
+        "kubectl logs",
+        "Kubernetes events"
+      ]
+    },
+    "simulation": {
+      "predicted_outcome": "The affected pod enters the Running state without further restart loops.",
+      "estimated_recovery": "5-10 minutes",
+      "operational_risk": "Medium",
+      "business_risk": "High",
+      "validation_checks": [
+        "Pod status is Running",
+        "Restart count remains stable",
+        "Application health endpoint returns HTTP 200",
+        "kubectl get pods shows Ready"
+      ],
+      "success_probability": "70%",
+      "simulation_status": "Predicted Success",
+      "recovery_confidence": {
+        "score": 0.7,
+        "level": "Low",
+        "source": {
+          "type": "root_cause_confidence",
+          "value": 0.75
+        }
+      }
+    },
+    "validation": {
+      "validation_passed": true,
+      "checks_passed": true,
+      "overall_validation": true,
+      "validation_status": "Validation Passed"
+    },
+    "provenance": {
+      "source_phases": [
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9"
+      ],
+      "source_files": [
+        "evidence/phase3.7_incidents/incident_graph.json",
+        "evidence/phase3.7_incidents/incident_summary.json",
+        "evidence/phase3.8_root_cause/aegis_input.json",
+        "evidence/phase3.9_response_simulation/integration_results.json"
+      ],
+      "generated_at": "2026-08-25T17:13:22.791142+00:00"
+    }
+  }
+]

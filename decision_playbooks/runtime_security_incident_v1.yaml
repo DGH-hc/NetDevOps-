@@ -1,0 +1,94 @@
+version: "1.0"
+
+playbook_id: "PB-SEC-001"
+
+incident_type: "runtime_security_incident"
+
+name: "Runtime Security Incident Response Playbook"
+
+description: "Decision playbook for runtime security incidents involving suspicious container behavior, privilege escalation, unauthorized execution, malware activity, and potential container compromise."
+
+priority: "critical"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.90
+
+  required_root_causes:
+    - Privilege escalation detected
+    - Unauthorized process execution
+    - Suspicious container activity
+    - Container escape attempt
+    - Malware detected
+    - Cryptominer detected
+
+  required_components:
+    - Kubernetes Pod
+    - Container Runtime
+
+  severity_levels:
+    - critical
+
+  incident_patterns:
+    - runtime_security_incident
+    - privilege_escalation
+    - malware_detected
+    - container_escape
+    - suspicious_process
+
+actions:
+  primary:
+    - ACT-005
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Threat contained
+    - Compromised workload isolated
+
+  expected_metrics:
+    - No malicious processes running
+
+  health_checks:
+    - Security scan completed
+    - Incident evidence collected
+
+  evidence_required:
+    - Container logs
+    - Runtime events
+    - Kubernetes audit logs
+
+failure_path:
+  trigger_conditions:
+    - Threat persists
+    - Additional compromise detected
+
+  fallback_actions: []
+
+  escalation: "Security Operations Team"
+
+  stop_simulation: true
+
+metadata:
+  author: ""
+
+  created_date: ""
+
+  last_updated: ""
+
+  tags:
+    - security
+    - runtime
+    - kubernetes
+    - incident-response
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

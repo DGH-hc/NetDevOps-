@@ -1,0 +1,14 @@
+{
+    "manifest_version": "1.0",
+    "dataset": {
+        "file": "evidence/phase3.10_ai_dataset/sanitized/aegis_dataset_v1.0_sanitized.json",
+        "dataset_version": "1.0",
+        "records": 1,
+        "sha256": "81e002bb305c2069413e8dd6ba2c7d5e3ebba203ec1448e22cf8231cd0b4dd67"
+    },
+    "producer": {
+        "builder": "scripts/build_aegis_dataset.py",
+        "sanitizer": "scripts/sanitize_aegis_dataset.py",
+        "sanitizer_version": "1.0"
+    }
+}

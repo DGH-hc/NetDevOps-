@@ -1,14 +1,14 @@
 import json
-import copy 
+import copy
 from pathlib import Path
 from datetime import datetime, UTC
-import sys 
+import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from rules.rule_engine import determine_root_cause 
-from rules.recommendation_engine import get_recommendations 
+from rules.rule_engine import determine_root_cause
+from rules.recommendation_engine import get_recommendations
 
 def load_json(file_path):
     """
@@ -23,6 +23,12 @@ def load_optional_json(file_path, fallback):
         return load_json(file_path)
     except FileNotFoundError:
         return fallback
+
+def get_component_name(component):
+    if isinstance(component, dict):
+        return component.get("name", "").lower()
+
+    return str(component).lower()
 
 def collect_logs(incident):
     """
@@ -51,7 +57,7 @@ def collect_logs(incident):
         pod = log.get("pod", "").lower()
 
         for component in incident["affected_components"]:
-            component = component.lower()
+            component = get_component_name(component)
 
             if (
                 component in message
@@ -102,7 +108,9 @@ def collect_deployment(incident):
 
         for component in incident["affected_components"]:
 
-            if deployment_name in component.lower():
+            component_name = get_component_name(component)
+
+            if deployment_name in component_name:
 
                 deployment["status"] = "collected"
                 return deployment
@@ -143,7 +151,9 @@ def collect_metrics(incident):
 
         for component in incident["affected_components"]:
 
-            if component.lower() in pod_name:
+            component_name = get_component_name(component)
+
+            if component_name in pod_name:
 
                 return {
                     "status": "collected",
@@ -483,7 +493,7 @@ for summary in summaries:
     investigation_report["context"]["network"] = collect_network(summary)
     investigation_report["context"]["security"] = collect_security(summary)
     investigation_report["context"]["recent_changes"] = collect_recent_changes(summary)
-    
+
     root_cause = determine_root_cause(summary)
 
     investigation_report["root_cause"] = root_cause
@@ -492,30 +502,30 @@ for summary in summaries:
     root_cause["id"]
 )
 
-    investigation_report["timeline"] = build_investigation_timeline(timeline) 
+    investigation_report["timeline"] = build_investigation_timeline(timeline)
     investigation_timeline_reports.append(
     {
         "incident_id": incident_id,
         "timeline": investigation_report["timeline"]
     }
 )
-    
+
     investigation_report["evidence"] = build_evidence(summary, timeline)
     investigation_report["metadata"] = build_metadata()
     investigation_report["summary"] = build_summary(summary)
-    
+
     print(f"\n✓ Investigation Report: {incident_id}")
     print(json.dumps(investigation_report, indent=4))
 
     enriched_incidents.append(investigation_report)
- 
+
     context_reports.append(
     {
         "incident_id": incident_id,
         "context": investigation_report["context"]
     }
 )
-    
+
     root_cause_reports.append(
     {
         "incident_id": incident_id,
@@ -525,7 +535,7 @@ for summary in summaries:
         "confidence": investigation_report["root_cause"]["confidence"]
     }
 )
-    
+
     affected_components_reports.append(
     {
         "incident_id": incident_id,

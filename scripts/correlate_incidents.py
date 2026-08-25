@@ -1,4 +1,4 @@
-THIS_IS_NEW_FILE = True 
+THIS_IS_NEW_FILE = True
 
 import json
 from pathlib import Path
@@ -53,11 +53,13 @@ def generate_incident(rule, matched_events, incident_number):
         if event.get("timestamp")
     ]
 
-    entities = sorted({
-        event["entity"]
-        for event in matched_events
-        if event.get("entity")
-    })
+    entities = []
+
+    for event in matched_events:
+         entity = event.get("entity")
+
+         if entity and entity not in entities:
+            entities.append(entity)
 
     incident = {
         "incident_id": f"INC-{incident_number:03d}",

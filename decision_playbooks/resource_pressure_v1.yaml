@@ -1,0 +1,81 @@
+version: "1.0"
+
+playbook_id: "PB-K8S-005"
+
+incident_type: "resource_pressure"
+
+name: "Resource Pressure Recovery Playbook"
+
+description: "Decision playbook for resource exhaustion causing workload instability."
+
+priority: "high"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.80
+
+  required_root_causes:
+    - Resource Pressure
+
+  required_components:
+    - cluster
+
+  severity_levels:
+    - high
+    - critical
+
+  incident_patterns:
+    - resource_pressure
+
+actions:
+  primary:
+    - ACT-003
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Resource pressure reduced
+    - Affected workload stabilizes
+
+  expected_metrics:
+    - CPU utilization stabilizes
+    - Memory utilization stabilizes
+
+  health_checks:
+    - kubectl get nodes
+    - kubectl get pods
+
+  evidence_required:
+    - Resource metrics
+    - Kubernetes events
+
+failure_path:
+  trigger_conditions:
+    - Resource pressure persists
+
+  fallback_actions: []
+
+  escalation: "Platform Team"
+
+  stop_simulation: false
+
+metadata:
+  author: ""
+  created_date: ""
+  last_updated: ""
+
+  tags:
+    - kubernetes
+    - resources
+    - capacity
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""

@@ -1,0 +1,87 @@
+version: "1.0"
+
+playbook_id: "PB-K8S-003"
+
+incident_type: "pod_crashloopbackoff"
+
+name: "Pod CrashLoopBackOff Recovery Playbook"
+
+description: "Decision playbook for Kubernetes pods experiencing CrashLoopBackOff due to repeated application failures."
+
+priority: "high"
+
+enabled: true
+
+conditions:
+  minimum_confidence: 0.80
+
+  required_root_causes:
+    - CrashLoopBackOff
+    - Application startup failure
+    - Container configuration error
+    - Missing environment variables
+    - Liveness probe failure
+
+  required_components:
+    - Kubernetes Pod
+
+  severity_levels:
+    - high
+    - critical
+
+  incident_patterns:
+    - pod_crashloopbackoff
+    - container_restart
+    - startup_failure
+
+actions:
+  primary:
+    - ACT-004
+
+  alternatives: []
+
+  prerequisites: []
+
+  post_actions: []
+
+validation:
+  success_criteria:
+    - Pod Running=True
+
+  expected_metrics:
+    - Restart Count Stable
+
+  health_checks:
+    - kubectl get pods
+    - kubectl describe pod
+
+  evidence_required:
+    - kubectl logs
+    - kubectl describe pod
+
+failure_path:
+  trigger_conditions:
+    - Pod continues restarting
+
+  fallback_actions: []
+
+  escalation: "Platform Team"
+
+  stop_simulation: false
+
+metadata:
+  author: ""
+
+  created_date: ""
+
+  last_updated: ""
+
+  tags:
+    - kubernetes
+    - pod
+    - crashloopbackoff
+
+  supported_versions:
+    - "1.x"
+
+  notes: ""
