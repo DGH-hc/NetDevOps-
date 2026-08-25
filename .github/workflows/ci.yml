@@ -85,7 +85,9 @@ jobs:
             python -m scripts.aegis_dataset_quality &&
             python -m scripts.aegis_dataset_golden &&
             python -m scripts.replay_aegis_dataset &&
-            python -m scripts.aegis_schema_compatibility
+            python -m scripts.aegis_schema_compatibility &&
+            PYTHONPATH=/app python -m scripts.build_aegis_manifest &&
+            PYTHONPATH=/app python -m scripts.generate_phase3_10_acceptance
           "
 
       - name: Collect logs on failure
