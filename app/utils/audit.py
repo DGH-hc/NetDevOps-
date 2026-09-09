@@ -1,11 +1,12 @@
 # app/utils/audit.py
 
 from functools import wraps
-from fastapi import Request, Depends
 
+from fastapi import Depends, Request
+
+from app.api.deps import get_current_user
 from app.db.database import SessionLocal
 from app.models.audit import AuditEvent
-from app.api.deps import get_current_user
 
 
 def audit(action: str, target: str = None):

@@ -1,6 +1,9 @@
 from fastapi import APIRouter
-from app.api.v1 import health
-from app.api.v1 import jobs_api   # ← THIS WAS MISSING
+
+from app.api.v1 import (
+    health,
+    jobs_api,  # ← THIS WAS MISSING
+)
 
 router = APIRouter()
 

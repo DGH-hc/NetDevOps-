@@ -1,13 +1,10 @@
-import json
 import hashlib
-import yaml
-from datetime import datetime, timezone  
+import json
+from datetime import datetime, timezone
 from pathlib import Path
-from prometheus_client import (
-    get_cpu_metrics,
-    get_memory_available,
-    get_memory_total
-)
+
+import yaml
+from prometheus_client import get_cpu_metrics, get_memory_available, get_memory_total
 
 # -------------------------
 # Event IDs

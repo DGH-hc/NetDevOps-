@@ -12,12 +12,9 @@ This module does NOT:
 - Restart Kubernetes resources
 """
 
-from typing import Any
-
-from datetime import UTC, datetime
-
 import uuid
-
+from datetime import UTC, datetime
+from typing import Any
 
 
 class AuditTrail:

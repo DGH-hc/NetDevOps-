@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
-from jsonschema import validate 
+
+from jsonschema import validate
 
 INPUT_FILE = Path("evidence/phase3.8_root_cause/enriched_incidents.json")
 OUTPUT_FILE = Path("evidence/phase3.8_root_cause/aegis_input.json")

@@ -1,15 +1,16 @@
 # app/metrics.py 
 
+import os
+
+from fastapi import Response
 from prometheus_client import (
+    CONTENT_TYPE_LATEST,
+    CollectorRegistry,
     Counter,
     Histogram,
-    CollectorRegistry,
-    multiprocess,
     generate_latest,
-    CONTENT_TYPE_LATEST,
+    multiprocess,
 )
-from fastapi import Response
-import os
 
 # ----------------------------------------
 # CRITICAL: multiprocess safety

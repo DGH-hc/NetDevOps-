@@ -14,9 +14,8 @@ This module does NOT:
 
 from typing import Any
 
-from rules.decision_report import DecisionReport
-
 from rules.audit_trail import AuditTrail
+from rules.decision_report import DecisionReport
 
 
 class EvidenceGenerator:

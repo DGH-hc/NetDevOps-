@@ -1,7 +1,7 @@
 import json
 import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
-from datetime import datetime, timezone 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 

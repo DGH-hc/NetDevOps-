@@ -1,12 +1,13 @@
 # app/api/v1/jobs_api.py
 
-from fastapi import APIRouter, HTTPException, Depends
-from sqlalchemy.orm import Session
 import logging
 
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
 from app.db.database import get_db
-from app.models.job import JobDB
 from app.metrics import get_metrics
+from app.models.job import JobDB
 from app.worker.celery_app import celery_app  # ✅ correct import
 
 router = APIRouter(prefix="/jobs", tags=["jobs"])

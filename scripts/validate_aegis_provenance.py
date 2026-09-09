@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 BASE_DIR = Path(__file__).resolve().parents[1]
 
 PHASE36_PATH = (

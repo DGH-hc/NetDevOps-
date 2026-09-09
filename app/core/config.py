@@ -2,8 +2,8 @@
 
 try:
     # Pydantic v2
-    from pydantic_settings import BaseSettings
     from pydantic import ConfigDict
+    from pydantic_settings import BaseSettings
 except ImportError:
     # Fallback (older installs)
     from pydantic import BaseSettings, ConfigDict

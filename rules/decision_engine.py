@@ -12,11 +12,10 @@ This module does NOT:
 - Modify infrastructure
 - Generate reports
 """
+import uuid
 from typing import Any
 
 from rules.playbook_loader import load_all_playbooks
-
-import uuid
 
 REQUIRED_INCIDENT_FIELDS = [
     "incident_id",

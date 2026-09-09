@@ -3,9 +3,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
+from app.api.deps import require_role
 from app.db.database import get_db
 from app.models.audit import AuditEvent
-from app.api.deps import require_role
 
 router = APIRouter(prefix="/audit", tags=["audit"])
 

@@ -28,6 +28,9 @@ jobs:
       - name: Build images referenced by compose
         run: docker compose -f $COMPOSE_FILE build --pull --progress=plain
 
+      - name: Run Ruff  
+        run: docker compose -f $COMPOSE_FILE run --rm --no-deps app ruff check .
+
       - name: Start CI stack
         run: docker compose -f $COMPOSE_FILE up -d --remove-orphans
 

@@ -1,21 +1,20 @@
 # app/main.py
 
-from importlib.resources import path
-import shutil 
 import logging
-from logging.handlers import RotatingFileHandler
 import os
+import shutil
 import time
-from urllib import response 
+from importlib.resources import path
+from logging.handlers import RotatingFileHandler
+from urllib import response
+
 PROM_DIR = "/tmp/prometheus-shared" 
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from prometheus_client import Counter, Histogram
 from sqlalchemy import text
-from prometheus_client import Counter,Histogram 
-
-from app.db.database import SessionLocal
 
 # -----------------------------
 # Routers & Config
@@ -23,13 +22,13 @@ from app.db.database import SessionLocal
 from app.api.routers import router as api_router
 from app.api.v1.health import router as health_router
 from app.core.config import settings
+from app.db.database import SessionLocal
 from app.metrics import setup_metrics
 
 # -----------------------------
 # Celery Task Import (CRITICAL)
 # -----------------------------
 from app.worker.celery_app import test_task
-
 
 # ============================
 # Logging Setup

@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 PHASE38 = PROJECT_ROOT / "evidence" / "phase3.8_root_cause"

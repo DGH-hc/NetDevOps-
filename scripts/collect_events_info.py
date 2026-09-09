@@ -1,6 +1,7 @@
-from kubernetes import client, config
 import json
 from pathlib import Path
+
+from kubernetes import client, config
 
 OUTPUT_FILE = Path("signals/events_info.json")
 

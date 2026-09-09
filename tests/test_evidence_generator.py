@@ -1,6 +1,5 @@
 from rules.evidence_generator import EvidenceGenerator
 
-
 INCIDENT = {
     "incident_id": "INC-001",
     "incident_type": "database_failure",

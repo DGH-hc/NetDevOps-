@@ -1,10 +1,11 @@
 # app/api/v1/health.py
 
+import redis
 from fastapi import APIRouter
 from sqlalchemy import text
-from app.db.database import SessionLocal
+
 from app.core.config import settings
-import redis
+from app.db.database import SessionLocal
 
 router = APIRouter()
 

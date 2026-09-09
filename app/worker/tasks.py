@@ -1,8 +1,9 @@
 # app/worker/tasks.py
 
 from datetime import datetime
+
 from app.db.database import SessionLocal
-from app.models.job import JobDB, JobAttempt, JobLog
+from app.models.job import JobAttempt, JobDB, JobLog
 
 # -----------------------------
 # Celery Import (SAFE)

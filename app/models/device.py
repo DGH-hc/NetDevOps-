@@ -1,7 +1,9 @@
 # app/models/device.py
 
 from sqlalchemy import Column, Integer, String
+
 from app.db.database import Base
+
 
 class DeviceDB(Base):
     __tablename__ = "devices"

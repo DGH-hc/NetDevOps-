@@ -4,11 +4,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-from scripts.build_aegis_dataset import(
-     build_dataset,
-     validate_against_schema,
+from scripts.build_aegis_dataset import (
+    build_dataset,
+    validate_against_schema,
 )
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 

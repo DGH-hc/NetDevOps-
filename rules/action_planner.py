@@ -15,8 +15,8 @@ This module does NOT:
 
 from typing import Any
 
-from rules.decision_engine import DecisionEngine
 from rules.action_catalog_loader import ActionCatalogLoader
+from rules.decision_engine import DecisionEngine
 
 
 class ActionPlanner:

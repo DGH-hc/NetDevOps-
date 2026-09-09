@@ -21,7 +21,6 @@ from scripts.build_aegis_dataset import (
     normalize_incident,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATASET_PATH = (

@@ -1,13 +1,14 @@
 from datetime import datetime, timedelta
-from jose import JWTError, jwt
-from passlib.context import CryptContext
+
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError, jwt
+from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from app.db.database import SessionLocal
+
+from app.core.security import get_password_hash, verify_password
+from app.db.database import SessionLocal, get_db
 from app.models.user import UserDB
-from app.db.database import get_db
-from app.core.security import verify_password, get_password_hash
 
 # -------------------------------
 # 🔐 JWT Configuration

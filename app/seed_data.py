@@ -1,8 +1,14 @@
-from app.models.job import JobDB
-from sqlalchemy.orm import Session
-from app.database import engine, Base, SessionLocal
-from app.models import Device, User, Job  # adjust these imports to your actual model names
 import logging
+
+from sqlalchemy.orm import Session
+
+from app.database import Base, SessionLocal, engine
+from app.models import (  # adjust these imports to your actual model names
+    Device,
+    Job,
+    User,
+)
+from app.models.job import JobDB
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

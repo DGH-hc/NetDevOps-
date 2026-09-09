@@ -12,13 +12,11 @@ This module does NOT:
 - Restart Kubernetes resources
 """
 
+import uuid
+from datetime import UTC, datetime
 from typing import Any
 
 from rules.validation_framework import ValidationFramework
-
-from datetime import datetime, UTC
-
-import uuid
 
 
 class DecisionReport:

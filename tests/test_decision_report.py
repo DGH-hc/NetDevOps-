@@ -1,6 +1,5 @@
 from rules.decision_report import DecisionReport
 
-
 INCIDENT = {
     "incident_id": "INC-001",
     "incident_type": "database_failure",

@@ -1,6 +1,5 @@
 from rules.validation_framework import ValidationFramework
 
-
 INCIDENT = {
     "incident_id": "INC-001",
     "incident_type": "database_failure",

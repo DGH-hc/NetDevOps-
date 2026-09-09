@@ -7,7 +7,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from rules.evidence_generator import EvidenceGenerator
 
-
 INPUT_FILE = (
     PROJECT_ROOT
     / "evidence/phase3.8_root_cause/enriched_incidents.json"

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 # ---------------------------
 # 📦 Schema for Device Creation
 # ---------------------------

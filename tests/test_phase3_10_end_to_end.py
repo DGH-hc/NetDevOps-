@@ -15,7 +15,6 @@ from scripts.sanitize_aegis_dataset import (
     sanitize_dataset,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATASET_PATH = (

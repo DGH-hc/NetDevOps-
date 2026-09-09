@@ -2,7 +2,6 @@ from copy import deepcopy
 
 from scripts.build_aegis_dataset import build_dataset
 
-
 DYNAMIC_KEYS = {
     "generated_at",
     "dataset_id",

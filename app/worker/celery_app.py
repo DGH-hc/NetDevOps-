@@ -7,11 +7,11 @@ import traceback
 from datetime import datetime
 from typing import List, Optional
 
-
 from celery import Celery
+from celery.exceptions import MaxRetriesExceededError
 from sqlalchemy.orm import Session
-from celery.exceptions import MaxRetriesExceededError 
-from app.metrics import get_metrics 
+
+from app.metrics import get_metrics
 
 logger = logging.getLogger("netdevops.worker")
 
@@ -45,23 +45,23 @@ celery_app.conf.update(
 # ==========================================================
 # CRITICAL :FORCE TASK REGISTRATION
 # ==========================================================
-import app.worker.tasks 
-
+import app.worker.tasks
 
 # ==========================================================
 # IMPORTS
 # ==========================================================
 from app.db.database import SessionLocal
-from app.utils.secrets import get_secret
-from app.utils.deploy import (
-    fetch_running_config,
-    save_snapshot_to_fs,
-    apply_config,
-    verify_config,
-    rollback_from_snapshot,
-)
-from app.models.job import JobDB, JobAttempt
 from app.models.device import DeviceDB
+from app.models.job import JobAttempt, JobDB
+from app.utils.deploy import (
+    apply_config,
+    fetch_running_config,
+    rollback_from_snapshot,
+    save_snapshot_to_fs,
+    verify_config,
+)
+from app.utils.secrets import get_secret
+
 
 # ==========================================================
 # TEST TASK
@@ -198,8 +198,9 @@ def push_config_job(
     name="app.worker.celery_app.fail_task",
 )
 def fail_task(self):
-    from app.metrics import get_metrics
     import time
+
+    from app.metrics import get_metrics
 
     metrics = get_metrics(scope="worker")
 

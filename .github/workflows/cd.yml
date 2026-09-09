@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: read 
+
 jobs:
   push-ghcr:
     runs-on: ubuntu-latest

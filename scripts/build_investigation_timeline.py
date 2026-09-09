@@ -1,6 +1,6 @@
 import json
+from datetime import datetime, timezone
 from pathlib import Path
-from datetime import datetime, timezone 
 
 PHASE37_TIMELINE = Path(
     "evidence/phase3.7_correlation/incident_timeline.json"

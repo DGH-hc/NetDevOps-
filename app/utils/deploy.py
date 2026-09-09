@@ -1,15 +1,15 @@
 # app/utils/deploy.py
 
-import os
 import logging
+import os
 import traceback
 from datetime import datetime
 from typing import List, Tuple
 
 from netmiko import (
     ConnectHandler,
-    NetMikoTimeoutException,
     NetMikoAuthenticationException,
+    NetMikoTimeoutException,
 )
 
 # ============================

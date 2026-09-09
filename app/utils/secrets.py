@@ -1,5 +1,6 @@
 # app/utils/secrets.py
 import os
+
 import requests
 
 # Keep this module free of top-level imports from core.config to avoid circular imports.
