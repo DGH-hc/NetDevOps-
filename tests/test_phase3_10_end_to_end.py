@@ -31,7 +31,7 @@ def test_phase3_10_end_to_end():
     dataset = build_dataset()
 
     assert dataset
-    assert len(dataset) == 1
+    assert len(dataset) == 3
 
     # 2. Validate canonical schema.
     validate_against_schema(dataset)
@@ -60,7 +60,7 @@ def test_phase3_10_end_to_end():
     )
 
     assert replay_report["replay_status"] == "PASS"
-    assert replay_report["records_replayed"] == 1
+    assert replay_report["records_replayed"] == 3
 
     # 6. Verify the existing production artifact is valid JSON.
     assert DATASET_PATH.exists()
@@ -72,4 +72,4 @@ def test_phase3_10_end_to_end():
         persisted_dataset = json.load(file)
 
     assert isinstance(persisted_dataset, list)
-    assert len(persisted_dataset) == 1
+    assert len(persisted_dataset) == 3

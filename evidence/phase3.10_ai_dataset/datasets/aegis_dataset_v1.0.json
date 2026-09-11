@@ -3,6 +3,424 @@
     "dataset_version": "1.0",
     "incident": {
       "incident_id": "INC-001",
+      "incident_type": "runtime_compromise",
+      "severity": "critical",
+      "confidence": 0.95,
+      "detected_at": "21:05:18.611052300"
+    },
+    "signals": [
+      "container_shell",
+      "sensitive_file_access"
+    ],
+    "correlation": {
+      "incident_id": "INC-001",
+      "related_events": [
+        "container_shell",
+        "sensitive_file_access",
+        "runtime_compromise"
+      ],
+      "incident_graph": {
+        "incident_id": "INC-001",
+        "nodes": [
+          "container_shell",
+          "sensitive_file_access",
+          "runtime_compromise"
+        ],
+        "edges": [
+          {
+            "from": "container_shell",
+            "to": "runtime_compromise"
+          },
+          {
+            "from": "sensitive_file_access",
+            "to": "runtime_compromise"
+          }
+        ]
+      },
+      "summary": {
+        "incident_id": "INC-001",
+        "incident_type": "runtime_compromise",
+        "start_time": "21:05:18.611052300",
+        "end_time": "21:19:43.386001109",
+        "severity": "CRITICAL",
+        "signals": [
+          "container_shell",
+          "sensitive_file_access"
+        ],
+        "root_cause_hint": "Possible container compromise through interactive shell and sensitive file access.",
+        "affected_components": [
+          "netdevops-app",
+          "pg_isready"
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "timestamp": "21:05:18.611052300",
+        "event": "sensitive_file_access",
+        "status": "observed"
+      },
+      {
+        "timestamp": "21:19:43.386001109",
+        "event": "container_shell",
+        "status": "observed"
+      }
+    ],
+    "root_cause": {
+      "id": "runtime_compromise",
+      "name": "Runtime Compromise",
+      "hint": "Likely runtime compromise caused by interactive shell activity and sensitive file access.",
+      "confidence": 0.95
+    },
+    "affected_components": [
+      "netdevops-app",
+      "pg_isready"
+    ],
+    "evidence": [
+      {
+        "type": "signal",
+        "name": "container_shell",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "signal",
+        "name": "sensitive_file_access",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "21:05:18.611052300",
+        "event": "sensitive_file_access",
+        "source": "Incident Timeline"
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "21:19:43.386001109",
+        "event": "container_shell",
+        "source": "Incident Timeline"
+      }
+    ],
+    "context": {
+      "package_version": "1.0",
+      "generated_by": "Phase3.8 AegisAI Package Builder"
+    },
+    "decision": {
+      "decision_id": "DEC-32547499",
+      "playbook_id": "PB-SEC-002",
+      "playbook_name": "Runtime Compromise Response Playbook",
+      "playbook_version": "1.0",
+      "decision_score": 75,
+      "score_breakdown": {
+        "incident_type": 40,
+        "root_cause": 0,
+        "components": 20,
+        "severity": 10,
+        "confidence": 5
+      },
+      "decision_trace": [
+        {
+          "criterion": "incident_type",
+          "matched": true,
+          "score": 40,
+          "weight": 40,
+          "reason": "Incident type matches playbook"
+        },
+        {
+          "criterion": "root_cause",
+          "matched": false,
+          "score": 0,
+          "weight": 25,
+          "reason": "Root cause does not match playbook"
+        },
+        {
+          "criterion": "components",
+          "matched": true,
+          "score": 20,
+          "weight": 20,
+          "reason": "Affected components match playbook"
+        },
+        {
+          "criterion": "severity",
+          "matched": true,
+          "score": 10,
+          "weight": 10,
+          "reason": "Severity matches playbook"
+        },
+        {
+          "criterion": "confidence",
+          "matched": true,
+          "score": 5,
+          "weight": 5,
+          "reason": "Confidence meets playbook threshold"
+        }
+      ],
+      "expected_evidence": [
+        "Container logs",
+        "Runtime events",
+        "Kubernetes audit logs"
+      ]
+    },
+    "response_plan": {
+      "primary_actions": [
+        {
+          "name": "Collect Security Evidence",
+          "category": "Security",
+          "description": "Collect and preserve runtime, container, and Kubernetes evidence from the suspected compromised workload.",
+          "operational_risk": "Low",
+          "business_risk": "High",
+          "estimated_recovery": "5 minutes",
+          "prerequisites": [
+            "Kubernetes API reachable",
+            "Audit logging enabled",
+            "Security administrator access"
+          ],
+          "expected_outcome": "Relevant security evidence is collected and preserved.",
+          "validation": [
+            "Container logs collected",
+            "Runtime events collected",
+            "Kubernetes audit evidence collected"
+          ],
+          "enabled": true,
+          "id": "ACT-006"
+        },
+        {
+          "name": "Isolate Compromised Workload",
+          "category": "Security",
+          "description": "Isolate the compromised workload to prevent continued malicious activity and lateral movement.",
+          "operational_risk": "High",
+          "business_risk": "Critical",
+          "estimated_recovery": "5-10 minutes",
+          "prerequisites": [
+            "Kubernetes API reachable",
+            "Security administrator access",
+            "Security evidence collected"
+          ],
+          "expected_outcome": "The compromised workload is isolated.",
+          "validation": [
+            "Workload isolated",
+            "Network access restricted"
+          ],
+          "enabled": true,
+          "id": "ACT-007"
+        },
+        {
+          "name": "Verify Workload Isolation",
+          "category": "Security",
+          "description": "Verify that the compromised workload remains isolated and that malicious activity is no longer continuing.",
+          "operational_risk": "Medium",
+          "business_risk": "Critical",
+          "estimated_recovery": "5 minutes",
+          "prerequisites": [
+            "Workload isolated",
+            "Security evidence collected"
+          ],
+          "expected_outcome": "Workload isolation is confirmed and no ongoing malicious activity is detected.",
+          "validation": [
+            "Workload remains isolated",
+            "No malicious processes detected"
+          ],
+          "enabled": true,
+          "id": "ACT-008"
+        },
+        {
+          "name": "Escalate Security Incident",
+          "category": "Security",
+          "description": "Escalate the confirmed security incident to the Security Operations Team with the collected evidence.",
+          "operational_risk": "Low",
+          "business_risk": "Critical",
+          "estimated_recovery": "5 minutes",
+          "prerequisites": [
+            "Workload isolation verified",
+            "Security evidence collected"
+          ],
+          "expected_outcome": "The security incident is formally escalated with supporting evidence.",
+          "validation": [
+            "Incident escalated",
+            "Evidence attached to incident"
+          ],
+          "enabled": true,
+          "id": "ACT-009"
+        }
+      ],
+      "alternative_actions": [],
+      "prerequisites": [],
+      "post_actions": [],
+      "execution_order": [
+        {
+          "step": 1,
+          "phase": "Primary",
+          "action": {
+            "name": "Collect Security Evidence",
+            "category": "Security",
+            "description": "Collect and preserve runtime, container, and Kubernetes evidence from the suspected compromised workload.",
+            "operational_risk": "Low",
+            "business_risk": "High",
+            "estimated_recovery": "5 minutes",
+            "prerequisites": [
+              "Kubernetes API reachable",
+              "Audit logging enabled",
+              "Security administrator access"
+            ],
+            "expected_outcome": "Relevant security evidence is collected and preserved.",
+            "validation": [
+              "Container logs collected",
+              "Runtime events collected",
+              "Kubernetes audit evidence collected"
+            ],
+            "enabled": true,
+            "id": "ACT-006"
+          }
+        },
+        {
+          "step": 2,
+          "phase": "Primary",
+          "action": {
+            "name": "Isolate Compromised Workload",
+            "category": "Security",
+            "description": "Isolate the compromised workload to prevent continued malicious activity and lateral movement.",
+            "operational_risk": "High",
+            "business_risk": "Critical",
+            "estimated_recovery": "5-10 minutes",
+            "prerequisites": [
+              "Kubernetes API reachable",
+              "Security administrator access",
+              "Security evidence collected"
+            ],
+            "expected_outcome": "The compromised workload is isolated.",
+            "validation": [
+              "Workload isolated",
+              "Network access restricted"
+            ],
+            "enabled": true,
+            "id": "ACT-007"
+          }
+        },
+        {
+          "step": 3,
+          "phase": "Primary",
+          "action": {
+            "name": "Verify Workload Isolation",
+            "category": "Security",
+            "description": "Verify that the compromised workload remains isolated and that malicious activity is no longer continuing.",
+            "operational_risk": "Medium",
+            "business_risk": "Critical",
+            "estimated_recovery": "5 minutes",
+            "prerequisites": [
+              "Workload isolated",
+              "Security evidence collected"
+            ],
+            "expected_outcome": "Workload isolation is confirmed and no ongoing malicious activity is detected.",
+            "validation": [
+              "Workload remains isolated",
+              "No malicious processes detected"
+            ],
+            "enabled": true,
+            "id": "ACT-008"
+          }
+        },
+        {
+          "step": 4,
+          "phase": "Primary",
+          "action": {
+            "name": "Escalate Security Incident",
+            "category": "Security",
+            "description": "Escalate the confirmed security incident to the Security Operations Team with the collected evidence.",
+            "operational_risk": "Low",
+            "business_risk": "Critical",
+            "estimated_recovery": "5 minutes",
+            "prerequisites": [
+              "Workload isolation verified",
+              "Security evidence collected"
+            ],
+            "expected_outcome": "The security incident is formally escalated with supporting evidence.",
+            "validation": [
+              "Incident escalated",
+              "Evidence attached to incident"
+            ],
+            "enabled": true,
+            "id": "ACT-009"
+          }
+        }
+      ],
+      "dependency_graph": [
+        {
+          "action": "ACT-006",
+          "depends_on": []
+        },
+        {
+          "action": "ACT-007",
+          "depends_on": [
+            "ACT-006"
+          ]
+        },
+        {
+          "action": "ACT-008",
+          "depends_on": [
+            "ACT-007"
+          ]
+        },
+        {
+          "action": "ACT-009",
+          "depends_on": [
+            "ACT-008"
+          ]
+        }
+      ],
+      "expected_evidence": [
+        "Container logs",
+        "Runtime events",
+        "Kubernetes audit logs"
+      ]
+    },
+    "simulation": {
+      "predicted_outcome": "Relevant security evidence is collected and preserved.",
+      "estimated_recovery": "5 minutes",
+      "operational_risk": "Low",
+      "business_risk": "High",
+      "validation_checks": [
+        "Container logs collected",
+        "Runtime events collected",
+        "Kubernetes audit evidence collected"
+      ],
+      "success_probability": "95%",
+      "simulation_status": "Predicted Success",
+      "recovery_confidence": {
+        "score": 0.95,
+        "level": "High",
+        "source": {
+          "type": "root_cause_confidence",
+          "value": 0.95
+        }
+      }
+    },
+    "validation": {
+      "validation_passed": true,
+      "checks_passed": true,
+      "overall_validation": true,
+      "validation_status": "Validation Passed"
+    },
+    "provenance": {
+      "source_phases": [
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9"
+      ],
+      "source_files": [
+        "evidence/phase3.7_incidents/incident_graph.json",
+        "evidence/phase3.7_incidents/incident_summary.json",
+        "evidence/phase3.8_root_cause/aegis_input.json",
+        "evidence/phase3.9_response_simulation/integration_results.json"
+      ],
+      "generated_at": "2026-09-10T07:10:23.663599+00:00"
+    }
+  },
+  {
+    "dataset_version": "1.0",
+    "incident": {
+      "incident_id": "INC-002",
       "incident_type": "pod_restart_cycle",
       "severity": "medium",
       "confidence": 0.75,
@@ -13,14 +431,14 @@
       "pod_started"
     ],
     "correlation": {
-      "incident_id": "INC-001",
+      "incident_id": "INC-002",
       "related_events": [
         "pod_terminated",
         "pod_started",
         "pod_restart_cycle"
       ],
       "incident_graph": {
-        "incident_id": "INC-001",
+        "incident_id": "INC-002",
         "nodes": [
           "pod_terminated",
           "pod_started",
@@ -38,7 +456,7 @@
         ]
       },
       "summary": {
-        "incident_id": "INC-001",
+        "incident_id": "INC-002",
         "incident_type": "pod_restart_cycle",
         "start_time": "2026-06-19T22:42:39Z",
         "end_time": "2026-06-19T22:42:42Z",
@@ -49,16 +467,8 @@
         ],
         "root_cause_hint": "Pod was terminated and restarted. Investigate the restart reason.",
         "affected_components": [
-          {
-            "name": "netdevops-app-78d8bd544f-th7dq",
-            "kind": "Pod",
-            "namespace": "app"
-          },
-          {
-            "name": "netdevops-app-78d8bd544f-wc85l",
-            "kind": "Pod",
-            "namespace": "app"
-          }
+          "netdevops-app-78d8bd544f-th7dq",
+          "netdevops-app-78d8bd544f-wc85l"
         ]
       }
     },
@@ -115,7 +525,7 @@
       "generated_by": "Phase3.8 AegisAI Package Builder"
     },
     "decision": {
-      "decision_id": "DEC-9142A6C5",
+      "decision_id": "DEC-53FA6402",
       "playbook_id": "PB-K8S-004",
       "playbook_name": "Pod Restart Cycle Recovery Playbook",
       "playbook_version": "1.0",
@@ -272,7 +682,275 @@
         "evidence/phase3.8_root_cause/aegis_input.json",
         "evidence/phase3.9_response_simulation/integration_results.json"
       ],
-      "generated_at": "2026-08-25T17:13:22.791142+00:00"
+      "generated_at": "2026-09-10T07:10:23.663983+00:00"
+    }
+  },
+  {
+    "dataset_version": "1.0",
+    "incident": {
+      "incident_id": "INC-003",
+      "incident_type": "resource_pressure",
+      "severity": "high",
+      "confidence": 0.85,
+      "detected_at": "2026-06-19T22:42:39Z"
+    },
+    "signals": [
+      "cpu_metric_detected",
+      "pod_terminated"
+    ],
+    "correlation": {
+      "incident_id": "INC-003",
+      "related_events": [
+        "cpu_metric_detected",
+        "pod_terminated",
+        "resource_pressure"
+      ],
+      "incident_graph": {
+        "incident_id": "INC-003",
+        "nodes": [
+          "cpu_metric_detected",
+          "pod_terminated",
+          "resource_pressure"
+        ],
+        "edges": [
+          {
+            "from": "cpu_metric_detected",
+            "to": "resource_pressure"
+          },
+          {
+            "from": "pod_terminated",
+            "to": "resource_pressure"
+          }
+        ]
+      },
+      "summary": {
+        "incident_id": "INC-003",
+        "incident_type": "resource_pressure",
+        "start_time": "2026-06-19T22:42:39Z",
+        "end_time": "2026-06-19T22:42:39Z",
+        "severity": "HIGH",
+        "signals": [
+          "cpu_metric_detected",
+          "pod_terminated"
+        ],
+        "root_cause_hint": "High resource usage may have contributed to pod termination.",
+        "affected_components": [
+          "cluster",
+          "netdevops-app-78d8bd544f-th7dq"
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "pod_terminated",
+        "status": "observed"
+      },
+      {
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "cpu_metric_detected",
+        "status": "observed"
+      }
+    ],
+    "root_cause": {
+      "id": "resource_pressure",
+      "name": "Resource Pressure",
+      "hint": "Likely resource exhaustion caused pod instability.",
+      "confidence": 0.85
+    },
+    "affected_components": [
+      "cluster",
+      "netdevops-app-78d8bd544f-th7dq"
+    ],
+    "evidence": [
+      {
+        "type": "signal",
+        "name": "cpu_metric_detected",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "signal",
+        "name": "pod_terminated",
+        "source": "Phase3.7 Correlation Engine",
+        "confidence": 0.9
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "pod_terminated",
+        "source": "Incident Timeline"
+      },
+      {
+        "type": "timeline_event",
+        "timestamp": "2026-06-19T22:42:39Z",
+        "event": "cpu_metric_detected",
+        "source": "Incident Timeline"
+      }
+    ],
+    "context": {
+      "package_version": "1.0",
+      "generated_by": "Phase3.8 AegisAI Package Builder"
+    },
+    "decision": {
+      "decision_id": "DEC-E87C327A",
+      "playbook_id": "PB-K8S-005",
+      "playbook_name": "Resource Pressure Recovery Playbook",
+      "playbook_version": "1.0",
+      "decision_score": 75,
+      "score_breakdown": {
+        "incident_type": 40,
+        "root_cause": 0,
+        "components": 20,
+        "severity": 10,
+        "confidence": 5
+      },
+      "decision_trace": [
+        {
+          "criterion": "incident_type",
+          "matched": true,
+          "score": 40,
+          "weight": 40,
+          "reason": "Incident type matches playbook"
+        },
+        {
+          "criterion": "root_cause",
+          "matched": false,
+          "score": 0,
+          "weight": 25,
+          "reason": "Root cause does not match playbook"
+        },
+        {
+          "criterion": "components",
+          "matched": true,
+          "score": 20,
+          "weight": 20,
+          "reason": "Affected components match playbook"
+        },
+        {
+          "criterion": "severity",
+          "matched": true,
+          "score": 10,
+          "weight": 10,
+          "reason": "Severity matches playbook"
+        },
+        {
+          "criterion": "confidence",
+          "matched": true,
+          "score": 5,
+          "weight": 5,
+          "reason": "Confidence meets playbook threshold"
+        }
+      ],
+      "expected_evidence": [
+        "Resource metrics",
+        "Kubernetes events"
+      ]
+    },
+    "response_plan": {
+      "primary_actions": [
+        {
+          "name": "Recover Kubernetes Node",
+          "category": "Infrastructure",
+          "description": "Recommend recovering the affected Kubernetes node by verifying node health, restoring kubelet connectivity, or replacing the failed node if recovery is unsuccessful.",
+          "operational_risk": "Medium",
+          "business_risk": "High",
+          "estimated_recovery": "5-15 minutes",
+          "prerequisites": [
+            "Kubernetes API reachable",
+            "Node exists",
+            "Cluster administrator access"
+          ],
+          "expected_outcome": "The affected node returns to Ready state or workloads are successfully rescheduled to healthy nodes.",
+          "validation": [
+            "Node status is Ready",
+            "All scheduled pods are Running",
+            "No Pending pods remain due to node failure",
+            "kubectl get nodes reports all nodes Ready"
+          ],
+          "enabled": true,
+          "id": "ACT-003"
+        }
+      ],
+      "alternative_actions": [],
+      "prerequisites": [],
+      "post_actions": [],
+      "execution_order": [
+        {
+          "step": 1,
+          "phase": "Primary",
+          "action": {
+            "name": "Recover Kubernetes Node",
+            "category": "Infrastructure",
+            "description": "Recommend recovering the affected Kubernetes node by verifying node health, restoring kubelet connectivity, or replacing the failed node if recovery is unsuccessful.",
+            "operational_risk": "Medium",
+            "business_risk": "High",
+            "estimated_recovery": "5-15 minutes",
+            "prerequisites": [
+              "Kubernetes API reachable",
+              "Node exists",
+              "Cluster administrator access"
+            ],
+            "expected_outcome": "The affected node returns to Ready state or workloads are successfully rescheduled to healthy nodes.",
+            "validation": [
+              "Node status is Ready",
+              "All scheduled pods are Running",
+              "No Pending pods remain due to node failure",
+              "kubectl get nodes reports all nodes Ready"
+            ],
+            "enabled": true,
+            "id": "ACT-003"
+          }
+        }
+      ],
+      "dependency_graph": [],
+      "expected_evidence": [
+        "Resource metrics",
+        "Kubernetes events"
+      ]
+    },
+    "simulation": {
+      "predicted_outcome": "The affected node returns to Ready state or workloads are successfully rescheduled to healthy nodes.",
+      "estimated_recovery": "5-15 minutes",
+      "operational_risk": "Medium",
+      "business_risk": "High",
+      "validation_checks": [
+        "Node status is Ready",
+        "All scheduled pods are Running",
+        "No Pending pods remain due to node failure",
+        "kubectl get nodes reports all nodes Ready"
+      ],
+      "success_probability": "85%",
+      "simulation_status": "Predicted Success",
+      "recovery_confidence": {
+        "score": 0.85,
+        "level": "Medium",
+        "source": {
+          "type": "root_cause_confidence",
+          "value": 0.85
+        }
+      }
+    },
+    "validation": {
+      "validation_passed": true,
+      "checks_passed": true,
+      "overall_validation": true,
+      "validation_status": "Validation Passed"
+    },
+    "provenance": {
+      "source_phases": [
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9"
+      ],
+      "source_files": [
+        "evidence/phase3.7_incidents/incident_graph.json",
+        "evidence/phase3.7_incidents/incident_summary.json",
+        "evidence/phase3.8_root_cause/aegis_input.json",
+        "evidence/phase3.9_response_simulation/integration_results.json"
+      ],
+      "generated_at": "2026-09-10T07:10:23.664045+00:00"
     }
   }
 ]

@@ -61,7 +61,7 @@ def test_schema_accepts_generated_dataset():
 def test_dataset_contains_three_incidents():
     dataset = load_json(DATASET_PATH)
 
-    assert len(dataset) == 1
+    assert len(dataset) == 3
 
 
 def test_dataset_contains_unique_incident_ids():
@@ -84,7 +84,9 @@ def test_dataset_has_expected_incidents():
     }
 
     assert incident_ids == {
-    "INC-001",
+        "INC-001",
+        "INC-002",
+        "INC-003",
     }
 
 
@@ -262,7 +264,7 @@ def test_severity_is_normalized_to_lowercase():
 def test_real_dataset_build_succeeds():
     dataset = build_dataset()
 
-    assert len(dataset) == 1
+    assert len(dataset) == 3
 
     for record in dataset:
         assert record["dataset_version"] == "1.0"
