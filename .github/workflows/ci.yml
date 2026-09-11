@@ -12,6 +12,25 @@ env:
   COMPOSE_FILE: docker-compose.ci.yml
 
 jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pytest
+        run: pytest -v
+
   integration:
     runs-on: ubuntu-latest
     timeout-minutes: 45
