@@ -6,6 +6,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.core.security import get_password_hash, verify_password
 from app.db.database import SessionLocal, get_db
 from app.models.user import UserDB
@@ -13,9 +14,15 @@ from app.models.user import UserDB
 # -------------------------------
 # 🔐 JWT Configuration
 # -------------------------------
-SECRET_KEY = "super-secure-and-random-secret-key"
+if not settings.SECRET_KEY:
+    raise RuntimeError(
+        "SECRET_KEY is not set. Define it in your .env file "
+        "(see .env.example) before starting the application."
+    )
+
+SECRET_KEY = settings.SECRET_KEY
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES or 60
 
 # Password hashing configuration
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
