@@ -8,7 +8,8 @@ from importlib.resources import path
 from logging.handlers import RotatingFileHandler
 from urllib import response
 
-PROM_DIR = "/tmp/prometheus-shared" 
+PROM_DIR = "/tmp/prometheus-shared"  # nosec B108 - Prometheus multiprocess dir; container is single-tenant, non-root (see docs/security/ci-security-policy.md)
+os.environ["PROMETHEUS_MULTIPROC_DIR"] = PROM_DIR
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse

@@ -20,10 +20,13 @@ logger = logging.getLogger("netdevops.deploy")
 # ============================
 # Snapshot Config
 # ============================
-SNAPSHOT_DIR = "/tmp/snapshots"
+SNAPSHOT_DIR = os.environ.get("SNAPSHOT_DIR", "/app/snapshots")
 MAX_SNAPSHOT_SIZE = 5 * 1024 * 1024  # 5MB
 
-os.makedirs(SNAPSHOT_DIR, exist_ok=True)
+
+def _ensure_snapshot_dir() -> None:
+    """Create the snapshot directory on first use, not at import time."""
+    os.makedirs(SNAPSHOT_DIR, exist_ok=True)
 
 # ============================
 # Snapshot Helpers
@@ -38,6 +41,8 @@ def save_snapshot_to_fs(device_id: int, text: str) -> str:
         size = len(text.encode("utf-8"))
         if size > MAX_SNAPSHOT_SIZE:
             raise ValueError(f"Snapshot too large: {size} bytes")
+
+        _ensure_snapshot_dir()
 
         fname = snapshot_filename(device_id)
         path = os.path.abspath(os.path.join(SNAPSHOT_DIR, fname))
