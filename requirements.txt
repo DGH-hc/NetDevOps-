@@ -1,5 +1,5 @@
 # --- Web Framework ---
-fastapi==0.124.4
+fastapi==0.141.1
 uvicorn[standard]==0.38.0
 
 # --- ORM / DB ---
@@ -12,12 +12,12 @@ pydantic==2.12.5
 pydantic-settings==2.0.3
 python-jose==3.5.0
 passlib[bcrypt]==1.7.4
-cryptography==46.0.3
+cryptography==50.0.0
 
 # --- Templates / HTTP ---
 jinja2==3.1.6
-requests==2.32.5
-python-multipart==0.0.20
+requests==2.33.0
+python-multipart==0.0.31
 
 # --- Background / Messaging ---
 celery==5.3.6
@@ -28,14 +28,14 @@ netmiko==4.6.0
 paramiko==4.0.0
 
 # --- Config / Secrets ---
-python-dotenv==1.2.1
+python-dotenv==1.2.2
 hvac==1.2.1
 
 # --- Observability ---
 prometheus-client==0.23.1
 
 # --- Testing (Phase 0 only) ---
-pytest==9.0.2
+pytest==9.0.3
 
 prometheus-fastapi-instrumentator==6.1.0
 
