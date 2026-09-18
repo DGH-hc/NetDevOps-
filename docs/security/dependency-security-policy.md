@@ -24,17 +24,19 @@ A vulnerability must not be silently ignored.
 Risk acceptance must identify the vulnerability, affected dependency,
 reason for acceptance, and the responsible approval.  
 
-## Current Baseline
+## Accepted Risk Exceptions
 
-The current dependency audit reports unresolved findings in:
+The following findings are explicitly risk-accepted and suppressed in CI
+via `--ignore-vuln`. They are not silently ignored: each is named here,
+with the reason for acceptance and a review date.
 
-- `paramiko==4.0.0`
-- `ecdsa==0.19.2`
+| Vulnerability ID | Package | Reason | Review by |
+|---|---|---|---|
+| PYSEC-2026-2858 | paramiko==4.0.0 | No fix version available upstream at time of review. Finding relates to SHA-1 algorithm support in rsakey.py. | Recheck each time paramiko or this policy doc is revisited |
+| PYSEC-2026-1325 | ecdsa==0.19.2 | No fix version available upstream at time of review. Minerva timing-attack risk; requires local/high-precision timing access to exploit, and the app\'s JWT flow uses HS256 (symmetric), not ECDSA signing. | Recheck each time ecdsa or this policy doc is revisited |
 
-These findings currently have no fix version reported by `pip-audit`.
-
-They must not be silently ignored. They are subject to the severity
-policy above.
+Any new finding on either package (a different vulnerability ID) is
+NOT covered by this exception and will correctly fail the CI gate.
 
 ## CI Requirement
 

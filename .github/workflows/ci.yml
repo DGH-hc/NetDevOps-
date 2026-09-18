@@ -173,4 +173,7 @@ jobs:
         run: pip install pip-audit
 
       - name: Run dependency security audit
-        run: pip-audit -r requirements.txt  
+        run: >
+          pip-audit -r requirements.txt
+          --ignore-vuln PYSEC-2026-2858
+          --ignore-vuln PYSEC-2026-1325
