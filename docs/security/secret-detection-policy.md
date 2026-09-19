@@ -33,11 +33,21 @@ code-hygiene item (fix or remove the script) — out of scope for 4.1-H.
   disables.
 - Current `.gitleaks.toml`: none needed yet — baseline is clean.
 
+## Negative test (performed)
+- Attempt 1: committed AWS's public documentation example key
+  (AKIAIOSFODNN7EXAMPLE) on a disposable branch/PR. Gate passed
+  (no leaks found) — confirmed via local isolated test that gitleaks'
+  default ruleset specifically excludes this well-known placeholder key.
+  Not a gate failure; expected behavior.
+- Attempt 2: committed a random, non-public fake credential
+  (sk_test_... style string) on the same branch. Gate correctly failed
+  (generic-api-key rule match), confirming secret-scan blocks real-looking
+  secret patterns as intended. Verified live in GitHub Actions, PR #1,
+  commit 2cf5ca7.
+ 
 ## Exit criteria for 4.1-H
 - [x] Scanner selected (gitleaks) and run locally.
 - [x] Baseline established, findings triaged.
-- [ ] `secret-scan` job wired into `ci.yml`.
-- [ ] Verified green in live GitHub Actions.
-- [ ] Negative test performed (fake secret on a disposable branch → confirmed
-      CI blocks it) — this is 4.1-L, but do a quick smoke test now if you want
-      extra confidence before moving on.
+- [x] `secret-scan` job wired into `ci.yml`.
+- [x] Verified green in live GitHub Actions (clean code).
+- [x] Negative test performed — gate correctly blocks a real secret pattern.
