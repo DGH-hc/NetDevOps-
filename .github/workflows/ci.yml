@@ -180,13 +180,16 @@ jobs:
 
   secret-scan:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4 
         with:
-          fetch-depth: 0   # full history — gitleaks needs this, not just HEAD
+          fetch-depth: 0
+
       - name: Run gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
