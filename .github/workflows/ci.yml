@@ -177,3 +177,16 @@ jobs:
           pip-audit -r requirements.txt
           --ignore-vuln PYSEC-2026-2858
           --ignore-vuln PYSEC-2026-1325
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history — gitleaks needs this, not just HEAD
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
