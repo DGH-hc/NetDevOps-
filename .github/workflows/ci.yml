@@ -193,3 +193,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
+ 
+  iac-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+
+      - name: helm lint
+        run: helm lint ./charts
+
+      - name: helm template
+        run: helm template ./charts > rendered.yaml
+
+      - name: Scan for dangerous flags
+        run: |
+          if grep -n -E "privileged:\s*true|allowPrivilegeEscalation:\s*true|hostNetwork:\s*true|hostPID:\s*true|hostPath:" rendered.yaml; then
+            echo "::error::Dangerous Kubernetes config detected"
+            exit 1
+          fi
+          echo "No blocking dangerous flags found."
