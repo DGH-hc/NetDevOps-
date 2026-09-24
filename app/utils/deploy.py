@@ -85,7 +85,7 @@ def build_conn_args(device) -> dict:
 # ============================
 # Fetch Config
 # ============================
-def fetch_running_config(device) -> Tuple[int, str]:
+def fetch_running_config(device) -> tuple[int, str]:
     try:
         conn_args = build_conn_args(device)
 
@@ -113,7 +113,7 @@ def fetch_running_config(device) -> Tuple[int, str]:
 # ============================
 # Apply Config
 # ============================
-def apply_config(device, config_lines: List[str]) -> Tuple[int, str]:
+def apply_config(device, config_lines: list[str]) -> tuple[int, str]:
     try:
         conn_args = build_conn_args(device)
 
@@ -135,7 +135,7 @@ def apply_config(device, config_lines: List[str]) -> Tuple[int, str]:
 # ============================
 # Verify Config
 # ============================
-def verify_config(device, verify_commands: List[str]) -> Tuple[bool, str]:
+def verify_config(device, verify_commands: list[str]) -> tuple[bool, str]:
     outputs = []
 
     try:
@@ -164,7 +164,7 @@ def verify_config(device, verify_commands: List[str]) -> Tuple[bool, str]:
 # ============================
 # Rollback
 # ============================
-def rollback_from_snapshot(device, snapshot_path: str) -> Tuple[int, str]:
+def rollback_from_snapshot(device, snapshot_path: str) -> tuple[int, str]:
     try:
         if not os.path.exists(snapshot_path):
             raise FileNotFoundError(snapshot_path)
