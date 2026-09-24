@@ -30,7 +30,7 @@ def health_check():
         db.execute(text("SELECT 1"))
         status["postgres"] = "ok"
     except Exception as e:
-        status["postgres"] = f"error: {str(e)}"
+        status["postgres"] = f"error: {e!s}"
     finally:
         if db:
             try:
@@ -52,7 +52,7 @@ def health_check():
              status["redis"] = "error: value mismatch"
 
     except Exception as e:
-        status["redis"] = f"error: {str(e)}" 
+        status["redis"] = f"error: {e!s}" 
 
     return {
         "debug": "health/full executed",

@@ -50,7 +50,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
 # -----------------------------
 # JWT: Verify token (used in dependencies)
 # -----------------------------
-def verify_token(token: str) -> Dict:
+def verify_token(token: str) -> dict:
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[ALGORITHM])
         return payload

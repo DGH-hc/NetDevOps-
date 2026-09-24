@@ -118,8 +118,8 @@ def push_config_job(
     self,
     job_id: int,
     attempt_id: int,
-    config_lines: Optional[List[str]],
-    verify_commands: Optional[List[str]] = None,
+    config_lines: list[str] | None,
+    verify_commands: list[str] | None = None,
 ):
     metrics = get_metrics(scope="worker")
 

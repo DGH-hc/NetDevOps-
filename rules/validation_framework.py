@@ -62,7 +62,7 @@ class ValidationFramework:
 
         return validation_report
 
-    def validate_simulation(self, simulation_report: Dict[str, Any]) -> bool:
+    def validate_simulation(self, simulation_report: dict[str, Any]) -> bool:
         """Validate whether the simulated recovery is predicted to succeed."""
 
         return (
